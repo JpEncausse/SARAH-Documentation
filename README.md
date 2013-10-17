@@ -1,9 +1,13 @@
 # [S.A.R.A.H.](http://encausse.net/s-a-r-a-h)
 
-This is the wiki documentation of framework [S.A.R.A.H.](http://encausse.net/s-a-r-a-h), an Home Automation project built 
+The document is available in [the wiki](https://github.com/JpEncausse/SARAH-Documentation/wiki).
+
+The framework [S.A.R.A.H.](http://encausse.net/s-a-r-a-h) is an Home Automation project built 
 on top of:
 * C# (Kinect) client for Voice, Gesture, Face, QRCode recognition. 
 * NodeJS (ExpressJS) server for Internet of Things communication
+ 
+Several plugins can be easily created using JavaScript.
 
 ## License
 
