@@ -1,6 +1,7 @@
 # [S.A.R.A.H.](http://encausse.net/s-a-r-a-h)
 
-The document is available in [the wiki](https://github.com/JpEncausse/SARAH-Documentation/wiki).
+**ENGLISH**: The official documentation is available in [the wiki](https://github.com/JpEncausse/SARAH-Documentation/wiki).    
+**FRENCH**: Une traduction en français est disponible sur [ce fork](https://github.com/rems02/SARAH-Documentation/wiki).
 
 The framework [S.A.R.A.H.](http://encausse.net/s-a-r-a-h) is an Home Automation project built 
 on top of:
