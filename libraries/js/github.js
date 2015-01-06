@@ -94,6 +94,23 @@
   }
   
   // ------------------------------------------
+  //  CLICK
+  // ------------------------------------------
+  
+  var registerClick = function(){
+    
+    $(document).on('mousedown', 'A[href]', function(){
+      var $link = $(this);
+      
+      var href  = $link.attr('href');
+      if (href.startsWith('http')){ return; }
+      
+      $link.attr('href','?page='+href)
+    })
+  }
+  
+  
+  // ------------------------------------------
   //  REGISTER
   // ------------------------------------------
   
@@ -101,6 +118,7 @@
     setupLanguage();
     setupNavigation();
     checkIncludes();
+    registerClick();
   }
   
   // ------------------------------------------
