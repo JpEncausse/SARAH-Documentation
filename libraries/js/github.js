@@ -101,6 +101,7 @@
     
     $(document).on('mousedown', 'A[href]', function(){
       var $link = $(this);
+      if ($link.attr('rel')){ return; }
       
       var href  = $link.attr('href');
       if (href.startsWith('http')){ return; }
