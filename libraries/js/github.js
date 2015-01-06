@@ -37,10 +37,10 @@
   
   var setupNavigation = function(){
     var page = getUrlParameter('page')
-    if (page){ $('#doc-content').attr('data-page', page).attr('data-wiki', ''); }
+    if (page){ $('#doc-content').attr('data-page', page).removeAttr('data-wiki', ''); }
     
     var wiki = getUrlParameter('wiki')
-    if (wiki){ $('#doc-content').attr('data-wiki', wiki).attr('data-page', ''); }
+    if (wiki){ $('#doc-content').attr('data-wiki', wiki).removeAttr('data-page', ''); }
   }
   
   // ------------------------------------------
