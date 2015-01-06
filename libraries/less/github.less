@@ -1,0 +1,112 @@
+@import "mixins.less";
+@import "component.less";
+
+H1, H2, H3, H4 { font-family: 'Open Sans Condensed', sans-serif; }
+BODY { font-family: 'Open Sans Condensed', sans-serif; }
+.OpenSansLight { 
+  font-family: 'Open Sans Condensed Light', sans-serif;
+  font-size: 16px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+// ------------------------------------------
+//  SCROLLBAR
+// ------------------------------------------
+
+::-webkit-scrollbar {
+    width: 10px;  
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #EEE;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+    background: #CCC;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+    &:hover { 
+      background: #AAA; 
+    }
+    &:active { 
+      background: #888; 
+      -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+    }
+}
+
+// ------------------------------------------
+//  LAYOUT
+// ------------------------------------------
+
+HTML, BODY, #layout, #sidebar, #content, #live{ height: 100%; }
+
+#layout {
+  margin: 0px;
+  background: linear-gradient(135deg, #ffffff 13%,#e6dec5 66%);
+}
+
+@sarah-sidebar-text: #636363;
+#sidebar {
+  overflow-y: auto;
+  color: @sarah-sidebar-text;
+  background: @sarah-black;
+  padding: 0;
+  
+  H2 { text-align: center; }
+  .split { 
+    margin: 20px 0px; 
+    .glyphicon { font-size: 150%; }
+    &:last-child { display: none; }
+  }
+  .nav LI {
+    font-size: 120%;
+      A { 
+        color: @sarah-sidebar-text;
+        font-weight: bold;
+        border-radius: 0;
+      }
+      
+      A:hover,
+    &.active A { 
+      color: #FFFFFF;
+      background-color: #222222;
+    }
+  }
+}
+
+#content { 
+  padding: 0; 
+    .wrapper {
+      padding: 0px 3% 3% 3%;
+      overflow-y: scroll; height: 100%;
+    }
+  H1 { color:  #BCB2AB; margin: 3% 0px; }
+}
+
+// ------------------------------------------
+//  ARTICLES
+// ------------------------------------------
+
+.doc-content {
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  background-color: #fff;
+  opacity: 0.9;
+  padding: 20px;
+}
+
+.doc-sidebar {
+  UL { padding : 0; }
+  LI { 
+    padding : 10px 20px;
+    list-style-type: none;
+     A { color: #AAA; text-decoration: none; }
+  }
+  
+  LI:hover, LI.active {
+    background: #666666;
+     A { color: #EEE; }
+  }
+  
+}
+

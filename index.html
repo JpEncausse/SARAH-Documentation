@@ -1,1 +1,83 @@
-Hello World 3
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="application-name" content="<%= Config.bot.name %>" />
+    <title>SARAH - Documentation</title>
+
+    <!-- Bootstrap -->
+    <link href="libraries/bootstrap/less/bootstrap.css" rel="stylesheet" />
+    <link href="libraries/less/github.less" rel="stylesheet/less" />
+    
+    <!-- Icons -->
+    <link rel="shortcut icon"                                href="/images/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="/images/icons/icon-72.png">
+    <link rel="apple-touch-icon-precomposed"                 href="/images/icons/icon-57.png">
+    
+  </head>
+  <body>
+    
+    
+	  <div class="row" id="layout">
+	    <div class="col-md-2 hidden-print hidden-xs hidden-sm" id="sidebar">
+	      <h2><span id="time-now">Documentation</span></h2>
+	
+		    <p class="split text-center">
+		      <a href="/" class="btn btn-lg btn-danger">nav.home</a>
+		    </p>
+	      
+	      <div class="doc-sidebar" data-page="sidebar1"></div>
+
+        <p class="split text-center"><span class="glyphicon glyphicon-chevron-down"></span></p>
+	      
+	      <div class="doc-sidebar" data-page="sidebar2"></div>
+	      
+	    </div>
+	    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8" id="content">
+	      <div class="wrapper">
+	      <div style="position:relative; left: -20px; top: 5px;" class="pull-left hidden-lg hidden-md"></div>
+	        <div style="position:absolute; right: 20px; top: 5px;">
+	          <a href="?lang=fr"><img src="images/famfamfam/flags/fr.png" alt="fr"/></a>&nbsp;
+	          <a href="?lang=en"><img src="images/famfamfam/flags/us.png" alt="en"/></a>
+	        </div>
+	        
+	        <div id="content">
+            <h1>Documentation</h1>
+            
+            <div id="doc-content" data-wiki="Home"></div>
+            
+          </div>
+	      </div>
+	    </div>
+	    <div class="col-md-2 hidden-print hidden-xs hidden-sm hidden-md" id="live">
+	      
+	      <p>RSS to G+ ?</p>
+	      
+	    </div>
+	  </div>
+   
+    <script src="libraries/less.min.js"></script>
+    <script src="libraries/jquery/jquery-1.11.1.js"></script>
+    
+    <script src="libraries/bootstrap/js/affix.js"></script> 
+    <script src="libraries/bootstrap/js/alert.js"></script> 
+    <script src="libraries/bootstrap/js/button.js"></script> 
+    <script src="libraries/bootstrap/js/carousel.js"></script> 
+    <script src="libraries/bootstrap/js/collapse.js"></script> 
+    <script src="libraries/bootstrap/js/dropdown.js"></script> 
+    <script src="libraries/bootstrap/js/modal.js"></script> 
+    <script src="libraries/bootstrap/js/tooltip.js"></script>
+    <script src="libraries/bootstrap/js/popover.js"></script> 
+    <script src="libraries/bootstrap/js/scrollspy.js"></script> 
+    <script src="libraries/bootstrap/js/tab.js"></script> 
+    <script src="libraries/bootstrap/js/transition.js"></script> 
+    
+    <script src="libraries/markdown/markdown.js"></script>
+    
+    <script src="libraries/js/github.js"></script>
+  </body>
+</html>

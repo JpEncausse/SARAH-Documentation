@@ -1,0 +1,36 @@
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2013 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      Yellow Design Studio
+ * License URL: http://www.fontspring.com/fflicense/yellow-design-studio
+ *
+ *
+ */
+
+@font-face {
+    font-family: 'verbcondregular';
+    src: url('VerbCondRegular-webfont.eot');
+    src: url('VerbCondRegular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('VerbCondRegular-webfont.woff') format('woff'),
+         url('VerbCondRegular-webfont.ttf') format('truetype'),
+         url('VerbCondRegular-webfont.svg#verbcondregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
