@@ -1,3 +1,3 @@
-- [Installation](installation)
+- [Getting Started](getting_started) (installation & configuration)
 - [FAQ / How To](faq)
 - [Plugin Development](plugindev)
