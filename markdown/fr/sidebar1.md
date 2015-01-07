@@ -1,3 +1,3 @@
-- [Getting Started](getting_started)
-- [Server API](server)
-- [Client API](client)
+- [Installation](installation)
+- [FAQ / Résoudre un problème](faq)
+- [Development de plugin](plugindev)
