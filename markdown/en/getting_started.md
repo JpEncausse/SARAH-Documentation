@@ -1,112 +1,168 @@
-# Wiki of S.A.R.A.H.
+# Getting Started
 
-The Framework [S.A.R.A.H.](http://encausse.net/s-a-r-a-h) is an Home Automation project to connect Internet of Things and bring SciFi to House like TV Show: Eureka.
+This page is for **SARAH v3** only. Please refer to [SARAH v4](installation_v4) if you want to test the new version.
 
-**Getting Involved ?**
-* To contribute on this Wiki Send an email to <sarah.project@encausse.net>
-* Talk about S.A.R.A.H. every where
-* Make new [cool plugins](http://marketplace.sarah.encausse.net/store)
-* Have fun !
+## Index
 
+* [Installation for Windows](#windows)
+* [Configuration](#configuration)
+* [Start](#start)
+* [Update](#update)
 
-## Getting Started
+## Installation
 
-* [Installation and Upgrade](https://github.com/JpEncausse/SARAH-Documentation/wiki/Installation)
-* [Microphone](https://github.com/JpEncausse/SARAH-Documentation/wiki/Microphone)
-* [Voice TTS](https://github.com/JpEncausse/SARAH-Documentation/wiki/Voice-TTS)
-* [AppStore & Plugins] (https://github.com/JpEncausse/SARAH-Documentation/wiki/AppStore & Plugins)
-* [Frequently asked questions](https://github.com/JpEncausse/SARAH-Documentation/wiki/FAQ)
+### Windows
 
-## Technical details
+Below the different steps:
 
-* [Requirement](https://github.com/JpEncausse/SARAH-Documentation/wiki/Requirement)
-* [Architecture](https://github.com/JpEncausse/SARAH-Documentation/wiki/Architecture)
-    * [Client components](https://github.com/JpEncausse/SARAH-Documentation/wiki/Architecture#wsrkinect---wsrmicro-client)
-    * [Server components](https://github.com/JpEncausse/SARAH-Documentation/wiki/Architecture#wsrnodejs-server)
-    * [Splitting Client vs Server](https://github.com/JpEncausse/SARAH-Documentation/wiki/Client---Server)
-* WSRCamera
+1. Download and install [.Net 4.5 Framework](http://www.microsoft.com/fr-fr/download/details.aspx?id=30653)
 
+2. Download and Unzip [SARAH](http://encausse.net/s-a-r-a-h/)   
+  ➔ When you unzip the SARAH package, you have to make sure to **not have any space within the path.** For example you can unzip to `C:\SARAH\` but not to `C:\Path with space\SARAH\`
 
+3. (optional) [Install a TTS Voice](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/) or use the default Windows 8 voice      
+  ➔ If you have any issues with the voices, please see [FAQ](faq)
 
-## Core API
+4. If you have a **Kinect**, please [see below the instructions](#kinect-v1) to make it work.
 
-Several plugins are already available (thanks to the community). They can be built using XML (Client API) and JavaScript (Server API).
+After these steps SARAH is ready [to be configured](#configuration).
 
-### Server API (NodeJS)
+### Kinect v1
 
-* [GitHub Repository](https://github.com/JpEncausse/WSRNodeJS)
-* [Plugin Architecture](https://github.com/JpEncausse/SARAH-Documentation/wiki/Plugin-Architecture)
-   * [Properties](https://github.com/JpEncausse/SARAH-Documentation/wiki/Plugin-Architecture#properties)
-   * [Plugin](https://github.com/JpEncausse/SARAH-Documentation/wiki/Plugin-Architecture#javascript)
-      * [PhantomJS](https://github.com/JpEncausse/SARAH-Documentation/wiki/Plugin-Architecture#phantomjs)
-      * [CRON](https://github.com/JpEncausse/SARAH-Documentation/wiki/Plugin-Architecture#cron)
-   * [JavaScript API](https://github.com/JpEncausse/SARAH-Documentation/wiki/JavaScript-API)
-      * [Context](https://github.com/JpEncausse/SARAH-Documentation/wiki/JavaScript-API#wiki-context)
-      * [Event](https://github.com/JpEncausse/SARAH-Documentation/wiki/JavaScript-API#wiki-event)
-      * [AskMe](https://github.com/JpEncausse/SARAH-Documentation/wiki/JavaScript-API#wiki-askme)
-      * [Chromeless](https://github.com/JpEncausse/SARAH-Documentation/wiki/JavaScript-API#wiki-chromeless)
-* [HTTP Server](https://github.com/JpEncausse/SARAH-Documentation/wiki/HTTP-Server)
-   * [Documentation](https://github.com/JpEncausse/SARAH-Documentation/wiki/HTTP-Server#documentation)
-   * [Portlets](https://github.com/JpEncausse/SARAH-Documentation/wiki/HTTP-Server#portlets)
-   * [ThirdParty page](https://github.com/JpEncausse/SARAH-Documentation/wiki/HTTP-Server#thirdparty-page)
-* [Rules Engine] (https://github.com/JpEncausse/SARAH-Documentation/wiki/Rules-Engine)
-* [How To](https://github.com/JpEncausse/SARAH-Documentation/wiki/How-To)
-   * [Sending an HTTP Request](https://github.com/JpEncausse/SARAH-Documentation/wiki/How-To#wiki-sending-an-http-request)
-   * [Scraping with Cheerio or PhantomJS](https://github.com/JpEncausse/SARAH-Documentation/wiki/How-To#wiki-scraping-with-cheerio-or-phantomjs)
-   * Rewriting grammar
-   * Scheduling actions
+The Kinect is provided with the Xbox 360 or can be bought separately. This device is very powerful and much better than a regular microphone. If you buy one, then **make sure it comes with the USB cable/adaptator** to plug it to your Windows computer.
 
-### Client API (C#)
+Here are the instructions to install it on Windows:
 
-* [GitHub Repository](https://github.com/JpEncausse/WSRMacro)
-* [Voice Recognition](https://github.com/JpEncausse/SARAH-Documentation/wiki/Voice-Recognition)
-    * [RTP Server](https://github.com/JpEncausse/SARAH-Documentation/wiki/Voice-Recognition#rtp-server)
-    * [File Watcher](https://github.com/JpEncausse/SARAH-Documentation/wiki/Voice-Recognition#file-watcher)
-* [Kinect](https://github.com/JpEncausse/SARAH-Documentation/wiki/Kinect-API)
-    * [Motion Detection](https://github.com/JpEncausse/SARAH-Documentation/wiki/Kinect-API#motion-detection-depth)
-    * [Color Management](https://github.com/JpEncausse/SARAH-Documentation/wiki/Kinect-API#color-management)
-    * [QRCode Recognition](https://github.com/JpEncausse/SARAH-Documentation/wiki/Kinect-API#qrcode-recognition)
-    * [Gesture Recognition](https://github.com/JpEncausse/SARAH-Documentation/wiki/Kinect-API#gesture-recognition)
-    * [Facial Recognition](https://github.com/JpEncausse/SARAH-Documentation/wiki/Kinect-API#facial-recognition)
-* ProfileManager
-* [WebSocket Server](https://github.com/JpEncausse/SARAH-Documentation/wiki/WebSocket-Server)
-* [HTTP Manager](https://github.com/JpEncausse/SARAH-Documentation/wiki/HTTP-Manager)
-    * [HTTP Client](https://github.com/JpEncausse/SARAH-Documentation/wiki/HTTP-Manager#http-client)
-    * [HTTP Server](https://github.com/JpEncausse/SARAH-Documentation/wiki/HTTP-Manager#http-server)
-* [Speaker Manager](https://github.com/JpEncausse/SARAH-Documentation/wiki/Speaker-Manager)
+1. Download and install [Kinect SDK v1.8](http://www.microsoft.com/en-us/download/confirmation.aspx?id=40278)
+2. Download and install the related [Language Pack](http://www.microsoft.com/en-us/download/details.aspx?id=34809) (make sure you choose the correct language when downloading)
 
+Some notes regarding the Kinect installation:
+* Don't use USB 3 because the microphone won't work;
+* If you use several Kinects and you want to use the video, then you have to use two different USB bus, otherwise only one video will work due to a bandwidth issue (so if you only use the audio, then you can share the same USB).
 
-## 3rd Party
+### Kinect v2
 
-### Tools
+Here are the instructions to install the second generation of Kinect:
 
-* [XMLDoc lib](https://github.com/JpEncausse/SARAH-Documentation/wiki/Parsing-XML-file-with-XMLDoc-lib)
-* [NFC Watcher](http://encausse.wordpress.com/2013/03/21/le-nfc-pour-piloter-s-a-r-a-h/)
-* [Speech2DropVox](http://encausse.wordpress.com/speech2dropbox/)
-* [SARAH Tools](https://plus.google.com/u/0/104777719430841651332/posts/eHEQ1zbUQNT)
+1. Download and install the [Kinect SDK v2](http://www.microsoft.com/en-us/download/details.aspx?id=44561)
+2. Download and install the [language packs v2](http://www.microsoft.com/en-us/download/details.aspx?id=43662) (make sure you choose the correct language)
 
-### Android
+## Configuration
 
-[Android Client](https://play.google.com/store/apps/details?id=net.android.clientsarah) : this is used to transmit the vocal commands to SARAH (the [Kinect SDK 1.8](http://download.microsoft.com/download/E/1/D/E1DEC243-0389-4A23-87BF-F47DE869FC1A/KinectSDK-v1.8-Setup.exe) is required) ([GitHub repository](https://github.com/BaptisteMarienval/SARAH-Android/tree/master/build))
+Things you need to do:
 
+1. Go to the `profile/` folder and delete the file `profile.json` otherwise SARAH will sometimes call you _Jean-Philippe_ !
+2. Get the Google API Key ([see below](#get-the-google-api-key))
+3. Look at the different settings into the `config.ini` file
 
-### Raspberry-Pi
+### Get the Google API Key
 
-It's possible to use a Raspberry-Pi with SARAH (_to be completed_) :
-* [Debian package](https://plus.google.com/u/0/105669881291779438138/posts/HQ17tsiuyx3) (with NodeJS v0.10.17, the NodeJS part of SARAH v2.9, and the init scripts)
-* A [Bash script](https://plus.google.com/u/0/116884866340807817142/posts/3ek5RqfNWib) to download and install the different files for SARAH
+You'll need this Google API Key for several plugins.
 
+Please follow the below steps to get this API key (instructions from [http://www.chromium.org/developers/how-tos/api-keys](http://www.chromium.org/developers/how-tos/api-keys))
 
-### Communities
+**1) Register on chromium Google Group :**
 
-* [Live TV on XBMC](https://plus.google.com/104956586053309334473/posts/NkCax4Pvqk7)
-* [YURI](http://blog.idleman.fr/?p=1788) (embeded SARAH v1.x)
+* Make sure you are a member of chromium-dev@chromium.org (you can just subscribe to chromium-dev and choose to not receive e-mails). For convenience, the APIs below are only visible to people subscribed to that group: https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev
+* Click on « _Join the group to send a message_ »
 
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_1.png)
 
-### Specifications (WIP)
+* Choose « _Do not send updates by email_ »
+* Click on « _Join the group_ »
 
-Specifications and Work In Progress about future features
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_2.png)
 
-* [SARAH-MarketPlace](https://github.com/JpEncausse/SARAH-Documentation/wiki/SARAH-MarketPlace)
+**2) Create a console app on Google**
 
+* Go to https://cloud.google.com/console
+* Click on « _Create Project_ »
 
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_3.png)
+
+* Give it a name
+* Accept the Terms of Use
+* Click on « _Create_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_4.png)
+
+**3) Activation Speech API**
+
+* Go to « _APIs & Auth > APIs_ » in the left navigation menu
+* In **Browse API** search for « _Speech API_ »
+* Click on « _Speech API_ »
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_5.png)
+
+* Activate the key
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_6.png)
+
+* Accept the terms of use
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_7.png)
+
+**5) Creating your key « Speech API »**
+
+* Go to « _APIs & Auth > Credentials_ » in the left navigation menu
+* Click on the « _Create New Key_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_8.png)
+
+* Click on « _Browser key_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_9.png)
+
+* Click on « _Create_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_10.png)
+
+* Your API key:
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_11.png)
+
+**6) SARAH integration**
+
+* Open the SARAH configuration file (« _custom.ini_ ») located in the root dir of SARAH
+* Search for the line `Google Speech Key API see https://console.developers.google.com/`
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_12.png)
+
+* Change the line `;google=` :
+  + remove the `;`
+  + add your API key just after the `=`
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/master/images/Installation_Google_Speech_API_13.png)
+
+Note: the key you have now acquired are **not for distribution purposes and must not be shared with other users**. 
+
+## Start
+
+You're almost done. Follow the below two steps to start SARAH:
+
+1. **Run the server**: double-click the file called `Server_NodeJS.cmd`       
+  ➔ a MS-DOS window will open with several linesa
+  ➔ you can open [http://127.0.0.1:8080](http://127.0.0.1:8080) into your Web browser to check the web interface
+
+2. **Run the client** - several options:       
+  + Microphone: double-click the file called `Client_Microphone.cmd`;
+  + Kinect (audio only): double-click the file called `Client_Kinect_Audio.cmd`;
+  + Kinect (all features): double-click the file called `Client_Kinect`.
+  ➔ Once the client is loaded you'll see a small house icon close to the Windows clock.
+
+All done! You can now say __"SARAH what time is it?"__.
+
+If you have any troubles, please refer to the [FAQ page](faq).
+
+## Update
+
+If you want to udpate SARAH to a newer version (version less than 4) you need to follow the below steps:
+
+1. Backup (rename) current install
+2. Download and unzip the new version
+3. Copy the below files/folders from your previous install to the new one:
+  + `custom.prop`: it's the server configuration
+  + `custom.ini`: it's the client configuration (make sure that nothing has been added in the new `custom.ini`)
+  + `plugins/*`: it's all your plugins
+  + `profile\profile.json`: contains data about current speakers
+  + `profile\faces`: contains recorded faces
