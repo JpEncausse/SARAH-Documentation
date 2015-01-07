@@ -104,7 +104,7 @@
       if ($link.attr('rel')){ return; }
       
       var href  = $link.attr('href');
-      if (href.startsWith('http')){ return; }
+      if (href.startsWith('http') || href.startsWith('#')){ return; }
       
       $link.attr('href','?page='+href)
     })
