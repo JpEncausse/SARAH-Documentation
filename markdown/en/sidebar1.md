@@ -1,3 +1,3 @@
 - [Getting Started](getting_started)
 - [FAQ / How To](faq)
-- [Plugin Development](plugindev)
+- [Plugin Development](plugin_dev)
