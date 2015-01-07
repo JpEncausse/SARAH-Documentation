@@ -104,7 +104,18 @@
       if ($link.attr('rel')){ return; }
       
       var href  = $link.attr('href');
-      if (href.startsWith('http') || href.startsWith('#')){ return; }
+      if (href.startsWith('http')){ return; }
+      
+      // if the link is an internal link, just jump to the correct section
+      if (href.startsWith('#')) {
+        href = href.slice(1);
+        // search for the hx elements to find the related one
+        var $el = $('h1,h2,h3,h4').filter(function() { return $(this).text().toLowerCase().replace(/ /g,"-") == href });
+        // scroll to this element
+        if ($el.length === 1) $('.wrapper')[0].scrollTop = $el.offset().top;
+        
+        return false;
+      }
       
       $link.attr('href','?page='+href)
     })
