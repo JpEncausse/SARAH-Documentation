@@ -163,11 +163,12 @@ SARAH works because of the plugins.
 
 #### AppStore
 
-The easiest and best way to install a plugin is to use the store:  
-* Open the SARAH Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080))
-* Go to 'Store' (top menu)
-* Install the required plugins (if it fails, try several times)
-* Restart SARAH
+The easiest and best way to install a plugin is to use the store: 
+
+1. Open the SARAH Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080))  
+2. Go to 'Store' (top menu)  
+3. Install the required plugins (if it fails, try several times)  
+4. Restart SARAH
 
 #### Manual
 
