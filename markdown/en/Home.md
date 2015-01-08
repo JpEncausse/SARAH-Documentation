@@ -13,4 +13,4 @@ Several plugins can be easily created using JavaScript.
 * [FAQ / How To](faq) : all the answers to your issues and questions 
 * [Plugin Development](plugin_dev) : everything about plugin development
 
-_Cette documentation est aussi disponible en [français](?lang=fr)_
+_Cette documentation est aussi disponible en [français](&lang=fr)_
