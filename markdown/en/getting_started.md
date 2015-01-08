@@ -7,7 +7,8 @@ This page is for **SARAH v3** only. Please refer to [SARAH v4](installation_v4) 
 * [Installation for Windows](#windows)
 * [Configuration](#configuration)
 * [Start](#start)
-* [Update](#update)
+* [Plugins](#plugins)
+* [Update SARAH](#update-sarah)
 
 ## Installation
 
@@ -141,20 +142,60 @@ Note: the key you have now acquired are **not for distribution purposes and must
 You're almost done. Follow the below two steps to start SARAH:
 
 1. **Run the server**: double-click the file called `Server_NodeJS.cmd`       
-  ➔ a MS-DOS window will open with several linesa
+  ➔ a MS-DOS window will open with several lines  
   ➔ you can open [http://127.0.0.1:8080](http://127.0.0.1:8080) into your Web browser to check the web interface
 
 2. **Run the client** - several options:       
   + Microphone (if you don't have a Kinect): double-click the file called `Client_Microphone.cmd`;
   + Kinect (audio only): double-click the file called `Client_Kinect_Audio.cmd`;
-  + Kinect (all features): double-click the file called `Client_Kinect`.
+  + Kinect (all features): double-click the file called `Client_Kinect`.  
   ➔ Once the client is loaded you'll see a small house icon close to the Windows clock.
 
 All done! You can now say __"SARAH what time is it?"__.
 
 If you have any troubles, please refer to the [FAQ page](faq).
 
-## Update
+## Plugins
+
+SARAH works because of the plugins.
+
+### Installation
+
+#### AppStore
+
+The easiest and best way to install a plugin is to use the store:  
+* Open the SARAH Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080))
+* Go to 'Store' (top menu)
+* Install the required plugins (if it fails, try several times)
+* Restart SARAH
+
+#### Manual
+
+It's also possible to manually install a plugin. To do so you have to unzip the archive into the `plugins` folder.
+The structure:  
+* plugins/demo/demo.js
+* plugins/demo/demo.prop
+* plugins/demo/demo.xml
+
+#### Configuration
+
+Installed plugins are visible in your Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080)).
+
+![Portlet](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/plugin_configuration_1.jpg)
+
+1. Configuration
+2. Documentation
+3. File Editor
+
+Some plugins provide a custom portlet. Click upper right corner to flip sides (works only with Chrome).
+
+#### Documentation
+
+If you wonder how to use the plugin you can:
+* Read the documention provided.
+* If there is no documentation you can open the XML file to find the vocal commands.
+
+## Update SARAH
 
 If you want to udpate SARAH to a newer version (version less than 4) you need to follow the below steps:
 
