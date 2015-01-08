@@ -7,7 +7,8 @@ Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée �
 * [Installation pour Windows](#windows)
 * [Configuration](#configuration)
 * [Démarrer](#démarrer)
-* [Mise à jour](#mise-à-jour)
+* [Plugins](#plugins)
+* [Mise à jour de SARAH](#mise-à-jour-de-sarah)
 
 ## Installation
 
@@ -155,7 +156,49 @@ Et finalement, voici comment démarrer SARAH :
 
 Si vous avez des problèmes, merci de se référer à la [FAQ](faq).
 
-## Mise à jour
+## Plugins
+
+SARAH fonctionne surtout grâce aux plugins.
+
+### Installation
+
+#### AppStore
+
+La meilleure façon d'installer un plugin est de passer par le _store_ :  
+
+1. Ouvrir l'interface Web de SARAH ([http://127.0.0.1:8080](http://127.0.0.1:8080))  
+2. Cliquer sur 'Store' (dans le menu de gauche)  
+3. Choisir les plugins voulus et cliquer sur 'installer' (si l'opération échoue, retenter plusieurs fois)  
+4. Redémarrer SARAH  
+
+#### Manuellement
+
+Il est également possible d'installer manuellement un plugin. Pour ce faire il faut dézipper l'archive du plugin dans le répertoire `plugins`.
+
+La structure des fichiers sera alors:  
+* plugins/demo/demo.js
+* plugins/demo/demo.prop
+* plugins/demo/demo.xml
+
+#### Configuration
+
+Les plugins installés s'affichent dans l'interface Web ([http://127.0.0.1:8080](http://127.0.0.1:8080)) sous forme de _widgets_.
+
+![Portlet](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/plugin_configuration_1.jpg)
+
+1. Configuration
+2. Documentation
+3. Editeur de fichiers
+
+Certains plugins ont un _widget_ personnalisé. Il faudra alors cliquer sur le bord droit pour pouvoir retourner le _widget_ et voir apparaitre les trois boutons (cela ne fonctionne que sous Chrome).
+
+#### Utilisation
+
+Si vous ne savez pas comment utiliser le plugin, alors vous pouvez :
+* Lire la documentation liée au plugin.
+* Et s'il n'y a pas de documentation fournie, vous pouvez ouvrir le fichier XML pour trouver les commandes vocales disponibles.
+
+## Mise à jour de SARAH
 
 Si vous voulez mettre à jour SARAH (mais seulement pour une version < 4), vous devrez suivre les étapes ci-dessous :
 
