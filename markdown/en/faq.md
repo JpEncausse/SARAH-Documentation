@@ -16,7 +16,7 @@ It's a known bug related to GitHub.
 * Try again several times
 * Or try to manually install the plugin that has been downloaded into the `/temp/` folder of SARAH
 
-### Server is broken
+### The server returns an error
 
 If there is an error message in the server window saying `module not found` then it means there is an error with the plugin (either with the JavaScript `.js` file or the `.prop` file). Try to contact the plugin developer.
 
