@@ -9,7 +9,6 @@ This page is for **SARAH v3** only. Please refer to [SARAH v4](installation_v4) 
 * [Start](#start)
 * [Update](#update)
 
-<a name="installation"></a>
 ## Installation
 
 ### Windows
@@ -48,7 +47,6 @@ Here are the instructions to install the second generation of Kinect:
 1. Download and install the [Kinect SDK v2](http://www.microsoft.com/en-us/download/details.aspx?id=44561)
 2. Download and install the [language packs v2](http://www.microsoft.com/en-us/download/details.aspx?id=43662) (make sure you choose the correct language)
 
-<a name="configuration"></a>
 ## Configuration
 
 Things you need to do:
@@ -138,7 +136,6 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 Note: the key you have now acquired are **not for distribution purposes and must not be shared with other users**. 
 
-<a name="start"></a>
 ## Start
 
 You're almost done. Follow the below two steps to start SARAH:
@@ -157,7 +154,6 @@ All done! You can now say __"SARAH what time is it?"__.
 
 If you have any troubles, please refer to the [FAQ page](faq).
 
-<a name="update"></a>
 ## Update
 
 If you want to udpate SARAH to a newer version (version less than 4) you need to follow the below steps:
