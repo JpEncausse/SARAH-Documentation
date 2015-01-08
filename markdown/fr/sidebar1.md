@@ -1,3 +1,3 @@
-- [Installation](installation)
+- [Premiers Pas](getting_started)
 - [FAQ / Résoudre un problème](faq)
 - [Development de plugin](plugin_dev)
