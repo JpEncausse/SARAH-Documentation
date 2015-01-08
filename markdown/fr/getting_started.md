@@ -153,6 +153,7 @@ Et finalement, voici comment démarrer SARAH :
   ➔ Une fois que le client est lancé une icône en forme de maison apparait alors près de l'horloge de Windows.
 
 Ça y est ! Vous pouvez maintenant utiliser SARAH et la tester en disant __"SARAH quelle heure est-il ?"__.
+Et pour vous éclatez encore plus vous pouvez installer un plugin (voir ci-dessous).
 
 Si vous avez des problèmes, merci de se référer à la [FAQ](faq).
 
