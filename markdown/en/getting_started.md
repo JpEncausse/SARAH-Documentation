@@ -63,7 +63,7 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 **1) Register on chromium Google Group :**
 
-* Make sure you are a member of chromium-dev@chromium.org (you can just subscribe to chromium-dev and choose to not receive e-mails). For convenience, the APIs below are only visible to people subscribed to that group: https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev
+* Make sure you are a member of chromium-dev@chromium.org (you can just subscribe to chromium-dev and choose to not receive e-mails). For convenience, the APIs below are only visible to people subscribed to that group: [https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev](https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev)
 * Click on « _Join the group to send a message_ »
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_1.png)
@@ -75,7 +75,7 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 **2) Create a console app on Google**
 
-* Go to https://cloud.google.com/console
+* Go to [https://cloud.google.com/console](https://cloud.google.com/console)
 * Click on « _Create Project_ »
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_3.png)
@@ -123,7 +123,7 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 **6) SARAH integration**
 
-* Open the SARAH configuration file (« _custom.ini_ ») located in the root dir of SARAH
+* Open the SARAH configuration file (`custom.ini`) located in the root dir of SARAH
 * Search for the line `Google Speech Key API see https://console.developers.google.com/`
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_12.png)
@@ -145,7 +145,7 @@ You're almost done. Follow the below two steps to start SARAH:
   ➔ you can open [http://127.0.0.1:8080](http://127.0.0.1:8080) into your Web browser to check the web interface
 
 2. **Run the client** - several options:       
-  + Microphone: double-click the file called `Client_Microphone.cmd`;
+  + Microphone (if you don't have a Kinect): double-click the file called `Client_Microphone.cmd`;
   + Kinect (audio only): double-click the file called `Client_Kinect_Audio.cmd`;
   + Kinect (all features): double-click the file called `Client_Kinect`.
   ➔ Once the client is loaded you'll see a small house icon close to the Windows clock.
