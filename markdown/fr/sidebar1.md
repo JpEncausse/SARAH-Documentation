@@ -1,3 +1,3 @@
 - [Installation](installation)
 - [FAQ / Résoudre un problème](faq)
-- [Development de plugin](plugindev)
+- [Development de plugin](plugin_dev)
