@@ -151,7 +151,7 @@ You're almost done. Follow the below two steps to start SARAH:
   + Kinect (all features): double-click the file called `Client_Kinect`.  
   ➔ Once the client is loaded you'll see a small house icon close to the Windows clock.
 
-All done! You can now say __"SARAH what time is it?"__.
+All done! You can now say __"SARAH what time is it?"__. And to have more fun you can install a plugin (see below).
 
 If you have any troubles, please refer to the [FAQ page](faq).
 
