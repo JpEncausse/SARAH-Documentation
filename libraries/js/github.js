@@ -110,7 +110,7 @@
       if (href.startsWith('#')) {
         href = href.slice(1);
         // search for the hx elements to find the related one
-        var $el = $('h1,h2,h3,h4').filter(function() { return $(this).text().toLowerCase().replace(/ /g,"-") == href });
+        var $el = $('h1,h2,h3,h4').filter(function() { return $(this).text().toLowerCase().replace(/'/g,"").replace(/ /g,"-") == href });
         // scroll to this element
         if ($el.length === 1) $('.wrapper')[0].scrollTop = $el.offset().top;
         
