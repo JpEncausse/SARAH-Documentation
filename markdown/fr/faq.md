@@ -3,9 +3,9 @@
 ## Sommaire
 
 * [Problèmes liés aux plugins](#problèmes-liés-aux-plugins)
-  + [Le plugin ne s'installe pas](#le-plugin-ne-s'installe-pas)
+  + [Le plugin ne s'installe pas](#le-plugin-ne-sinstalle-pas)
   + [Le serveur retourne une erreur](#le-serveur-retourne-une-erreur)
-  + [Je n'arrive pas à le configurer](#je-n'arrive-pas-à-le-configurer)
+  + [Je n'arrive pas à le configurer](#je-narrive-pas-à-le-configurer)
 
 ## Problèmes liés aux plugins
 
