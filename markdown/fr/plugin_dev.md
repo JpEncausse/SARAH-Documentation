@@ -98,10 +98,4 @@ Règles à suivre pour créer le fichier ZIP :
 
 ### Publication
 
-Pour que votre plugin soit publié dans l'AppStore, envoyer un mail à `sarah.project [at] encausse.net` avec les information suivantes :
-* Name: {nom de plugin en minuscule}
-* Description: {brève description}
-* Version: {1.0} (avec 2 chiffres)
-* Author: {auteur principal}
-* URL: {lien vers un poste G+ ou votre dépôt GitHub}
-* File: {lien vers le fichier ZIP, ou une pièce jointe}
+Pour que le plugin soit disponible dans le _store_ il faut se rendre à  [http://marketplace.sarah.encausse.net/](http://marketplace.sarah.encausse.net/) puis s'identifier et enfin ajouter le nouveau plugin.
