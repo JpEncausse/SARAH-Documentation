@@ -84,7 +84,7 @@ Your repository must contain the below files/folders :
 
 ### Option 2: Send a ZIP file
 
-Instead of hosting your plugin on GitHub you can simply send a ZIP file to `sarah.project [a] encausse.net` (see below).
+Instead of hosting your plugin on GitHub you can simply send a ZIP file to `sarah.project [at] encausse.net` (see below).
 
 ### Content of the ZIP file
 
@@ -92,7 +92,7 @@ If you host the ZIP file on GitHub, then the limit size is 10Mo.
 
 Rules to follow to create the ZIP file:
 * The plugin name must be in lower case, without any blank space (e.g. "xbmc" or "freebox" or "messagetohome")
-* Try to find a name that is relevent and obvious enought
+* Try to find a name that is both obvious and relevant
 * You must directly select the files of your plugins and zip them (you must **not** select the folder, but only the files inside the folder to create the archive)
 * **Github**: the ZIP file must be moved to `/build/` and named as `{name}-release.zip` (with `{name}` is your plugin name in lower case)
 
