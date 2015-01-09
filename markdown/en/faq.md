@@ -44,7 +44,7 @@ Here are the steps:
 You can show a QRCode to the SARAH's Kinect that will trigger an action:
 
 1. Create a QRCode from [ZXing](http://zxing.appspot.com/generator) : the QRCode must represent an URL for a plugin's action (e.g. [http://127.0.0.1:8080/sarah/parle?phrase=Bonjour](http://127.0.0.1:8080/sarah/parle?phrase=Bonjour) for the `parle` plugin)  
-2. PRint the QRCode Set a plugin's URL  
+2. Print the QRCode  
 3. Show the QRCode to the Kinect (+/- 80cm)
 
 ### How to delete my speech recognition profile?
