@@ -4,6 +4,15 @@
 
 You'll find here how to create a plugin.
 
+## Index
+
+* [Files structure](#files-structure)
+* [Files content](#files-content)
+* [Publish the plugin](#publish-the-plugin)
+* [How to](#how-to)
+  + [How to send an HTTP Request](#how-to-send-an-http-request)
+  + [How to scrap a webpage](#how-to-scrap-a-webpage)
+
 ## Files structure
 
 There are four main files (`yourplugin` must be replaced with the lower case name of your plugin):
@@ -99,3 +108,112 @@ Rules to follow to create the ZIP file:
 ### Publishing
 
 For the plugin to be included into the store, you need to go to [http://marketplace.sarah.encausse.net/](http://marketplace.sarah.encausse.net/) then sign in and add a new plugin.
+
+## How to
+
+### How to send an HTTP Request
+
+SARAH relies on [NodeJS API](http://nodejs.org/documentation/api/), [the tutorial "Demo 5" (in French)](http://encausse.wordpress.com/2013/05/02/sarah-mon-premier-module/) explains how to build a plugin that sends a request to a 3rd party using the [HTTP API](http://nodejs.org/api/http.html).
+
+Below is an example:
+
+```javascript
+exports.action = function(data, callback, config, SARAH){
+  var url = 'http://www.website.com/';
+  // load the 'request' module from NodeJS
+  // this is a special module from https://github.com/request/request
+  var request = require('request');
+  // build the request
+  request({ 'uri' : url }, function (err, response, body){
+    if (err || response.statusCode != 200) {
+      return callback({'tts': "Action failed"});
+    }
+    // Here you can parse the body and play with it
+    // e.g. : var json = JSON.parse(body);
+    callback({'tts': 'The answer' });
+  }
+}
+```
+
+In this sample the body is parsed using `JSON`. But you could also [parse XML](https://github.com/Leonidas-from-XIV/node-xml2js) or any other text processing feature.
+
+An example for XML:
+
+```javascript
+var xml2js = require('xml2js');
+var parser = new xml2js.Parser({trim: true});
+parser.parseString(body, function (err, xml) {
+  var root = xml.root; // see documentation
+  // Remember code is asynchronous
+  // So you should call callback({ ... }) here
+}); 
+```
+
+### How to scrap a webpage
+
+Sometimes you can't just get a JSON or XML content. In that case you might want to scrap a webpage to get the content you want. 
+
+#### Using Cheerio 
+
+[Cheerio](https://github.com/MatthewMueller/cheerio) is a very light HTML Browser handling common issues. Like JSON or XML it parses the result of an HTTP request.
+
+```javascript
+    var $ = require('cheerio').load(body, { 
+      xmlMode: true,
+      ignoreWhitespace: false,
+      lowerCaseTags: false
+    });
+    
+    // The $ works like jQuery to navigate throught DOM
+    $('#prevision > H2').find('img').attr('alt')
+}
+```
+
+Remember Cheerio can't handle JavaScript click... or the generated HTML on the client side.
+
+#### Using PhantomJS
+
+PhantomJS is a third party Webkit Browser very close to NodeJS. Your plugin will run in PhantomJS VM and send back some little data. PhantomJS is very heavy but sometimes is the only way to fill HTML Form, click on buttons, etc...
+
+The plugins based on PhantomJS work like the modules but are executed by PhantomJS to scrap a webpage. The URL to call that kind of plugin is: `http://127.0.0.1:8080/sarah/phantom/{plugin}?{param}={value}`
+
+The `plugin.prop` file will look like this:
+```
+{
+  "phantoms" : { 
+    "myplugin"  : {
+      "description": "Description of My Demo Plugin",
+      "version"    : "0.1"
+    }
+  }
+}
+```
+
+Remember that this file is called by PhantomJS not NodeJS.
+
+```javascript
+// Inject helper
+phantom.injectJs("../../script/lib/scraper.js");
+
+// Merge default options with querystring
+var options = {};
+scraper.setOptions(options);
+
+var url = 'http://path.to/page/to/scrap/index.php';
+
+// Scrap
+scraper.scrap(url, options, function(options, results) {
+   // >>> Your code here <<<
+   // >>> It is run into the webpage with jQuery <<<
+   var items = $('body').text() ; 
+   results.tts = items; // The object to return in callback()
+});
+```
+
+The result can also be processed by NodeJS if a file `{plugin}.node.js` is provided.
+
+```javascript
+exports.after = function(options, results){
+  // >>> Your code here <<<
+}
+```
