@@ -25,7 +25,7 @@ Il y a quatre fichiers principaux (`yourplugin` doit être remplacé par le nom 
 ### yourplugin.prop
 
 Le contenu de ce fichier a une structure JSON de type :
-````xml
+```json
 {
   "modules": {
     "yourplugin": {
@@ -36,7 +36,7 @@ Le contenu de ce fichier a une structure JSON de type :
     }
   }
 }
-````
+```
 
 Remplacer `yourplugin` avec le nom en minuscules de votre plugin.
 
@@ -46,7 +46,7 @@ Vous pouvez définir des paramètres d'utilisateur dans ce fichier. Remplacer `u
 
 Ce sont les commandes de grammaire/vocales de votre plugin.
 
-````xml
+```xml
 <grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleYourplugin" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
   <rule id="ruleYourplugin" scope="public">
     <tag>out.action=new Object(); </tag>
@@ -60,7 +60,7 @@ Ce sont les commandes de grammaire/vocales de votre plugin.
     <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";</tag>
   </rule> 
 </grammar>
-````
+```
 
 Dans le code vous trouverez trois fois "Yourplugin" ou "yourplugin". Il suffit de remplacer par le nom de votre plugin (voir exemple).
 
@@ -177,7 +177,7 @@ PhantomJS est un navigateur Webkit très proche de NodeJS. Votre plugin tournera
 Un plugin basé sur PhantomJS fonctionne comme les modules mais sera exécuté par PhantomJS. TL'URL à appeler pour ce plugin sera donc : `http://127.0.0.1:8080/sarah/phantom/{plugin}?{param}={value}`
 
 Le fichier `{plugin}.prop` ressemblera à :
-```
+```json
 {
   "phantoms" : { 
     "myplugin"  : {
