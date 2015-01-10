@@ -19,6 +19,8 @@ Il y a quatre fichiers principaux (`yourplugin` doit être remplacé par le nom 
 * `yourplugin.xml` :  fichier XML principal qui doit contenir la grammaire (commandes vocales)
 * `index.html` : la documentation relative à votre plugin
 * `yourplugin.js` (optionnel) : le fichier JavaScript de votre plugin qui gère les fonctions avancées
+* `portlet.html` (optionnel): contient le contenu de la face (logo, ...) qui est visible depuis la page d'accueil de SARAH
+* `portlet_back.html` (optionnel): contient le contenu du dos (boutons, formulaire, ...) qui est visible depuis la page d'accueil de SARAH
 
 ## Contenu des fichiers
 
@@ -76,6 +78,14 @@ _à completer_
 ### yourplugin.js
 
 _à completer_
+
+### portlet.html
+
+_To complete_
+
+### portlet_back.html
+
+_To complete_
 
 ## Publier le plugin
 
