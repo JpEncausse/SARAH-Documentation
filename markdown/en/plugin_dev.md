@@ -158,15 +158,14 @@ Sometimes you can't just get a JSON or XML content. In that case you might want 
 [Cheerio](https://github.com/MatthewMueller/cheerio) is a very light HTML Browser handling common issues. Like JSON or XML it parses the result of an HTTP request.
 
 ```
-    var $ = require('cheerio').load(body, { 
-      xmlMode: true,
-      ignoreWhitespace: false,
-      lowerCaseTags: false
-    });
-    
-    // The $ works like jQuery to navigate throught DOM
-    $('#prevision > H2').find('img').attr('alt')
-}
+var $ = require('cheerio').load(body, { 
+  xmlMode: true,
+  ignoreWhitespace: false,
+  lowerCaseTags: false
+});
+
+// The $ works like jQuery to navigate throught DOM
+$('#prevision > H2').find('img').attr('alt');
 ```
 
 Remember Cheerio can't handle JavaScript click... or the generated HTML on the client side.
