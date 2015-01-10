@@ -158,15 +158,14 @@ Parfois il n'est pas possible d'avoir un contenu JSON ou XML. Dans ce cas on peu
 [Cheerio](https://github.com/MatthewMueller/cheerio) est un navigateur HTML très léger.
 
 ```javascript
-    var $ = require('cheerio').load(body, { 
-      xmlMode: true,
-      ignoreWhitespace: false,
-      lowerCaseTags: false
-    });
-    
-    // Le $ fonctionne comme pour jQuery afin de naviguer à travers le DOM
-    $('#prevision > H2').find('img').attr('alt')
-}
+var $ = require('cheerio').load(body, { 
+  xmlMode: true,
+  ignoreWhitespace: false,
+  lowerCaseTags: false
+});
+
+// Le $ fonctionne comme pour jQuery afin de naviguer à travers le DOM
+$('#prevision > H2').find('img').attr('alt');
 ```
 
 Rappel : Cheerio ne gère pas les évènements JavaScript, ni le contenu HTML généré côté client.
