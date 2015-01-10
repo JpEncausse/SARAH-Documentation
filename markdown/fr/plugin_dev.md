@@ -2,6 +2,15 @@
 
 **Cette documentation est faite pour SARAH v3 seulement**
 
+## Sommaire
+
+* [Structure des fichiers](#structure-des-fichiers)
+* [Contenu des fichiers](#contenu-des-fichiers)
+* [Publier le plugin](#publier-le-plugin)
+* [Comment faire](#comment-faire)
+  + [Comment envoyer une requête HTTP](#comment-envoyer-une-requête-http)
+  + [Comment récupérer une partie d'une page Web](#comment-récupérer-une-partie-dune-page-web)
+
 ## Structure des fichiers
 
 Il y a quatre fichiers principaux (`yourplugin` doit être remplacé par le nom en minuscules de votre plugin) :
@@ -99,3 +108,112 @@ Règles à suivre pour créer le fichier ZIP :
 ### Publication
 
 Pour que le plugin soit disponible dans le _store_ il faut se rendre à  [http://marketplace.sarah.encausse.net/](http://marketplace.sarah.encausse.net/) puis s'identifier et enfin ajouter le nouveau plugin.
+
+## Comment faire
+
+### Comment envoyer une requête HTTP
+
+SARAH s'articule autour de [l'API NodeJS](http://nodejs.org/documentation/api/), [le tutorial "Demo 5" (en français)](http://encausse.wordpress.com/2013/05/02/sarah-mon-premier-module/) explique comment créer un plugin qui envoie une requête en utilisant [l'API HTTP](http://nodejs.org/api/http.html).
+
+Ci-dessous un exemple :
+
+```javascript
+exports.action = function(data, callback, config, SARAH){
+  var url = 'http://www.website.com/';
+  // on charge le module 'request' pour NodeJS
+  // c'est un module spécial qui vient de https://github.com/request/request
+  var request = require('request');
+  // on forge notre requête
+  request({ 'uri' : url }, function (err, response, body){
+    if (err || response.statusCode != 200) {
+      return callback({'tts': "Action échouée"});
+    }
+    // Ici vous pouvez analyser le corps de la réponse et jouer avec
+    // par exemple : var json = JSON.parse(body);
+    callback({'tts': 'La réponse' });
+  }
+}
+```
+
+Dans cet exemple le corps de la réponse est du JSON, mais parfois il est nécessaire d'analyser une réponse qui est en XML grâce à [node-xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) ou un autre _parser_.
+
+Un exemple pour du XML :
+
+```javascript
+var xml2js = require('xml2js');
+var parser = new xml2js.Parser({trim: true});
+parser.parseString(body, function (err, xml) {
+  var root = xml.root; // voir la documentation de node-xml2js
+  // Rappel : le code est asynchrone
+  // donc il faut appeler callback({ ... }) à un moment ou un autre
+}); 
+```
+
+### Comment récupérer une partie d'une page Web
+
+Parfois il n'est pas possible d'avoir un contenu JSON ou XML. Dans ce cas on peut vouloir récupérer une partie d'une page Web. 
+
+#### En utilisant Cheerio 
+
+[Cheerio](https://github.com/MatthewMueller/cheerio) est un navigateur HTML très léger.
+
+```javascript
+    var $ = require('cheerio').load(body, { 
+      xmlMode: true,
+      ignoreWhitespace: false,
+      lowerCaseTags: false
+    });
+    
+    // Le $ fonctionne comme pour jQuery afin de naviguer à travers le DOM
+    $('#prevision > H2').find('img').attr('alt')
+}
+```
+
+Rappel : Cheerio ne gère pas les évènements JavaScript, ni le contenu HTML généré côté client.
+
+#### En utilisant PhantomJS
+
+PhantomJS est un navigateur Webkit très proche de NodeJS. Votre plugin tournera sous la machine virtuelle PhantomJS et renverra des petites données. PhantomJS est très lourd mais quelque fois c'est la seule solution si l'on souhaite remplir un formulaire, cliquer sur des boutons, etc.
+
+Un plugin basé sur PhantomJS fonctionne comme les modules mais sera exécuté par PhantomJS. TL'URL à appeler pour ce plugin sera donc : `http://127.0.0.1:8080/sarah/phantom/{plugin}?{param}={value}`
+
+Le fichier `{plugin}.prop` ressemblera à :
+```
+{
+  "phantoms" : { 
+    "myplugin"  : {
+      "description": "Description of My Demo Plugin",
+      "version"    : "0.1"
+    }
+  }
+}
+```
+
+Rappel : ce fichier est appelé par PhantomJS, et non par NodeJS.
+
+```javascript
+// Inject helper
+phantom.injectJs("../../script/lib/scraper.js");
+
+// Merge default options with querystring
+var options = {};
+scraper.setOptions(options);
+
+var url = 'http://path.to/page/to/scrap/index.php';
+
+// Scrap
+scraper.scrap(url, options, function(options, results) {
+   // >>> Your code here <<<
+   // >>> It is run into the webpage with jQuery <<<
+   var items = $('body').text() ; 
+   results.tts = items; // The object to return in callback()
+});
+```
+
+Le résultat peut aussi être géré par NodeJS grâce à un fichier `{plugin}.node.js`.
+
+```javascript
+exports.after = function(options, results){
+  // >>> Your code here <<<
+}
+```
