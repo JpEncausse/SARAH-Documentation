@@ -21,6 +21,8 @@ There are four main files (`yourplugin` must be replaced with the lower case nam
 * `yourplugin.xml`: the main XML file of your plugin that will contain the grammar (voice commands)
 * `index.html`: the documentation related to your plugin
 * `yourplugin.js` (optional): the main JavaScript file of your plugin (that will do the advanced features)
+* `portlet.html` (optional): contains the front content (logo, ...) visible from SARAH homepage
+* `portlet_back.html` (optional): contains the back content (buttons, forms, ...) visible from SARAH homepage
 
 ## Files content
 
@@ -74,6 +76,14 @@ Check the code and you'll find **three** places where "Yourplugin" or "yourplugi
 _To complete_
 
 ### yourplugin.js
+
+_To complete_
+
+### portlet.html
+
+_To complete_
+
+### portlet_back.html
 
 _To complete_
 
