@@ -48,19 +48,19 @@ In some cases you may want to have some settings defined by the user. You'll def
 
 This is the grammar/voice commands of your plugin.
 ```
-&lt;grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleYourplugin" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
-  &lt;rule id="ruleYourplugin" scope="public">
-    &lt;tag>out.action=new Object(); &lt;/tag>
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleYourplugin" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleYourplugin" scope="public">
+    <tag>out.action=new Object(); </tag>
     
-    &lt;item>Sarah&lt;/item>
-    &lt;one-of>
-      &lt;item>Switch on the magic  &lt;tag>out.action.myParam="on";out.action._attributes.tts="OK I switch on the magic"&lt;/tag>&lt;/item>
-      &lt;item>Switch off the magic &lt;tag>out.action.myParam="off";out.action._attributes.tts="OK I switch off the magic"&lt;tag>&lt;/item>
-    &lt;/one-of>
+    <item>Sarah</item>
+    <one-of>
+      <item>Switch on the magic  <tag>out.action.myParam="on";out.action._attributes.tts="OK I switch on the magic"</tag></item>
+      <item>Switch off the magic <tag>out.action.myParam="off";out.action._attributes.tts="OK I switch off the magic"<tag></item>
+    </one-of>
 
-    &lt;tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";&lt;/tag>
-  &lt;/rule> 
-&lt;/grammar>
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";</tag>
+  </rule> 
+</grammar>
 ```
 Check the code and you'll find **three** places where "Yourplugin" or "yourplugin" are. Just replace them with your plugin name (follow the case).
 
