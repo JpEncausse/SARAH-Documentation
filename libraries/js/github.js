@@ -97,7 +97,7 @@
   // ------------------------------------------
   
   var convertMarkdown = function(md){
-    return markdown.toHTML(md); // FIXME
+    return marked(md);
   }
   
   // ------------------------------------------
