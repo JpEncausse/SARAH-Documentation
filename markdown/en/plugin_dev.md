@@ -27,7 +27,7 @@ There are four main files (`yourplugin` must be replaced with the lower case nam
 ### yourplugin.prop
 
 The content of this file is a JSON structure that is:
-```
+```json
 {
   "modules": {
     "yourplugin": {
@@ -47,7 +47,7 @@ In some cases you may want to have some settings defined by the user. You'll def
 ### yourplugin.xml
 
 This is the grammar/voice commands of your plugin.
-```
+```xml
 <grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleYourplugin" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
   <rule id="ruleYourplugin" scope="public">
     <tag>out.action=new Object(); </tag>
@@ -117,7 +117,7 @@ SARAH relies on [NodeJS API](http://nodejs.org/documentation/api/), [the tutoria
 
 Below is an example:
 
-```
+```javascript
 exports.action = function(data, callback, config, SARAH){
   var url = 'http://www.website.com/';
   // load the 'request' module from NodeJS
@@ -139,7 +139,7 @@ In this sample the body is parsed using `JSON`. But you could also [parse XML](h
 
 An example for XML:
 
-```
+```javascript
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser({trim: true});
 parser.parseString(body, function (err, xml) {
@@ -157,7 +157,7 @@ Sometimes you can't just get a JSON or XML content. In that case you might want 
 
 [Cheerio](https://github.com/MatthewMueller/cheerio) is a very light HTML Browser handling common issues. Like JSON or XML it parses the result of an HTTP request.
 
-```
+```javascript
 var $ = require('cheerio').load(body, { 
   xmlMode: true,
   ignoreWhitespace: false,
@@ -177,7 +177,7 @@ PhantomJS is a third party Webkit Browser very close to NodeJS. Your plugin will
 The plugins based on PhantomJS work like the modules but are executed by PhantomJS to scrap a webpage. The URL to call that kind of plugin is: `http://127.0.0.1:8080/sarah/phantom/{plugin}?{param}={value}`
 
 The `plugin.prop` file will look like this:
-```
+```json
 {
   "phantoms" : { 
     "myplugin"  : {
@@ -190,7 +190,7 @@ The `plugin.prop` file will look like this:
 
 Remember that this file is called by PhantomJS not NodeJS.
 
-```
+```javascript
 // Inject helper
 phantom.injectJs("../../script/lib/scraper.js");
 
@@ -211,7 +211,7 @@ scraper.scrap(url, options, function(options, results) {
 
 The result can also be processed by NodeJS if a file `{plugin}.node.js` is provided.
 
-```
+```javascript
 exports.after = function(options, results){
   // >>> Your code here <<<
 }
