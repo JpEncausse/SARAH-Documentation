@@ -255,7 +255,7 @@ List of available functions to control plugins life cycle.
 | SARAH.call()	   | Like run without rule dispatch |
 | SARAH.last()	   | Run latest script again (> v2.8) |
 | [SARAH.exists()](#SARAH_exists)   | Check if module/phantom exists (> v2.8) |
-| SARAH.remote()   | Run client remote commande (play, pause, …) |
+| SARAH.remote()   | Run a client remote command (play, pause, …) |
 
 
 To call a plugin you can use:
