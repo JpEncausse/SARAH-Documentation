@@ -4,6 +4,8 @@
 
 You'll find here how to create a plugin.
 
+**Note**: because SARAH is based on NodeJS you can use the [NodeJS API](http://nodejs.org/api/) into your JavaScript files.
+
 ## Index
 
 * [Files structure](#files-structure)
@@ -12,6 +14,20 @@ You'll find here how to create a plugin.
 * [How to](#how-to)
   + [How to send an HTTP Request](#how-to-send-an-http-request)
   + [How to scrap a webpage](#how-to-scrap-a-webpage)
+* [JavaScript API](#javascript-api)
+  + [Plugins Functions](#plugins-functions)
+  + [HTTP Functions](#http-functions)
+  + [JSDocs](#jsdocs)
+  + [Advanced features](#advanced-features)
+    * [Context](#context)
+    * [Profile](#profile)
+    * [Event](#event)
+    * [AskMe](#askme)
+    * [Chromeless](#chromeless)
+* [Rules Engine](#rules-engine)
+  + [Create a rule](#create-a-rule)
+  + [Note](#note)
+  + [Other filters](#other-filters)
 
 ## Files structure
 
@@ -226,3 +242,450 @@ exports.after = function(options, results){
   // >>> Your code here <<<
 }
 ```
+
+## JavaScript API
+
+### Plugins Functions
+
+List of available functions to control plugins life cycle.
+
+| NodeJS           | Description     |
+| ---------------- | --------------- |
+| SARAH.run()	   | Run script with given data |
+| SARAH.call()	   | Like run without rule dispatch |
+| SARAH.last()	   | Run latest script again (> v2.8) |
+| [SARAH.exists()](#SARAH_exists)   | Check if module/phantom exists (> v2.8) |
+| SARAH.remote()   | Run client remote commande (play, pause, …) |
+
+
+To call a plugin you can use:
+```javascript
+// Run eedomus plugin with some parameters and trigger the Rule Engine
+SARAH.run('eedomus', { 'periphId' : id , 'periphValue' : value });
+   
+// Call eedomus plugin without forwarding result to Rule Engine
+SARAH.call('eedomus', { 'periphId' : LUMENS}, function(options){ /* do next stuff */  });
+```
+
+### HTTP Functions
+
+List of available functions that send an HTTP Request to the Client. The requests are sent using `SARAH.remote()`
+
+| NodeJS           | Request          | Description    |
+| ---------------- | ---------------- | -------------- |
+| [SARAH.answer()](#SARAH_answer)   |  | Call SARAH.speak() with predefined answers |
+| [SARAH.speak()](#SARAH_speak)	   | tts=...&sync=... | Trigger Text to Speech (can be sync or async) |
+| SARAH.shutUp()   | notts=...        | Stop speaking    |
+| [SARAH.play()](#SARAH_play)	   | play=...&sync=...         | File.mp3 to play |
+| [SARAH.pause()](#SARAH_pause)	   | pause=...        | File.mp3 to stop |
+| SARAH.keyText()  | keyText=...      | Text to type |
+| [SARAH.runApp()](#SARAH_runApp)   | run=...&runp=... | Application path to run and parameters |
+| SARAH.activate() | activate=...     | Application to put foreground |
+| SARAH.face()	   | face=...         | start/stop face recognition |
+| SARAH.gesture()  | gesture=...      | start/stop gesture recognition |
+| *the below is for the requests only*                                |
+|                  | picture=...      | Take a picture, store it and return in response (only main Sensor)|
+|                  | height=...       | Return user height [based on it's forearm](https://dl.dropboxusercontent.com/u/255810/Encausse.net/Sarah/skeleton.jpg) (value tts to speech) |
+|                  | keyUp=...        | Key to press |
+|                  | keyDown=...      | Key to press |
+|                  | keyPress=...     | Key to press |
+|                  | keyMod=...       | Key modifier |
+|                  | status=...       | returns "speaking" if SARAH is currently speaking |
+|                  | recognize=...    | Perform speech recognition on given audio path or upload |
+|                  | listen=...       | Start / Stop listening |
+|                  | context=...      | Activate context grammar |
+
+### JSDocs
+
+#### SARAH.exists(module)
+
+**Parameters**
+
+* {String} module : check if a module/phantom is available
+
+**Return**
+
+If the module is available the function will return `true`, or `false` if it's not available.
+
+**Comments**
+
+Since SARAH v2.8.
+
+Example: if you have the plugin "freebox" you can test `SARAH.exists("freebox")`.
+
+#### SARAH.answer()
+
+**Parameters**
+
+* No parameter
+
+**Comments**
+
+The function will randomly take one sentence from the `custom.prop`. You can change the default sentences via the web interface of SARAH: in the "A propos" widget, just click on the "Config." button. Each answers must be seperated with a pipe (|).
+
+The default answers are `Oui|Je m'en occupe|Voilà|C'est fait`. So when you call `SARAH.answer()` the program will say "Oui", or "Voilà", or "Je m'en occupe". The answer is randomly chosen.
+
+#### SARAH.speak(sentence, [callback])
+
+**Parameters**
+
+* {String} Sentence : this is the sentence that SARAH will say 
+* {Function} [callback] : (optional) this is a callback function that will be called when the sentence has been said
+
+**Comments**
+
+The call is synchronous if you don't use a second parameter. Examples:
+```javascript
+SARAH.speak("Hello");
+SARAH.speak("world");
+SARAH.speak("I'm Sarah");
+```
+
+Then it will send 3 HTTP requests and only 1 will be said by SARAH. It's because the TTS requests are ignored when SARAH is currently speaking.
+
+From SARAH V3.0 it's possible to change this behavior with cascading calls (=asynchronous):
+```javascript
+SARAH.speak("Hello", function(){
+  SARAH.speak("world", function(){
+    SARAH.speak("I'm Sarah", function(){
+      // ...
+    })
+  })
+})
+```
+
+It's still possible to use `SARAH.shutUp()` at any time to stop SARAH for speaking.
+
+**Note** - you can check the status of SARAH in sending the request `http://127.0.0.1:8888/?status=true` : if it returns `speaking` then it means SARAH is current speaking, otherwise it returns nothing.
+
+#### SARAH.play(file/url, [callback])
+
+**Parameters**
+
+* {String} file : relative path to a MP3 or WAV file (e.g. `media/song.mp3`), or a web URL (e.g. `http://www.site.com/file.mp3`)
+* {Function} [callback] : (optional) this is a callback function that will be called when the audio has been played
+
+**Comments**
+
+This function will play a sound file. The sounds can be parallelized.
+However there is a timeout after 8 minutes (from SARAH v3.1, or 2 minutes for SARAH < v3.1) that will automatically stop the playing.
+
+Regarding the **WAV file**, it must be a 88 kb/s encoded file (the 64 kb/s won't work).
+
+#### SARAH.pause(file)
+
+**Parameters**
+
+* {String} file : relative path to a MP3 or WAV file (e.g. `media/song.mp3`), or a web URL (e.g. `http://www.site.com/file.mp3`)
+
+**Comments**
+
+This function will stop/pause a sound that is currently playing.
+The `file` parameter must be the same used for `SARAH.play()`.
+
+#### SARAH.runApp({run, [runp]})
+
+**Parameters**
+
+* {Object} the options
+  + {String} run : the path to the program to execute
+  + {String} [runp] : use this one to pass some parameters to the program
+
+**Comments**
+
+This function call the C# function [Process.Start(processName, param)](http://msdn.microsoft.com/en-us/library/system.diagnostics.process.start.aspx). Windows' rule: never use space or custom chars in path.
+
+If you want to launch/run an executable program on **client** side:
+
+```javascript
+  // Lauching XBMC
+  SARAH.runApp('E:\\XBMC12\\XBMC.exe');
+
+  // Lauching Spotify with a song
+  SARAH.runApp('C:\\Program Files (x86)\\Spotify\\spotify.exe', '"spotify:track:6ilfuI7O1vUfKf4TQ9fJRb"');
+```
+
+If you want to launch/run an executable program on **server** side:
+```javascript
+exports.action = function(data, callback, config, SARAH) {
+  // see http://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
+  var exec = require('child_process').exec;
+  
+  // note: below we use double quotes inside (") the simple quotes (')
+  // because we have some blank spaces in the path
+  // for a relative path to SARAH you can use %CD%
+  // example: var process = '%CD%\\\\plugins\\\\myplugin\\\\bin\\\\xbmc.bat';
+  var process = '"C:\\\\Program Files (x86)\\\\XBMC\\\\XBMC.exe"'; 
+  var child = exec(process, function (error, stdout, stderr) {
+    if (error !== null) console.log('exec error: ' + error);
+  });
+
+  callback({'tts': "Je lance XBMC."});
+}
+```
+
+## Advanced features
+
+SARAH also provides advanced features throught its API to handle Context, Profile, Events, ...
+
+### Context
+
+Plugins can share contextual data for other plugins using `SARAH.context`. For example the XBMC plugin stores data in `SARAH.context.xbmc`.
+
+If you want to use it with your plugin, then make sure to use the syntax: `SARAH.context.yourPluginName` (_yourPluginName_ is the name of the folder used by your plugin) to avoid any conflicts.
+
+Because the data are only stored in memory (it means they are deleted after a restart of SARAH) you can use the below function to setup your context:
+```javascript
+exports.init = function(SARAH) {
+  SARAH.context.myPluginName = {"someVariable": "someValue"}
+}
+```
+
+### Profile
+
+The `profile` variable contains some information regarding the profiles of each users. Example:
+
+```javascript
+SARAH.context.profile = 
+[
+  { Timestamp: "2013-11-10T14:00:11.1205204+01:00",
+    Name: "Jean_Philippe", Pitch: 153.28974723815918,
+    x: 0, y: 0, z: 0,
+    Mood: 0, Height: 0 
+  },
+  { Timestamp: "2013-10-18T22:29:21.843015+02:00",
+    Name: "Aurelie", Pitch: 0,
+    x: 0, y: 0, z: 0,
+    Mood: 0, Height: 0 
+  }
+]
+```
+
+### Event
+
+A plugin can communicate with the other plugins in using [Event Emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) API. Plugins should listen to event in their `init()` function. 
+
+On a side must listen to events (like XBMC):
+
+```javascript
+exports.init = function(SARAH){
+  SARAH.listen('xbmc', function(data){
+    // your code here
+  });
+}
+```
+
+On the other side XBMC will do:
+
+```javascript
+SARAH.trigger('xbmc', { key : value, x : 1, y : 2 });
+```
+
+**Note:** An other way to do this without code is to use the [Rules Engine](#rules-engine) `IF xbmc THEN DO YourPlugin`. XBMC must still put convenient data in `callback({})`.
+
+### AskMe
+
+A plugin can ask a question to the user then can be called back using the below function:
+
+```javascript
+SARAH.askme(tts, grammar, timeout, callback);
+```
+
+| Argument         | Description                  |
+| ---------------- | ---------------              |
+| tts	           | The text to speech           |
+| grammar          | key/value grammar choice     |
+| timeout          | timeout (if > 0 ask twice)   |
+| callback         | function to call with answer |
+
+* A dynamic grammar is set on the client side
+* The grammar is exclusif (a context is set)
+* After the given timeout, the question is asked again
+* If there is no answer after `timeout x 2` or 8s the callback is called with `false`
+* AskMe calls are stacked and buffered !
+
+**Example: Plugin 1**
+
+```javascript
+SARAH.askme("What is your favorite color", {
+  "My color is bleu" : 'blue',
+  "My favorite color is blue no red" : 'red'
+}, 10000, function(answer, end){ // the selected answer or false
+  SARAH.speak('You said: ' + answer, function(){
+      end(); // MUST be called when job done
+  });
+});
+```
+
+**Concurrent Plugin 2**
+
+If Plugin 2 asks something at the same time, it will stack and wait.
+
+```javascript
+SARAH.askme("What is your favorite sound", {
+  "I feel good" : 'feelggod',
+  "Highway to hell" : 'ACDC'
+}, 10000, function(answer, end){
+  SARAH.call('xbmc', { 'song' : answer }, function(options){ end(); }); // Again a callback to wait
+});
+```
+
+### Chromeless
+
+A plugin can display a webpage on your screen without the browser bars:
+
+```javascript
+SARAH.chromeless(url, o, w, h, x, y)
+```
+
+| Argument         | Description        |
+| ---------------- | ---------------    |
+| url	           | URL to display     |
+| o                | Browser's opacity  |
+| w                | Browser's width    |
+| h                | Browser's height   |
+| x                | Browser's x   |
+| y                | Browser's y   |
+
+**Example**
+
+```javascript
+SARAH.chromeless('http://www.google.com', 80);
+```
+
+## Rules Engine
+
+Just like [https://ifttt.com/](https://ifttt.com/), SARAH is able to trigger an action based on some rules.
+
+### Create a rule
+
+Let's use an example in order to understand how it works. Let's say we want to turn the lights on (using the `hue` plugin) when we pause a movie (using the `XBMC` plugin), and off when we play a movie.
+
+First we're going to create a rule:
+
+1. Open the Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080))  
+2. Go to `Règles` (left menu)  
+3. In the "Modules" section, you can modify an existing empty rule or create a new one by pressing the  "Ajouter une règle" button.  
+4. Select the plugin (or module) which will trigger the other plugin ("If...")   
+5. (Optional) Click on the "do" word to add some personalized code  
+6. Finally select the plugin you want to be executed (the one that will be triggered)  
+
+You now have two ways to do our example scenario.
+
+_Disclaimer_: because it's an example the XML content of the `hue` and `xbmc` plugins is not the real one.
+
+#### First way
+
+This is the recommended way to do it.
+
+When creating a new rule, you have the possibility to click on "do" (step 5) to add some personalized code. It's what we're going to do here.
+
+In this box you can use the `SARAH` object as well as an object called `options` that contains the data coming from the first plugin.
+
+You can first enter that below code into the "do" box:
+```javascript
+console.log("[DEBUG] ",options);
+```
+
+Then run the command you want (e.g. `SARAH play the movie`) and watch the server's window to find out the content of your `options` object. Let's say it returns the below data:
+```javascript
+{
+  action: 'play',
+  target: 'movie',
+  body: {},
+  _cmd: 'xbmc'
+}
+```
+
+And do the same with `SARAH pause the movie`:
+```javascript
+{
+  action: 'pause',
+  target: 'movie',
+  body: {},
+  _cmd: 'xbmc'
+}
+```
+
+Good, you can now look at the `hue.xml` file to find out which kind of parameters are used. Let's say we have the XML code below:
+```xml
+ <item repeat="0-1">
+    <one-of>
+      <item>turn on all the lights <tag>out.action.turnOn="true";out.action.allLights="true";</tag></item>
+      <item>turn of all the lights <tag>out.action.turnOn="false";out.action.allLights="true";</tag></item>
+	  </one-of>
+  </item>
+```
+
+Two parameters are used: `turnOn` (equals to `"true"` to turn on and to `"false"` to turn off) and `allLights` (equals to `"true"`).
+
+So now we can change the "do" box from the rule with the below code:
+```javascript
+// if it's a "play the movie" command
+if (options.action=="play" && options.target=="movie") {
+  // then turn off the lights
+  options.turnOn="false";
+  options.allLights="true";
+} else {
+  // if it's a "pause the movie"
+  if (options.action=="pause" && options.target=="movie") {
+    // then turn on the lights
+    options.turnOn="true";
+    options.allLights="true";
+  }
+}
+```
+
+Make sure to save the rule and now SARAH should turn on/off the lights based on the voice command related to play/pause a movie!
+
+#### Second way
+
+The second way consists to edit an XML file.
+
+We first look at `hue.xml` to understand which parameters have to be passed to turn all the lights on/off:
+
+```xml
+ <item repeat="0-1">
+    <one-of>
+      <item>turn on all the lights <tag>out.action.turnOn="true";out.action.allLights="true";</tag></item>
+      <item>turn of all the lights <tag>out.action.turnOn="false";out.action.allLights="true";</tag></item>
+	  </one-of>
+  </item>
+```
+
+So two parameters are used: `turnOn` (equals to `"true"` to turn on and to `"false"` to turn off) and `allLights` (equals to `"true"`).
+
+We now look at the `xbmc.xml` file to find the part we want to change:
+```xml
+	<rule id="ruleXBMC" scope="public">
+		<tag>out.action=new Object();</tag>
+		<one-of>
+			<item>play the movie<tag>out.action.action="play"; out.action.target="movie";</tag></item>
+			<item>pause the movie<tag>out.action.action="pause"; out.action.target="movie";</tag></item>
+		</one-of>
+	</rule>
+```
+
+And finally we add the `hue` parameters. The `xbmc.xml` file will then look like:
+```xml
+	<rule id="ruleXBMC" scope="public">
+		<tag>out.action=new Object();</tag>
+		<one-of>
+			<item>play the movie<tag>out.action.action="play"; out.action.target="movie"; out.action.turnOn="false"; out.action.allLights="true";</tag></item>
+			<item>pause the movie<tag>out.action.action="pause"; out.action.target="movie"; out.action.turnOn="true"; out.action.allLights="true";</tag></item>
+		</one-of>
+	</rule>
+```
+
+We added `out.action.turnOn="false"; out.action.allLights="true";` to turn off the lights when playing the movie, and `out.action.turnOn="true"; out.action.allLights="true";` to do the contrary when we pause the movie.
+
+Because of the rule we defined before the `out.action` parameters from `xbmc` will be sent to the `hue` plugin.
+
+### Note
+
+Take care about the current TTS: if SARAH is currently speaking (because of the "If" plugin), she cannot speak (TTS from the "then" plugin) in the same time.
+
+### Other filters
+
+You can execute a rule before or after each plugin execution.
+That's exactly the same than the "Modules" rules system, except that you don't have to select a "If" module.
