@@ -14,6 +14,7 @@ You'll find here how to create a plugin.
 * [How to](#how-to)
   + [How to send an HTTP Request](#how-to-send-an-http-request)
   + [How to scrap a webpage](#how-to-scrap-a-webpage)
+  + [How to parse an XML file](#how-to-parse-an-xml-file)
 * [JavaScript API](#javascript-api)
   + [Plugins Functions](#plugins-functions)
   + [HTTP Functions](#http-functions)
@@ -242,6 +243,50 @@ exports.after = function(options, results){
   // >>> Your code here <<<
 }
 ```
+
+### How to parse an XML file
+
+#### Using the XMLDoc library
+
+Here we'll use [XMLDoc](https://github.com/nfarina/xmldoc) instead of `xml2js` to read an XML file.
+
+You need first to download the [xmldoc.js](https://github.com/nfarina/xmldoc/blob/master/lib/xmldoc.js) file from Github. Save it in the same folder than your plugin files.
+
+Now, for our example, we'll use the file called `children.xml`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CHILDREN>
+  <CHILD name="luc" age="11" sex="M"/>
+  <CHILD name="sophie" age="12" sex="F"/>
+  <CHILD name="marie" age="13" sex="F"/>
+  <CHILD name="damien" age="14" sex="M"/>
+  <CHILD name="mathieu" age="15" sex="M"/>
+</CHILDREN>
+```
+
+To read this file we need the below code:
+```javascript
+// first we need to load the xmldoc library downloaded before
+// if you have it in a ` lib/` folder
+var xmldoc = require('./lib/xmldoc');
+// `fs` is a NodeJS module: http://nodejs.org/api/fs.html
+var fs = require('fs');
+var xmlFile = fs.readFileSync(__dirname+'\\children.xml');
+// we load the XML file
+var file = new xmldoc.XmlDocument(xmlFile);
+```
+
+Now if you want to find an information:
+```javascript
+// reach the line where name="marie"
+var child = file.childWithAttribute("name", "marie");
+// then you can use the other attributes
+console.log(child.attr.name+" is a "+(chidl.attr.sex==="M"?"boy":"girl");
+// -> "marie is a girl"
+```
+
+Note: if several lines are concerned, then it will return only the first one.
 
 ## JavaScript API
 
