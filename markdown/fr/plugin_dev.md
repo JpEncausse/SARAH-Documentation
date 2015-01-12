@@ -245,162 +245,175 @@ exports.after = function(options, results){
 
 ### Fonctions pour les plugins
 
-List of available functions to control plugins life cycle.
+Liste des fonctions disponibles pour le contrôle du cycle de vie des plugins :
 
 | NodeJS           | Description     |
 | ---------------- | --------------- |
-| SARAH.run()	   | Run script with given data |
-| SARAH.call()	   | Like run without rule dispatch |
-| SARAH.last()	   | Run latest script again (> v2.8) |
-| [SARAH.exists()](#SARAH_exists)   | Check if module/phantom exists (> v2.8) |
-| SARAH.remote()   | Run a client remote command (play, pause, …) |
+| SARAH.run()	   | Exécute un script donné avec des paramètres |
+| SARAH.call()	   | Exécute un script donné, mais sans enclencher le moteur de règles |
+| SARAH.last()	   | Rééxécute le dernier script appelé Run (> v2.8) |
+| [SARAH.exists()](#SARAH_exists)   | Vérifie si un module/phantom existe (> v2.8) |
+| SARAH.remote()   | Exécute une commande sur le client (play, pause, …) |
 
 
-To call a plugin you can use:
+Pour exécuter un plugin vous pouvez procéder ainsi :
+
 ```javascript
-// Run eedomus plugin with some parameters and trigger the Rule Engine
+// exécute le plugin eedomus avec des paramètres, et enclenche le moteur de règles
 SARAH.run('eedomus', { 'periphId' : id , 'periphValue' : value });
    
-// Call eedomus plugin without forwarding result to Rule Engine
+// exécute le plugin eedomus sans transmettre au moteur de règles
 SARAH.call('eedomus', { 'periphId' : LUMENS}, function(options){ /* do next stuff */  });
 ```
 
 ### HTTP Functions
 
-List of available functions that send an HTTP Request to the Client. The requests are sent using `SARAH.remote()`
+Liste des fonctions disponibles qui envoie une requête HTTP au client. Les requêtes sont envoyés en utilisant `SARAH.remote()`
 
 | NodeJS           | Request          | Description    |
 | ---------------- | ---------------- | -------------- |
-| [SARAH.answer()](#SARAH_answer)   |  | Call SARAH.speak() with predefined answers |
-| [SARAH.speak()](#SARAH_speak)	   | tts=...&sync=... | Trigger Text to Speech (can be sync or async) |
-| SARAH.shutUp()   | notts=...        | Stop speaking    |
-| [SARAH.play()](#SARAH_play)	   | play=...&sync=...         | File.mp3 to play |
-| [SARAH.pause()](#SARAH_pause)	   | pause=...        | File.mp3 to stop |
-| SARAH.keyText()  | keyText=...      | Text to type |
-| [SARAH.runApp()](#SARAH_runApp)   | run=...&runp=... | Application path to run and parameters |
-| SARAH.activate() | activate=...     | Application to put foreground |
-| SARAH.face()	   | face=...         | start/stop face recognition |
-| SARAH.gesture()  | gesture=...      | start/stop gesture recognition |
-| *the below is for the requests only*                                |
-|                  | picture=...      | Take a picture, store it and return in response (only main Sensor)|
-|                  | height=...       | Return user height [based on it's forearm](https://dl.dropboxusercontent.com/u/255810/Encausse.net/Sarah/skeleton.jpg) (value tts to speech) |
-|                  | keyUp=...        | Key to press |
-|                  | keyDown=...      | Key to press |
-|                  | keyPress=...     | Key to press |
+| [SARAH.answer()](#SARAH_answer)   |  | Appelle SARAH.speak() avec des phrases prédéfinies |
+| [SARAH.speak()](#SARAH_speak)	   | tts=...&sync=... | Fait parler SARAH (de façon synchrone ou asynchrone) |
+| SARAH.shutUp()   | notts=...        | Arrête le discours de SARAH    |
+| [SARAH.play()](#SARAH_play)	   | play=...&sync=...         | Lit un fichier.mp3 |
+| [SARAH.pause()](#SARAH_pause)	   | pause=...        | Arrête la lecture du fichier.mp3 |
+| SARAH.keyText()  | keyText=...      | Texte à taper |
+| [SARAH.runApp()](#SARAH_runApp)   | run=...&runp=... | Chemin d'accès et paramètres d'une application à exécuter |
+| SARAH.activate() | activate=...     | Application à passer au premier plan des fenêtres |
+| SARAH.face()	   | face=...         | Démarre/arrête la reconnaissance faciale |
+| SARAH.gesture()  | gesture=...      | Démarre/arrête la reconnaissance gestuelle |
+| *les requêtes ci-dessous n'ont pas d'équivalent JavaScript*                                |
+|                  | picture=...      | Prendre une photo |
+|                  | height=...       | Retourne la taille de l'utilisateur [basé sur son avant bras](https://dl.dropboxusercontent.com/u/255810/Encausse.net/Sarah/skeleton.jpg) (value tts to speech) |
+|                  | keyUp=...        | Toucher à presser |
+|                  | keyDown=...      | Toucher à presser |
+|                  | keyPress=...     | Toucher à presser |
 |                  | keyMod=...       | Key modifier |
-|                  | status=...       | returns "speaking" if SARAH is currently speaking |
-|                  | recognize=...    | Perform speech recognition on given audio path or upload |
-|                  | listen=...       | Start / Stop listening |
-|                  | context=...      | Activate context grammar |
+|                  | status=...       | Retourne "speaking" si SARAH est en train de parler |
+|                  | recognize=...    | Effectue une reconnaissance vocale sur un fichier audio |
+|                  | listen=...       | Démarre/arrête d'écouter |
+|                  | context=...      | Active la grammaire de contexte |
 
 ### JSDocs
 
 #### SARAH.exists(module)
 
-**Parameters**
+**Paramètres**
 
-* {String} module : check if a module/phantom is available
+* {String} module : nom du module/phantom
 
-**Return**
+**Retourne**
 
-If the module is available the function will return `true`, or `false` if it's not available.
+Si le module est disponible, la fonction retourne `true`, sinon elle retourne `false`.
 
-**Comments**
+**Commentaires**
 
-Since SARAH v2.8.
+A partir de SARAH v2.8.
 
-Example: if you have the plugin "freebox" you can test `SARAH.exists("freebox")`.
+Exemple : pour vérifier si le plugin "freebox" est bien chargé, il faut utiliser `SARAH.exists("freebox")`.
 
 #### SARAH.answer()
 
-**Parameters**
+SARAH va dire une phrase aléatoire.
 
-* No parameter
+**Paramètres**
 
-**Comments**
+* Aucun paramètre
 
-The function will randomly take one sentence from the `custom.prop`. You can change the default sentences via the web interface of SARAH: in the "A propos" widget, just click on the "Config." button. Each answers must be seperated with a pipe (|).
+**Commentaires**
 
-The default answers are `Oui|Je m'en occupe|Voilà|C'est fait`. So when you call `SARAH.answer()` the program will say "Oui", or "Voilà", or "Je m'en occupe". The answer is randomly chosen.
+Cette fonction va choisir une phrase de façon aléatoire depuis le fichier `custom.prop`. Il est possible de changer les phrases par défaut en passant par [l'interface Web de SARAH](http://127.0.0.1:8080/home) en allant dans le widget "A props" et en cliquant sur le bouton "Config". Chaque phrase doit être séparée par un _pipe_ (|).
+
+Les réponses par défaut sont `Oui|Je m'en occupe|Voilà|C'est fait`. Donc quand `SARAH.answer()` est appelée, le programme dira "Oui", ou "Voilà", ou "Je m'en occupe". La réponse est choisie de façon aléatoire.
 
 #### SARAH.speak(sentence, [callback])
 
-**Parameters**
+Fait parler SARAH de façon synchrone ou asynchrone.
 
-* {String} Sentence : this is the sentence that SARAH will say 
-* {Function} [callback] : (optional) this is a callback function that will be called when the sentence has been said
+**Paramètres**
 
-**Comments**
+* {String} Sentence : la phrase que SARAH va dire  
+* {Function} [callback] : (optionnel) en asynchrone, c'est la fonction qui est appelée lorsque SARAH a fini de parler
 
-The call is synchronous if you don't use a second parameter. Examples:
+**Commentaires**
+
+Par défaut l'appel à la fonction est **synchrone** s'il n'y a pas de fonction _callback_. Exemple :
 ```javascript
-SARAH.speak("Hello");
-SARAH.speak("world");
-SARAH.speak("I'm Sarah");
+SARAH.speak("Bonjour");
+SARAH.speak("le monde");
+SARAH.speak("Je suis SARAH");
 ```
 
-Then it will send 3 HTTP requests and only 1 will be said by SARAH. It's because the TTS requests are ignored when SARAH is currently speaking.
+Ces trois fonctions enverront 3 requêtes HTTP et seulement une sera lue par SARAH. La raison est que le TTS ignore les autres demandes tant que SARAH est en train de lire quelque chose.
 
-From SARAH V3.0 it's possible to change this behavior with cascading calls (=asynchronous):
+A partir de SARAH v3.0 il est possible de changer ce comportement en appellant les fonctions en cascade (= asynchrone) :
 ```javascript
-SARAH.speak("Hello", function(){
-  SARAH.speak("world", function(){
-    SARAH.speak("I'm Sarah", function(){
+SARAH.speak("Bonjour", function(){
+  SARAH.speak("le monde", function(){
+    SARAH.speak("Je suis SARAH", function(){
       // ...
     })
   })
 })
 ```
 
-It's still possible to use `SARAH.shutUp()` at any time to stop SARAH for speaking.
+Il est aussi possible d'utiliser `SARAH.shutUp()` à n'importe quel moment pour qu'elle arrête de parler.
 
-**Note** - you can check the status of SARAH in sending the request `http://127.0.0.1:8888/?status=true` : if it returns `speaking` then it means SARAH is current speaking, otherwise it returns nothing.
+A noter qu'il est possible de connaître le statut de SARAH grâce à [http://127.0.0.1:8888/?status=true](http://127.0.0.1:8888/?status=true) : si cette adresse retourn `speaking` cela signifie que SARAH est en train de parler, sinon rien n'est retourné.
 
 #### SARAH.play(file/url, [callback])
 
-**Parameters**
+SARAH va lire un fichier MP3 ou WAV.
 
-* {String} file : relative path to a MP3 or WAV file (e.g. `media/song.mp3`), or a web URL (e.g. `http://www.site.com/file.mp3`)
-* {Function} [callback] : (optional) this is a callback function that will be called when the audio has been played
+**Paramètres**
 
-**Comments**
+* {String} file : le chemin d'accès relatif vers un fichier MP3 ou WAV (par exemple `media/song.mp3`), ou vers une URL (par exemple `http://www.site.com/file.mp3`)
+* {Function} [callback] : (optionnel) une fonction à appeler quand la lecture du fichier est terminée
 
-This function will play a sound file. The sounds can be parallelized.
-However there is a timeout after 8 minutes (from SARAH v3.1, or 2 minutes for SARAH < v3.1) that will automatically stop the playing.
+**Commentaires**
 
-Regarding the **WAV file**, it must be a 88 kb/s encoded file (the 64 kb/s won't work).
+Cette fonction va lire un fichier son. Les sons peuvent être mis en parallèle.
+Cependant après 8 minutes (pour SARAH v3.1, ou 2 minutes for SARAH < v3.1) le fichier va s'arrêter d'être lu automatiquement.
+
+Concernant les **fichiers WAV**, ils doivent être encodés en 88 kb/s (le codage 64 kb/s ne fonctionne pas).
 
 #### SARAH.pause(file)
 
-**Parameters**
+Met en pause la lecture d'un fichier audio.
 
-* {String} file : relative path to a MP3 or WAV file (e.g. `media/song.mp3`), or a web URL (e.g. `http://www.site.com/file.mp3`)
+**Paramètres**
 
-**Comments**
+* {String} file : le chemin d'accès relatif vers un fichier MP3 ou WAV (par exemple `media/song.mp3`), ou vers une URL (par exemple `http://www.site.com/file.mp3`)
 
-This function will stop/pause a sound that is currently playing.
-The `file` parameter must be the same used for `SARAH.play()`.
+**Commentaires**
+
+Cette fonction permet d'arrêter la lecture d'un fichier audio.
+Le paramètre `file` doit être le même que pour `SARAH.play()`.
 
 #### SARAH.runApp({run, [runp]})
 
-**Parameters**
+Exécute une application donnée.
 
-* {Object} the options
-  + {String} run : the path to the program to execute
-  + {String} [runp] : use this one to pass some parameters to the program
+**Paramètres**
 
-**Comments**
+* {Object} les options
+  + {String} run : chemin d'accès vers le programme à exécuter
+  + {String} [runp] : à utiliser pour passer des paramètres au programme appelé
 
-This function call the C# function [Process.Start(processName, param)](http://msdn.microsoft.com/en-us/library/system.diagnostics.process.start.aspx). Windows' rule: never use space or custom chars in path.
+**Commentaires**
 
-If you want to launch/run an executable program on **client** side:
+Cette fonction appelle la fonction C# [Process.Start(processName, param)](http://msdn.microsoft.com/en-us/library/system.diagnostics.process.start.aspx).
 
+Voici comment lancer un programme **côté client** :
 ```javascript
-  // Lauching XBMC
-  SARAH.runApp('E:\\XBMC12\\XBMC.exe');
+// Pour démarrer XBMC
+SARAH.runApp('E:\\XBMC12\\XBMC.exe');
 
-  // Lauching Spotify with a song
-  SARAH.runApp('C:\\Program Files (x86)\\Spotify\\spotify.exe', '"spotify:track:6ilfuI7O1vUfKf4TQ9fJRb"');
+// Pour démarrer Spotify avec une musique
+SARAH.runApp('C:\\Program Files (x86)\\Spotify\\spotify.exe', '"spotify:track:6ilfuI7O1vUfKf4TQ9fJRb"');
+
+// ou avec Winamp
+SARAH.runApp('C:\\Program Files (x86)\\Winamp\\winamp.exe', '"D:\\My Song.mp3"');
 ```
 
 If you want to launch/run an executable program on **server** side:
