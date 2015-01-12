@@ -183,7 +183,7 @@ The C# client uses a Speaker Manager to perform Text to Speech and play music on
 ; but if, for some reasons, you need to define the voice, then use this parameter
 ; voice=Voice Text to Speech
 
-; Speaker output (ID separeted by "," -- use "all" for all your speakers)
+; Speaker output (ID separated by "," -- use "all" for all your speakers)
 ; It's an ID. The default one is 0, that is the current default speaker
 ; if you want to use another speaker, or use several of them, you can do it with the below parameter
 speaker=0
