@@ -10,6 +10,7 @@
 * [Comment faire](#comment-faire)
   + [Comment envoyer une requête HTTP](#comment-envoyer-une-requête-http)
   + [Comment récupérer une partie d'une page Web](#comment-récupérer-une-partie-dune-page-web)
+  + [Comment analyser un fichier XML](#comment-analyser-un-fichier-xml)
 * [API JavaScript](#api-javascript)
   + [Fonctions pour les plugins](#fonctions-pour-les-plugins)
   + [HTTP Functions](#http-functions)
@@ -240,6 +241,49 @@ exports.after = function(options, results){
   // >>> Your code here <<<
 }
 ```
+
+### Comment analyser un fichier XML
+
+#### En utilisant la bibliothèque XMLDoc
+
+Ici nous allons utiliser [XMLDoc](https://github.com/nfarina/xmldoc) au lieu de `xml2js` pour lire un fichier XML.
+
+Vous aurez d'abord besoin de télécharger [xmldoc.js](https://github.com/nfarina/xmldoc/blob/master/lib/xmldoc.js) depuis Github puis de l'engistrer dans le même répertoire que votre plugin.
+
+Maintenant, pour notre example, nous allons utiliser un fichier appelé `children.xml`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CHILDREN>
+  <CHILD name="luc" age="11" sex="M"/>
+  <CHILD name="sophie" age="12" sex="F"/>
+  <CHILD name="marie" age="13" sex="F"/>
+  <CHILD name="damien" age="14" sex="M"/>
+  <CHILD name="mathieu" age="15" sex="M"/>
+</CHILDREN>
+```
+
+Pour lire ce fichier on a besoin du code ci-dessous:
+```javascript
+// d'abord il faut charger la bibliothèque `xmldoc` qu'on a téléchargé
+var xmldoc = require('./lib/xmldoc');
+// `fs` est un module de NodeJS : http://nodejs.org/api/fs.html
+var fs = require('fs');
+var xmlFile = fs.readFileSync(__dirname+'\\children.xml');
+// on charge le fichier XML
+var file = new xmldoc.XmlDocument(xmlFile);
+```
+
+Maintenant pour trouver une information:
+```javascript
+// on cherche la ligne qui a l'attribute name="marie"
+var child = file.childWithAttribute("name", "marie");
+// et maintenant on peut retrouver les autres attributs
+console.log(child.attr.name+" est "+(chidl.attr.sex==="M"?"un garçon":"une fille");
+// -> "marie est une fille"
+```
+
+Remarque : si plusieurs lignes existent, alors seule la première est retrouvée.
 
 ## JavaScript API
 
