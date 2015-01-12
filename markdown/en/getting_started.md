@@ -48,6 +48,9 @@ Here are the instructions to install it on Windows:
 Some notes regarding the Kinect installation:
 * Don't use USB 3 because the microphone won't work;
 * If you use several Kinects and you want to use the video, then you have to use two different USB bus, otherwise only one video will work due to a bandwidth issue (so if you only use the audio, then you can share the same USB).
+* Put Kinect in direct line with the users. 
+* Put sound or music sources behind the Kinect.
+* User must speak 20db above sound. 
 
 ### Kinect v2
 
@@ -58,11 +61,15 @@ Here are the instructions to install the second generation of Kinect:
 
 ## Configuration
 
-Things you need to do:
+In order to have some good results with SARAH you need to use a good microphone. Here is [an article (in French)](http://encausse.wordpress.com/2013/05/19/thevoice/) where testing Microhpone, Kinect and VoiceTracker II with SARAH.
+
+Find below the next steps:
 
 1. Go to the `profile/` folder and delete the file `profile.json` otherwise SARAH will sometimes call you _Jean-Philippe_ !
 2. Get the Google API Key ([see below](#get-the-google-api-key))
 3. Look at the different settings into the `config.ini` file
+4. Set the income sound volume : go to ➔ `Control Panel` ➔  `Sound` ➔  `Right click on your microphone` ➔  Click on `Properties` ➔  Change the `levels` (for a simple microphone don't go too high ~80, and for Kinect, just try different settings)
+5. Train your voice in Windows : go to ➔  `Control Panel` ➔  `Speech Recognition` ➔   `Train your computer to better understand you` (attention: with a simple microphone, do this training only once)
 
 ### Get the Google API Key
 
