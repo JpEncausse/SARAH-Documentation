@@ -158,6 +158,49 @@ All the parameters to configure SARAH are in the `config.ini` file.
 
 We'll list below some of them.
 
+#### SARAH
+
+```
+; Speech 1st word confidence (aka SARAH)
+; The first word "SARAH" should be strong to remove false positive
+; from 0 to 1
+trigger=0.8
+
+; Speech overall confidence
+; The overall sentence can be lower than the 1st word
+; from 0 to 1
+confidence=0.70
+```
+
+#### Tweaks
+
+Some SpeechEngine tweaks are exposed in the properties to tweak the engine behavior. See [Microsoft Documentation](http://msdn.microsoft.com/en-us/library/System.Speech.Recognition.SpeechRecognitionEngine_properties.aspx) for more info.
+
+```
+; Speech engines tweaks (in seconds) 
+alternate=10
+initialSilence=0
+babble=0
+endSilence=0
+endSilenceAmbiguous=0
+```
+
+#### Debug Recognition
+
+```
+; Print trace logs. Output speech wav in /dump (must exists)    
+; A `dump/` folder must be created at the root installation folder of SARAH.
+; *All* matching recognitions will be dumped in that `dump/` folder 
+;   with the audio (WAV file) and the related confidence.
+debug=false
+
+; Log file path (default "${basedir}/${shortdate}.log")
+; logfile=${basedir}/${shortdate}.log
+
+; Log2Console port
+udpport=9999
+```
+
 #### Special Kinect settings
 
 ```
