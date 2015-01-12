@@ -14,7 +14,7 @@ Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée �
 * [Démarrer](#démarrer)
 * [Plugins](#plugins)
   + [Installation](#installation)
-  + [Configuration](#configuration)con
+  + [Configuration](#configuration)
   + [Utilisation](#utilisation)
 * [Mise à jour de SARAH](#mise-à-jour-de-sarah)
 
