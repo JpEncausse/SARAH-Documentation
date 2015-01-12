@@ -94,7 +94,116 @@ _To complete_
 
 ### yourplugin.js
 
-_To complete_
+A plugin can provide a JS file called `yourplugin.js`. This file contains the code to run for each HTTP request sent to: `http://127.0.0.1:8080/sarah/{plugin}?{param}={value}`
+
+This `yourplugin.js` file should contain the below code:
+```javascript
+// `exports.action` is run when the plugin is called due to a voice recognition or an HTTP request
+exports.action = function(data, callback, config, SARAH){
+  // `config.modules.yourplugin` permits to get the parameters defined in `yourplugin.prop`
+  var myConfig = config.modules.myplugin;
+  
+  // if you use the `yourplugin.prop` file shown before we can get the `user_setting1` value with:
+  console.log("Value for user_setting1=", myConfig.user_setting1);
+  
+  // we can also get the data sent from the `yourplugin.xml` file used in the example before
+  // it's `myParam` with value "on" or "off"
+  console.log("Value of myParam=", data.myParam);
+  
+  // report to the JSDoc in this page to find what to do with SARAH variable
+  // for example you can vocalize a sentence:
+  SARAH.speak("Hello world!");
+
+  // it's *MANDATORY* to finish your code by `callback({})`
+  // (optional) you can pass one parameter that is a text to speech
+  callback({'tts' : 'text to speech'});
+}
+```
+
+Here is a description of the function's parameters:
+
+| Params           | Description     |
+| ---------------- | --------------- |
+| data             | JSON object with the HTTP request parameters               |
+| callback         | A function that MUST be called ONCE to release the request |
+| config           | The JSON config file (.prop file)                          |
+| SARAH            | The Singleton entry to API                                 |
+
+The plugin can also declare variables and functions outside the `exports.action`. It will help to get a more readable code:
+```javascript
+exports.action = function(data, callback, config, SARAH){
+  var value = yourcodehere();
+  callback(value);
+}
+
+var yourcodehere = function(){
+  // your code here
+  return 'something';
+}
+```
+
+The scope of this above code is only for this plugin and it's stored into the memory. If the plugin's file is modified, then the memory is wiped and the code is reloaded.
+
+**Some other special functions** are available.
+
+`exports.init` is an initialization function that is called when the server starts and when the plugin is reloaded:
+```javascript
+exports.init = function(SARAH) {
+  // your code here
+}
+```
+
+This function can be used to initialize data, setup a server, etc...
+
+`exports.speak` is a function to override the default TTS or to find an other way to perform the text to speech. If `tts` is false then the speech is canceled. If `async` is true then the function is called twice with the second call with `async=false`.
+```javascript
+exports.speak = function(tts, async, SARAH){
+  // your code here
+  return tts;
+}
+```
+
+| Params           | Description     |
+| ---------------- | --------------- |
+| tts              | The text to speech  |
+| async            | True if async, False if sync or end of speech  |
+| SARAH            | Singleton API   |
+
+
+`exports.standBy` is a function that handles the motion/standby state of clients.
+```javascript
+exports.standBy = function(motion, data, SARAH){
+  // `motion` is a boolean true/false
+}
+```
+
+`exports.cron` permits to call a plugin at a given time schedule.
+You'll need to have the below info into the `yourplugin.prop` file:
+```javascript
+{
+  "cron" : {
+    "myplugin" :   { 
+      "name"       : "myplugin",
+      "description": "Description of My Demo Plugin",
+      "time"       : "0 */5 * * * *",
+      "param1"     : "(optional) [param to be defined by the user]",
+      "param2"     : "(optional) [another parameter]"
+    }
+  }
+}
+```
+
+The `time` parameter is a [CRON](http://fr.wikipedia.org/wiki/Crontab) notation.
+
+Then the JavaScript code is:
+```javascript
+exports.cron = function(callback, task, SARAH){
+  // >>> your code here <<<
+  callback({'tts' : 'text to speech'});
+}
+```
+
+The `task` parameter is a JSON object of the plugin's cron config.
 
 ### portlet.html
 
