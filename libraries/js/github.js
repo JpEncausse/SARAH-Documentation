@@ -110,7 +110,7 @@
       var $link = $(this);
       if ($link.attr('rel')){ return; }
       
-      var href  = $link.attr('href');
+      var href  = $link.attr('href') || "";
       if (href.startsWith('http')){ return; }
       
       // if the link is an internal link, just jump to the correct section
