@@ -8,13 +8,13 @@ Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée �
   + [Windows](#windows)
   + [Kinect v1](#kinect-v1)
   + [Kinect v2](#kinect-v2)
-* [Configurer](#configurer)
+* [Configuration](#configuration)
   + [Récupérer une Google API Key](#récupérer-une-Google-API-Key)
   + [config.ini](#config.ini)
 * [Démarrer](#démarrer)
 * [Plugins](#plugins)
   + [Installation](#installation)
-  + [Configuration](#configuration)
+  + [Configuration Plugins](#configuration)
   + [Utilisation](#utilisation)
 * [Mise à jour de SARAH](#mise-à-jour-de-sarah)
 
@@ -57,7 +57,7 @@ Ci-dessous les instructions pour la deuxième génération de Kinect :
 1. Télécharger et installer [Kinect SDK v2](http://www.microsoft.com/en-us/download/details.aspx?id=44561)
 2. Télécharger et installer [language packs v2](http://www.microsoft.com/en-us/download/details.aspx?id=43662) (au moment du téléchargement il faudra bien choisir "FR-fr" pour la langue)
 
-## Configurer
+## Configuration
 
 Si vous souhaitez que SARAH fonctionne bien, il faut utiliser un bon micro. Dans [cet article](http://encausse.wordpress.com/2013/05/19/thevoice/) trois microphones (Microhpone, Kinect et VoiceTracker II) ont été testés avec SARAH.
 
@@ -389,7 +389,7 @@ La structure des fichiers sera alors:
 * plugins/demo/demo.prop
 * plugins/demo/demo.xml
 
-### Configuration
+### Configuration Plugins
 
 Les plugins installés s'affichent dans l'interface Web ([http://127.0.0.1:8080](http://127.0.0.1:8080)) sous forme de _widgets_.
 
