@@ -107,15 +107,10 @@
   var registerClick = function(){
     
     $(document).on('mousedown', 'a[href]', function(event){
-      //event.preventDefault();
-      
       var $link = $(this);
       if ($link.attr('rel')){ return; }
 
       var href  = $link.attr('href') || "";
-      if (typeof console !== "undefined") {
-        console.log("$link=",$link,"href=",href);
-      }
       if (href.slice(0,4) === 'http') { return; }
       
       // if the link is an internal link, just jump to the correct section
