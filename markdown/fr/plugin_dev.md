@@ -593,112 +593,112 @@ C'est la façon qui est recommandée.
 
 Lorsqu'on crée une nouvelle règle, il est possible de cliquer sur le mot "do" (étape 5) pour ajouter du code personnalisé. C'est ce que nous allons faire ici.
 
-In this box you can use the `SARAH` object as well as an object called `options` that contains the data coming from the first plugin.
+Dans la boite qui s'ouvre vous pouvez utiliser l'objet `SARAH`, ainsi que `options` qui contient les données venant du premier plugin.
 
-You can first enter that below code into the "do" box:
+Tout d'abord, entrer le code ci-dessous dans la boite de "do" :
 ```javascript
 console.log("[DEBUG] ",options);
 ```
 
-Then run the command you want (e.g. `SARAH play the movie`) and watch the server's window to find out the content of your `options` object. Let's say it returns the below data:
+Ensuite on exécute la commande souhaitée (par exemple `SARAH lance le film`) et on observe la fenêtre du serveur afin de trouver le contenu de l'objet `options`. Par exemple `options` va contenir :
 ```javascript
 {
-  action: 'play',
-  target: 'movie',
+  action: 'lecture',
+  target: 'film',
   body: {},
   _cmd: 'xbmc'
 }
 ```
 
-And do the same with `SARAH pause the movie`:
+Et lorsqu'on met le film en pause avec `SARAH met le film sur pause` :
 ```javascript
 {
   action: 'pause',
-  target: 'movie',
+  target: 'film',
   body: {},
   _cmd: 'xbmc'
 }
 ```
 
-Good, you can now look at the `hue.xml` file to find out which kind of parameters are used. Let's say we have the XML code below:
+Bien, maintenant on regarde le contenu du fichier `hue.xml` pour trouver les paramètres utilisés. Par exemple le contenu XML ressemble à :
 ```xml
  <item repeat="0-1">
     <one-of>
-      <item>turn on all the lights <tag>out.action.turnOn="true";out.action.allLights="true";</tag></item>
-      <item>turn of all the lights <tag>out.action.turnOn="false";out.action.allLights="true";</tag></item>
+      <item>allumer toutes les lumières <tag>out.action.turnOn="true";out.action.allLights="true";</tag></item>
+      <item>éteindre toutes les lumières <tag>out.action.turnOn="false";out.action.allLights="true";</tag></item>
 	  </one-of>
   </item>
 ```
 
-Two parameters are used: `turnOn` (equals to `"true"` to turn on and to `"false"` to turn off) and `allLights` (equals to `"true"`).
+Deux paramètres sont utilisés : `turnOn` (égal à `"true"` pour allumer et à `"false"` pour éteindre) et `allLights` (égal à `"true"`).
 
-So now we can change the "do" box from the rule with the below code:
+Donc maintenant on peut changer le code de la boite "do" avec celui-ci :
 ```javascript
-// if it's a "play the movie" command
-if (options.action=="play" && options.target=="movie") {
-  // then turn off the lights
+// si la commande "SARAH lance le film"
+if (options.action=="lecture" && options.target=="film") {
+  // alors éteindre les lumières
   options.turnOn="false";
   options.allLights="true";
 } else {
-  // if it's a "pause the movie"
-  if (options.action=="pause" && options.target=="movie") {
-    // then turn on the lights
+  // si la commande "SARAH met le film sur pause"
+  if (options.action=="pause" && options.target=="film") {
+    // alors on rallume
     options.turnOn="true";
     options.allLights="true";
   }
 }
 ```
 
-Make sure to save the rule and now SARAH should turn on/off the lights based on the voice command related to play/pause a movie!
+Il faut s'assurer de bien enregistrer les règles et SARAH devrait maintenant réagir et éteindre/allumer les lampes selon qu'on lit/arrête un film.
 
-#### Second way
+#### Seconde façon
 
-The second way consists to edit an XML file.
+La seconde facçon consiste à éditer le fichier XML.
 
-We first look at `hue.xml` to understand which parameters have to be passed to turn all the lights on/off:
+On regarde d'abord le contenu du fichier `hue.xml` pour voir les paramètres qui sont passés pour allumer/éteindre :
 
 ```xml
  <item repeat="0-1">
     <one-of>
-      <item>turn on all the lights <tag>out.action.turnOn="true";out.action.allLights="true";</tag></item>
-      <item>turn of all the lights <tag>out.action.turnOn="false";out.action.allLights="true";</tag></item>
+      <item>allumer toutes les lumières <tag>out.action.turnOn="true";out.action.allLights="true";</tag></item>
+      <item>éteindre toutes les lumières <tag>out.action.turnOn="false";out.action.allLights="true";</tag></item>
 	  </one-of>
   </item>
 ```
 
-So two parameters are used: `turnOn` (equals to `"true"` to turn on and to `"false"` to turn off) and `allLights` (equals to `"true"`).
+Deux paramètres sont utilisés : `turnOn` (égal à `"true"` pour allumer et à `"false"` pour éteindre) et `allLights` (égal à `"true"`).
 
-We now look at the `xbmc.xml` file to find the part we want to change:
+On regarde maintenant le contenu du fichier `xbmc.xml` pour trouver la partie qui nous intéresse :
 ```xml
 	<rule id="ruleXBMC" scope="public">
 		<tag>out.action=new Object();</tag>
 		<one-of>
-			<item>play the movie<tag>out.action.action="play"; out.action.target="movie";</tag></item>
-			<item>pause the movie<tag>out.action.action="pause"; out.action.target="movie";</tag></item>
+			<item>lance le film<tag>out.action.action="lecture"; out.action.target="film";</tag></item>
+			<item>mets le film sur pause<tag>out.action.action="pause"; out.action.target="film";</tag></item>
 		</one-of>
 	</rule>
 ```
 
-And finally we add the `hue` parameters. The `xbmc.xml` file will then look like:
+Et, enfin, on ajoute les paramètres de `hue` dans le fichier `xbmc.xml` qui va alors ressembler à :
 ```xml
 	<rule id="ruleXBMC" scope="public">
 		<tag>out.action=new Object();</tag>
 		<one-of>
-			<item>play the movie<tag>out.action.action="play"; out.action.target="movie"; out.action.turnOn="false"; out.action.allLights="true";</tag></item>
-			<item>pause the movie<tag>out.action.action="pause"; out.action.target="movie"; out.action.turnOn="true"; out.action.allLights="true";</tag></item>
+			<item>lance le film<tag>out.action.action="play"; out.action.target="film"; out.action.turnOn="false"; out.action.allLights="true";</tag></item>
+			<item>mets le film sur pause<tag>out.action.action="pause"; out.action.target="film"; out.action.turnOn="true"; out.action.allLights="true";</tag></item>
 		</one-of>
 	</rule>
 ```
 
-We added `out.action.turnOn="false"; out.action.allLights="true";` to turn off the lights when playing the movie, and `out.action.turnOn="true"; out.action.allLights="true";` to do the contrary when we pause the movie.
+On a ajouté `out.action.turnOn="false"; out.action.allLights="true";` pour éteindre les lumières lorsqu'on lance un film, et `out.action.turnOn="true"; out.action.allLights="true";` pour les allumer quand on le met sur pause.
 
-Because of the rule we defined before the `out.action` parameters from `xbmc` will be sent to the `hue` plugin.
+Du au fait qu'on a défini une règle, les `out.action` de `xbmc` sont transmis au plugin `hue`.
 
 ### Remarque
 
-Take care about the current TTS: if SARAH is currently speaking (because of the "If" plugin), she cannot speak (TTS from the "then" plugin) in the same time.
+Faire attention à ce qui est en cours de vocalisation : si SARAH est en train de parler (dû au plugin "If"), alors elle ne pourra pas parler(dans le plugin "then") en même temps.
 
 ### Autres filtres
 
-You can execute a rule before or after each plugin execution.
-That's exactly the same than the "Modules" rules system, except that you don't have to select a "If" module.
+Vous pouvez exécuter une règle avant ou après chaque appel d'un plugin.
+C'est exactement la même chose que pour le système de règles de "Modules", sauf que vous n'avez pas besoin de choisir un plugin "If".
