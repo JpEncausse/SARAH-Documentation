@@ -59,11 +59,15 @@ Ci-dessous les instructions pour la deuxième génération de Kinect :
 
 ## Configuration
 
-Maintenant voici ce qu'il faut faire :
+Si vous souhaitez que SARAH fonctionne bien, il faut utiliser un bon micro. Dans [cet article](http://encausse.wordpress.com/2013/05/19/thevoice/) trois microphones (Microhpone, Kinect et VoiceTracker II) ont été testés avec SARAH.
+
+Ci-dessous les prochaines étapes à suivre :
 
 1. Aller dans le répertoire `profile/` et effacer le fichier `profile.json` (sinon SARAH risque de vous appeler _Jean-Philippe_ de temps en temps !)
 2. Récupérer une Google API Key ([voir ci-dessous](#récupérer-une-google-api-key))
 3. Regarder les différents paramètres disponibles dans le fichier `config.ini`
+4. Change le volume d'entrée du son : aller dans ➔ `Panneau de Configuration` ➔  Chercher `Gérer les périphériques audio` ➔  `Clique droit sur votre microphone` ➔  Cliquer sur `Propriétés` ➔  `Change le niveau` (par exemple, pour un microphone classique, ce doit être ~80, et pour un Kinect, il faut tenter plusieurs configurations)
+5. Entrainer la reconnaissance vocale de Windows : aller dans ➔  `Panneau de Contrôle` ➔  `Reconnaissance vocale` ➔ `Suivre les dictatiels de reconnaissance vocale` (attention : avec un microphone classique il ne faut pas faire ce dictaciel plus d'une fois)
 
 ### Récupérer une Google API Key
 
@@ -253,7 +257,7 @@ Limitations :
 
 ![gesture schema](https://dl.dropboxusercontent.com/u/255810/Encausse.net/Sarah/github/skeleton.png)
 
-See also: [SARAH: Reconnaissance gestuelle (in French)](http://encausse.wordpress.com/2012/10/08/s-a-r-a-h-allier-le-geste-a-la-parole/) 
+See also: [SARAH: Reconnaissance gestuelle](http://encausse.wordpress.com/2012/10/08/s-a-r-a-h-allier-le-geste-a-la-parole/) 
 
 #### Suivi du visage
 
