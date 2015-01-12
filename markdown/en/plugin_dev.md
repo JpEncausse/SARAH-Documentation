@@ -271,7 +271,7 @@ SARAH.call('eedomus', { 'periphId' : LUMENS}, function(options){ /* do next stuf
 
 List of available functions that send an HTTP Request to the Client. The requests are sent using `SARAH.remote()`
 
-| NodeJS           | Request          | Description    |
+| JavaScript       | Request          | Description    |
 | ---------------- | ---------------- | -------------- |
 | [SARAH.answer()](#SARAH_answer)   |  | Call SARAH.speak() with predefined answers |
 | [SARAH.speak()](#SARAH_speak)	   | tts=...&sync=... | Trigger Text to Speech (can be sync or async) |
@@ -283,7 +283,7 @@ List of available functions that send an HTTP Request to the Client. The request
 | SARAH.activate() | activate=...     | Application to put foreground |
 | SARAH.face()	   | face=...         | start/stop face recognition |
 | SARAH.gesture()  | gesture=...      | start/stop gesture recognition |
-| *the below is for the requests only*                                |
+| *the below is for the requests only, there is no JS functions*                            |
 |                  | picture=...      | Take a picture, store it and return in response (only main Sensor)|
 |                  | height=...       | Return user height [based on it's forearm](https://dl.dropboxusercontent.com/u/255810/Encausse.net/Sarah/skeleton.jpg) (value tts to speech) |
 |                  | keyUp=...        | Key to press |
