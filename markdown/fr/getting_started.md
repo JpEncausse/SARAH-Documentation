@@ -1,6 +1,6 @@
 # Premiers Pas
 
-Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée à [SARAH v4](installation_v4) si vous testez cette nouvelle version.
+Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée à [SARAH v4](sarah_v4) si vous testez cette nouvelle version.
 
 ## Sommaire
 
