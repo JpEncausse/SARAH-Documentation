@@ -8,7 +8,7 @@ Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée �
   + [Windows](#windows)
   + [Kinect v1](#kinect-v1)
   + [Kinect v2](#kinect-v2)
-* [Configuration](#configuration)
+* [Configurer](#configurer)
   + [Récupérer une Google API Key](#récupérer-une-Google-API-Key)
   + [config.ini](#config.ini)
 * [Démarrer](#démarrer)
@@ -57,7 +57,7 @@ Ci-dessous les instructions pour la deuxième génération de Kinect :
 1. Télécharger et installer [Kinect SDK v2](http://www.microsoft.com/en-us/download/details.aspx?id=44561)
 2. Télécharger et installer [language packs v2](http://www.microsoft.com/en-us/download/details.aspx?id=43662) (au moment du téléchargement il faudra bien choisir "FR-fr" pour la langue)
 
-## Configuration
+## Configurer
 
 Si vous souhaitez que SARAH fonctionne bien, il faut utiliser un bon micro. Dans [cet article](http://encausse.wordpress.com/2013/05/19/thevoice/) trois microphones (Microhpone, Kinect et VoiceTracker II) ont été testés avec SARAH.
 
