@@ -156,7 +156,49 @@ ATous les paramètres de configuration de SARAH sont disponibles dans le fichier
 
 Ci-dessous une liste de quelques uns de ces paramètres
 
-#### Special Kinect settings
+#### SARAH
+
+```
+; La confidence sur le premier mot (c'est-à-dire sur "SARAH")
+; Le premier mot ("SARAH") devrait avoir une confidence haute afin d'éviter les faux positifs
+; de 0 à 1
+trigger=0.8
+
+; La confidence pour le reste de la phrase peut être plus faible que celle du 1er mot
+; de 0 à 1
+confidence=0.70
+```
+
+#### Petits ajustements
+
+Des petits ajustements peuvent être fait sur le comportement de la synthèse vocale. Voir la [documentation de Microsoft](http://msdn.microsoft.com/en-us/library/System.Speech.Recognition.SpeechRecognitionEngine_properties.aspx) pour plus d'informations.
+
+```
+; Speech engines tweaks (in seconds) 
+alternate=10
+initialSilence=0
+babble=0
+endSilence=0
+endSilenceAmbiguous=0
+```
+
+#### Debug Recognition
+
+```
+; Print trace logs. Output speech wav in /dump (must exists)    
+; Un dossier `dump/` doit être créé à la racine de l'installation de SARAH
+; *Toutes* les reconnaissances vocales seront enregistrées dans ce répertoire
+;   en incluant le fichier audio (fichier WAV) ainsi que la confidence liée
+debug=false
+
+; Log file path (default "${basedir}/${shortdate}.log")
+; logfile=${basedir}/${shortdate}.log
+
+; Log2Console port
+udpport=9999
+```
+
+#### Les paramètres spéciaux pour Kinect
 
 ```
 ; ce paramètre permet d'indiquer si on souhaite seulement la reconnaissance vocale (true)
