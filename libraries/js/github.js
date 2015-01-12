@@ -106,7 +106,9 @@
   
   var registerClick = function(){
     
-    $(document).on('mousedown', 'A[href]', function(){
+    $(document).on('mousedown', 'a[href]', function(event){
+      //event.preventDefault();
+      
       var $link = $(this);
       if ($link.attr('rel')){ return; }
 
@@ -114,10 +116,10 @@
       if (typeof console !== "undefined") {
         console.log("$link=",$link,"href=",href);
       }
-      if (href.startsWith('http')){ return; }
+      if (href.slice(0,4) === 'http') { return; }
       
       // if the link is an internal link, just jump to the correct section
-      if (href.startsWith('#')) {
+      if (href.charAt(0) === '#') {
         href = href.slice(1);
         // search for the hx elements to find the related one
         var $el = $('h1,h2,h3,h4').filter(function() { return $(this).text().toLowerCase().replace(/('| ?\?$)/g,"").replace(/ /g,"-") == href });
