@@ -26,6 +26,8 @@
 * Montrer SARAH à ses amis
 * Créer des plugins
 
+Vous voulez contribuer à cette documentation ? [Aller sur le dépôt Github](https://github.com/JpEncausse/SARAH-Documentation/tree/gh-pages).
+
 ### Comment trouver quelqu'un pour m'aider ?
 
 Chercher de l'aide sur le [groupe Google+](https://plus.google.com/u/0/communities/105964514508504667709).
