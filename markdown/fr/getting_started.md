@@ -204,19 +204,19 @@ Cherche un QRCode dans une image toutes les N millisecondes.
 * Ne fonctionne pas avec les codes barres à cause de la mauvaise résolution de la caméra
 
 ```
-; recognize qrcode (default is 200ms)
-; delay between each QRCode recognition
+; reconnaissance du code barre (200ms par défaut)
+; délai entre chaque détection de QRCode
 qrcode=200
 
-; time in millisec before next QRCode (default is 2000ms)
+; délai en millisecondes avant le prochain QRCode (2000ms par défaut)
 qrcodeTH=2000
 ```
 
-#### Gesture Recognition
+#### Reconnaissance des gestes
 
-Check all the gestures described in `plugins/*.gesture` then fire HTTP Request. The recognition is skipped if the skeleton is messed up.  
-* Keep track of skeleton height
-* Keep track of head location
+Tous les gestes doivent être décrits dans le fichier `plugins/*.gesture` pour déclencher leur détection. La détection échoue si le corps de l'utilisateur n'est pas correctement détecté.  
+* Suit la taille de l'utilisateur
+* Suit la position de la tête
 
 ```
 ; recognize gesture (default is 45ms)
@@ -235,7 +235,7 @@ seated=false
 gestureSB=false
 ```
 
-The different gestures must be described into an XML file named `{plugin}.gesture`. Gesture recognition is performed by checking 3D position of 2 joints with each other. 
+Les différents gestes doivent être inscrits dans un fichier XML appelé `{plugin}.gesture`. La reconnaissance gestuelle est faite en vérifiant les jointures dans un modèle en 3D.
 
 ```xml
 <gesture description="Hands Up" maxExecutionTime="1500" url="http://127.0.0.1:8080/sarah/gesture?g=5">
@@ -246,18 +246,18 @@ The different gestures must be described into an XML file named `{plugin}.gestur
 </gesture>
 ```
 
-Limitations:  
-* Do not overlap gesture
-* Multiple `component` in a gesture is complicated to perform
-* Use gesture plugin to trigger rules if possible
+Limitations :  
+* Ne pas croiser deux gestes
+* Trop de composants (_component) compliqués genre la détection difficile
+* Utiliser le plugin gestion pour enclencher des règles si possible
 
 ![gesture schema](https://dl.dropboxusercontent.com/u/255810/Encausse.net/Sarah/github/skeleton.png)
 
 See also: [SARAH: Reconnaissance gestuelle (in French)](http://encausse.wordpress.com/2012/10/08/s-a-r-a-h-allier-le-geste-a-la-parole/) 
 
-#### Face Tracking
+#### Suivi du visage
 
-[Track 87 head point](http://msdn.microsoft.com/en-us/library/jj130970.aspx#ID4EJNAC1) and head animation to guess user mood.
+[Track 87 head point](http://msdn.microsoft.com/en-us/library/jj130970.aspx#ID4EJNAC1) est utilisé, ainsi que l'animation du visage afin de trouver l'humeur de l'utilisateur.
 
 ```
 ; detect faces position (default is 45ms)
