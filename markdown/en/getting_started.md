@@ -214,7 +214,7 @@ qrcodeTH=2000
 
 #### Gesture Recognition
 
-Check all the gestures described in `plugins/*.gesture` then fire HTTP Request. The recognition is skipped if the skeleton is messed up.  
+All the gestures must be described into the `plugins/*.gesture` files to then trigger the detection. The recognition is skipped if the skeleton is messed up.  
 * Keep track of skeleton height
 * Keep track of head location
 
