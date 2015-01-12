@@ -299,9 +299,11 @@ List of available functions that send an HTTP Request to the Client. The request
 
 #### SARAH.exists(module)
 
+Check if a module/phantom exists.
+
 **Parameters**
 
-* {String} module : check if a module/phantom is available
+* {String} module : name of the module/phantom to check
 
 **Return**
 
@@ -315,17 +317,21 @@ Example: if you have the plugin "freebox" you can test `SARAH.exists("freebox")`
 
 #### SARAH.answer()
 
+SARAH will say a random sentence.
+
 **Parameters**
 
 * No parameter
 
 **Comments**
 
-The function will randomly take one sentence from the `custom.prop`. You can change the default sentences via the web interface of SARAH: in the "A propos" widget, just click on the "Config." button. Each answers must be seperated with a pipe (|).
+The function will randomly take one sentence from the `custom.prop`. You can change the default sentences via the [Web interface of SARAH](http://127.0.0.1:8080/home): in the "A propos" widget, just click on the "Config." button. Each answers must be seperated with a pipe (|).
 
 The default answers are `Oui|Je m'en occupe|Voilà|C'est fait`. So when you call `SARAH.answer()` the program will say "Oui", or "Voilà", or "Je m'en occupe". The answer is randomly chosen.
 
 #### SARAH.speak(sentence, [callback])
+
+SARAH will speak (synchronously or asychronously).
 
 **Parameters**
 
@@ -360,6 +366,8 @@ It's still possible to use `SARAH.shutUp()` at any time to stop SARAH for speaki
 
 #### SARAH.play(file/url, [callback])
 
+SARAH will read a MP3 or WAV file.
+
 **Parameters**
 
 * {String} file : relative path to a MP3 or WAV file (e.g. `media/song.mp3`), or a web URL (e.g. `http://www.site.com/file.mp3`)
@@ -374,6 +382,8 @@ Regarding the **WAV file**, it must be a 88 kb/s encoded file (the 64 kb/s won't
 
 #### SARAH.pause(file)
 
+Il will pause the audio file.
+
 **Parameters**
 
 * {String} file : relative path to a MP3 or WAV file (e.g. `media/song.mp3`), or a web URL (e.g. `http://www.site.com/file.mp3`)
@@ -385,6 +395,8 @@ The `file` parameter must be the same used for `SARAH.play()`.
 
 #### SARAH.runApp({run, [runp]})
 
+Run a program.
+
 **Parameters**
 
 * {Object} the options
@@ -393,16 +405,19 @@ The `file` parameter must be the same used for `SARAH.play()`.
 
 **Comments**
 
-This function call the C# function [Process.Start(processName, param)](http://msdn.microsoft.com/en-us/library/system.diagnostics.process.start.aspx). Windows' rule: never use space or custom chars in path.
+This function call the C# function [Process.Start(processName, param)](http://msdn.microsoft.com/en-us/library/system.diagnostics.process.start.aspx).
 
 If you want to launch/run an executable program on **client** side:
 
 ```javascript
-  // Lauching XBMC
-  SARAH.runApp('E:\\XBMC12\\XBMC.exe');
+// Lauching XBMC
+SARAH.runApp('E:\\XBMC12\\XBMC.exe');
 
-  // Lauching Spotify with a song
-  SARAH.runApp('C:\\Program Files (x86)\\Spotify\\spotify.exe', '"spotify:track:6ilfuI7O1vUfKf4TQ9fJRb"');
+// Lauching Spotify with a song
+SARAH.runApp('C:\\Program Files (x86)\\Spotify\\spotify.exe', '"spotify:track:6ilfuI7O1vUfKf4TQ9fJRb"');
+
+// or with Winamp
+SARAH.runApp('C:\\Program Files (x86)\\Winamp\\winamp.exe', '"D:\\My Song.mp3"');
 ```
 
 If you want to launch/run an executable program on **server** side:
