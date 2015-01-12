@@ -14,7 +14,7 @@ This page is for **SARAH v3** only. Please refer to [SARAH v4](sarah_v4) if you 
 * [Start](#start)
 * [Plugins](#plugins)
   + [Installation](#installation)
-  + [Configuration](#configuration)
+  + [Plugins Configuration](#plugins-configconfiguration)
   + [Documentation](#documentation)
 * [Update SARAH](#update-sarah)
 
@@ -391,7 +391,7 @@ The structure:
 * plugins/demo/demo.prop
 * plugins/demo/demo.xml
 
-### Configuration
+### Plugins Configuration
 
 Installed plugins are visible in your Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080)).
 
