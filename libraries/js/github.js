@@ -66,6 +66,7 @@
     var url = 'markdown/' + language + '/' + $div.attr('data-page') + '.md';
     ajax(url, {}, function(html){
       $div.html( convertMarkdown(html) );
+      highlight($div);
     });
   }
   
@@ -128,6 +129,21 @@
     })
   }
   
+  
+  // ------------------------------------------
+  //  HIGHLIGHT
+  // ------------------------------------------
+  
+  var highlight = function(scope){
+    var $scope = $(scope || document);
+    
+    $scope.find('CODE[class^=lang-]').each(function(){
+      var $elm = $(this);
+      var lang = $elm.attr('class').substring(5);
+      $elm.attr('class', lang)
+      hljs.highlightBlock($elm[0]);
+    })
+  }
   
   // ------------------------------------------
   //  REGISTER
