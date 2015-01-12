@@ -458,7 +458,7 @@ exports.init = function(SARAH) {
 
 ### Profile
 
-The `profile` variable contains some information regarding the profiles of each users. Example:
+The `SARAH.context.profile` variable contains some information regarding the profiles of each users. Example:
 
 ```javascript
 SARAH.context.profile = 
@@ -480,7 +480,7 @@ SARAH.context.profile =
 
 A plugin can communicate with the other plugins in using [Event Emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) API. Plugins should listen to event in their `init()` function. 
 
-On a side must listen to events (like XBMC):
+Example with the XBMC plugin that is listening for new events:
 
 ```javascript
 exports.init = function(SARAH){
@@ -490,13 +490,13 @@ exports.init = function(SARAH){
 }
 ```
 
-On the other side XBMC will do:
+And to call it from another plugin we'll use:
 
 ```javascript
 SARAH.trigger('xbmc', { key : value, x : 1, y : 2 });
 ```
 
-**Note:** An other way to do this without code is to use the [Rules Engine](#rules-engine) `IF xbmc THEN DO YourPlugin`. XBMC must still put convenient data in `callback({})`.
+**Note:** An other way to do this without code is to use the [Rules Engine](#rules-engine) `IF xbmc THEN DO YourPlugin`.
 
 ### AskMe
 
@@ -508,13 +508,13 @@ SARAH.askme(tts, grammar, timeout, callback);
 
 | Argument         | Description                  |
 | ---------------- | ---------------              |
-| tts	           | The text to speech           |
-| grammar          | key/value grammar choice     |
-| timeout          | timeout (if > 0 ask twice)   |
-| callback         | function to call with answer |
+| tts	           | The question to ask          |
+| grammar          | The possible answers         |
+| timeout          | timeout (if > 0 the question is asked twice)   |
+| callback         | function to call with the answer returned by SARAH |
 
 * A dynamic grammar is set on the client side
-* The grammar is exclusif (a context is set)
+* The grammar is exclusive (a context is set)
 * After the given timeout, the question is asked again
 * If there is no answer after `timeout x 2` or 8s the callback is called with `false`
 * AskMe calls are stacked and buffered !
@@ -534,7 +534,7 @@ SARAH.askme("What is your favorite color", {
 
 **Concurrent Plugin 2**
 
-If Plugin 2 asks something at the same time, it will stack and wait.
+If Plugin 2 asks something at the same time than plugin 1, it will stack and wait.
 
 ```javascript
 SARAH.askme("What is your favorite sound", {
