@@ -193,7 +193,7 @@ You'll need to have the below info into the `yourplugin.prop` file:
 }
 ```
 
-The `time` parameter is a [CRON](http://fr.wikipedia.org/wiki/Crontab) notation.
+The `time` parameter is a [CRON](http://en.wikipedia.org/wiki/Crontab) notation.
 
 Then the JavaScript code is:
 ```javascript
