@@ -14,7 +14,7 @@ Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée �
 * [Démarrer](#démarrer)
 * [Plugins](#plugins)
   + [Installation](#installation)
-  + [Configuration](#configuration)
+  + [Configuration](#configuration)con
   + [Utilisation](#utilisation)
 * [Mise à jour de SARAH](#mise-à-jour-de-sarah)
 
@@ -167,6 +167,30 @@ trigger=0.8
 ; La confidence pour le reste de la phrase peut être plus faible que celle du 1er mot
 ; de 0 à 1
 confidence=0.70
+```
+
+#### Speaker Manager
+
+Le client C# utilise un Speaker Manager pour faire le Text to Speech (TTS) et jouer des musiques.
+
+```
+; La voix à utiliser pour SARAH
+; vous pouvez appeler l'URL http://127.0.0.1:8888/?tts=test pour entendre la voix utilisée
+; SARAH devrait être assez intelligente pour utiliser la voix sélectionnée dans Windows
+; mais si, pour certaines raisons, vous avez besoin de définir une autre voix, vous pouvez le faire grâce à ce paramètre
+; voice=Voice Text to Speech
+
+; Sortie du haut-parler (ID séparés par une virgule "," -- ou "all" pour utiliser tous les hauts-parleurs)
+; C'est donc un ID qui doit être founi. L'ID du haut-parleur par défaut est 0
+; si vous voulez utiliser un autre haut-parleur, ou plusieurs, faites le à l'aide de ce paramètre
+speaker=0
+
+; EchoCancellationSpeaker (default is 0)
+echo=0
+
+; Speaker volume (multiply current 200% 50% ...)
+spVolTTS=100
+spVolPlay=100
 ```
 
 #### Petits ajustements
