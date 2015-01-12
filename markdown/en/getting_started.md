@@ -4,10 +4,18 @@ This page is for **SARAH v3** only. Please refer to [SARAH v4](installation_v4) 
 
 ## Index
 
-* [Installation for Windows](#windows)
+* [Installation](#installation)
+  + [Windows](#windows)
+  + [Kinect v1](#kinect-v1)
+  + [Kinect v2](#kinect-v2)
 * [Configuration](#configuration)
+  + [Get the Google API Key](#get-the-google-api-key)
+  + [config.ini](#config.ini)
 * [Start](#start)
 * [Plugins](#plugins)
+  + [Installation](#installation)
+  + [Configuration](#configuration)
+  + [Documentation](#documentation)
 * [Update SARAH](#update-sarah)
 
 ## Installation
@@ -137,6 +145,137 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 Note: the key you have now acquired are **not for distribution purposes and must not be shared with other users**. 
 
+### config.ini
+
+All the parameters to configure SARAH are in the `config.ini` file.
+
+We'll list below some of them.
+
+#### Special Kinect settings
+
+```
+; speech only do not start other features (for low cpu)
+; The parameter `only` will only start the speech recognition and stop the other features (face, gesture, ...)
+only=false
+
+; Kinect global FPS (1 = 30fps; 2 = 15fps; 3 = 10fps; 5 = 6fps)
+; The parameter `fps` will decrease frame per second and reduce the CPU usage.
+; when you use the Kinect recognition features (face, gesture, ...)
+fps=2
+
+; Sensor elevation +/- 27
+; permit to change the orientation degree of the Kinect
+elevation=0
+```
+
+#### Motion Detection (Depth)
+
+The motion detection triggers a StandBy mode after a given amount of time. 
+* The StandBy mode relies on Depth data. 
+* When it's activated then the other Tasks are suspended.
+
+```
+; recognize motion (default is 200ms)
+motion=200
+
+; threashold % to detect motion (default 7%)
+motionTH=7
+
+; timeout starting stand-by (default 5*60*1000 = 300000 = 2 minutes)
+standby=300000
+```
+#### Color Management
+
+Compute the most prominent color of a color frame. It sends the color to the server every N milliseconds. That can be used to trigger the HUE plugin.
+
+```
+; detect most prominent (default is 0ms)
+; delay between each send to the server
+color=45
+    
+; time in millisec between 2 prominent color
+colorTH=0
+```
+
+#### QRCode Recognition
+
+Seek for a QRCode in color frame every N milliseconds.
+* Skeleton tracking prevent the QRCode recognition (when the user is too far from camera)
+* Do not work with other BarCodes because of the low resolution camera
+
+```
+; recognize qrcode (default is 200ms)
+; delay between each QRCode recognition
+qrcode=200
+
+; time in millisec before next QRCode (default is 2000ms)
+qrcodeTH=2000
+```
+
+#### Gesture Recognition
+
+Check all the gestures described in `plugins/*.gesture` then fire HTTP Request. The recognition is skipped if the skeleton is messed up.  
+* Keep track of skeleton height
+* Keep track of head location
+
+```
+; recognize gesture (default is 45ms)
+gesture=45
+
+; time in millisec before next gestures (default is 1000ms)
+gestureTH=1000
+
+; distance between head and foot must be more than this size in cm to avoid bug (defaut 80cm)
+gestureFix=80
+
+; Use seated gesture
+seated=false
+
+; Start gesture in StandBy mode (waiting for voice command)
+gestureSB=false
+```
+
+The different gestures must be described into an XML file named `{plugin}.gesture`. Gesture recognition is performed by checking 3D position of 2 joints with each other. 
+
+```xml
+<gesture description="Hands Up" maxExecutionTime="1500" url="http://127.0.0.1:8080/sarah/gesture?g=5">
+  <component firstJoint="WristLeft"      beginningRelationship="BelowAndLeft"  
+             secondJoint="ShoulderLeft"  endingRelationship="AboveAndLeft" />
+  <component firstJoint="WristRight"     beginningRelationship="BelowAndRight" 
+             secondJoint="ShoulderRight" endingRelationship="AboveAndRight" />
+</gesture>
+```
+
+Limitations:  
+* Do not overlap gesture
+* Multiple `component` in a gesture is complicated to perform
+* Use gesture plugin to trigger rules if possible
+
+![gesture schema](https://dl.dropboxusercontent.com/u/255810/Encausse.net/Sarah/github/skeleton.png)
+
+See also: [SARAH: Reconnaissance gestuelle (in French)](http://encausse.wordpress.com/2012/10/08/s-a-r-a-h-allier-le-geste-a-la-parole/) 
+
+#### Face Tracking
+
+[Track 87 head point](http://msdn.microsoft.com/en-us/library/jj130970.aspx#ID4EJNAC1) and head animation to guess user mood.
+
+```
+; detect faces position (default is 45ms)
+facedetec=45
+
+; recognize faces (default is 200ms)
+facereco=200
+
+; track faces 3D Shapes (default is 45ms)
+facetrack=45
+
+; timeout in millisec for a given face (5*60*1000)
+faceTH=300000
+
+; Start face in StandBy mode (waiting for voice command)
+faceSB=false
+```
+
 ## Start
 
 You're almost done. Follow the below two steps to start SARAH:
@@ -178,7 +317,7 @@ The structure:
 * plugins/demo/demo.prop
 * plugins/demo/demo.xml
 
-#### Configuration
+### Configuration
 
 Installed plugins are visible in your Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080)).
 
@@ -190,7 +329,7 @@ Installed plugins are visible in your Web interface ([http://127.0.0.1:8080](htt
 
 Some plugins provide a custom portlet. Click upper right corner to flip sides (works only with Chrome).
 
-#### Documentation
+### Documentation
 
 If you wonder how to use the plugin you can:
 * Read the documention provided.
