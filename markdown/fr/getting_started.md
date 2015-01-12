@@ -152,7 +152,7 @@ Remarque : cette clé est **pour votre usage exclusive et ne doit pas être util
 
 ### config.ini
 
-ATous les paramètres de configuration de SARAH sont disponibles dans le fichier `config.ini`.
+Tous les paramètres de configuration de SARAH sont disponibles dans le fichier `config.ini`.
 
 Ci-dessous une liste de quelques uns de ces paramètres
 
