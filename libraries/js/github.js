@@ -109,8 +109,11 @@
     $(document).on('mousedown', 'A[href]', function(){
       var $link = $(this);
       if ($link.attr('rel')){ return; }
-      
+
       var href  = $link.attr('href') || "";
+      if (typeof console !== "undefined") {
+        console.log("$link=",$link,"href=",href);
+      }
       if (href.startsWith('http')){ return; }
       
       // if the link is an internal link, just jump to the correct section
