@@ -172,6 +172,30 @@ trigger=0.8
 confidence=0.70
 ```
 
+#### Speaker Manager
+
+The C# client uses a Speaker Manager to perform Text to Speech and play music on all available devices.
+
+```
+; The dedicated voice to use
+; you can call http://127.0.0.1:8888/?tts=test to listen to the current voice
+; SARAH should be smart enough to use the default voice selected in Windows
+; but if, for some reasons, you need to define the voice, then use this parameter
+; voice=Voice Text to Speech
+
+; Speaker output (ID separeted by "," -- use "all" for all your speakers)
+; It's an ID. The default one is 0, that is the current default speaker
+; if you want to use another speaker, or use several of them, you can do it with the below parameter
+speaker=0
+
+; EchoCancellationSpeaker (default is 0)
+echo=0
+
+; Speaker volume (multiply current 200% 50% ...)
+spVolTTS=100
+spVolPlay=100
+```
+
 #### Tweaks
 
 Some SpeechEngine tweaks are exposed in the properties to tweak the engine behavior. See [Microsoft Documentation](http://msdn.microsoft.com/en-us/library/System.Speech.Recognition.SpeechRecognitionEngine_properties.aspx) for more info.
