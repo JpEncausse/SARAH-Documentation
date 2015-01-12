@@ -92,7 +92,117 @@ _à completer_
 
 ### yourplugin.js
 
-_à completer_
+Un plugin peut fournir un fichier JS nommé `yourplugin.js`. Ce fichier contient le code à exécuter pour chaque requête HTTP envoyée vers `http://127.0.0.1:8080/sarah/{plugin}?{param}={value}`
+
+Ce fichier `yourplugin.js` doit contenir le code ci-dessous:
+```javascript
+// `exports.action` est exécuté quand le plugin est appelé via la reconnaissance vocale ou une requête HTTP
+exports.action = function(data, callback, config, SARAH){
+  // `config.modules.yourplugin` permet de récupérer les paramètres du plugin définis dans `yourplugin.prop`
+  var myConfig = config.modules.myplugin;
+  
+  // si on utilise le fichier `yourplugin.prop` montré précédemment
+  // alors on peut récupérer la valeur de `user_setting1`
+  console.log("Value for user_setting1=", myConfig.user_setting1);
+  
+  // on peut aussi connaitre les données envoyés via `yourplugin.xml`
+  // dans l'exemple précédent on avait `myParam` avec deux valeurs possibles "on" ou "off"
+  console.log("Value of myParam=", data.myParam);
+  
+  // se référer à la partie JSDoc de cette page pour savoir quoi faire avec la variable SARAH
+  // par exemple, pour vocaliser une phrase:
+  SARAH.speak("Hello world!");
+
+  // il est *OBLIGATOIRE* de finir son code en appelant `callback({})`
+  // (optionnel) on peut passer un paramètre qui est le texte à vocaliser
+  callback({'tts' : 'text to speech'});
+}
+```
+
+Ci-dessous une description des paramètres de cette fonction :
+
+| Params           | Description     |
+| ---------------- | --------------- |
+| data             | un objet JSON avec les paramètres de la requête HTTP  |
+| callback         | Une fonction qui DOIT être appelée au moins UNE FOIS dans le code |
+| config           | Le fichier de config JSON (le fichier .prop)                          |
+| SARAH            | The Singleton entry to API                                 |
+
+Un plugin peut aussi déclarer d'autres variables et fonctions en dehors de `exports.action`. Cela peut permettre d'avoir un code plus lisible:
+```javascript
+exports.action = function(data, callback, config, SARAH){
+  var value = yourcodehere();
+  callback(value);
+}
+
+var yourcodehere = function(){
+  // your code here
+  return 'something';
+}
+```
+
+Le cadre d'exécution du code précédent is uniquement à l'intérieur de ce plugin et est enregistré en mémoire. Si ce fichier est modifié, alors la mémoire est vidée et le code est rechargé.
+
+**D'autres fonctions spéciales** sont disponibles.
+
+`exports.init` est une fonction d'initialisation qui est appelée quand le serveur démarre et when le plugin est rechargé:
+```javascript
+exports.init = function(SARAH) {
+  // your code here
+}
+```
+
+Cette fonction peut être utilisée pour initialiser des données, configurer un serveur, etc...
+
+`exports.speak` est une fonction qui permet de surcharger la fonction TTS par défaut. Si `tts` est `false` alors la vocalisation est annulée. Si `async` est `true` alors la fonction est appelée deux fois, dont le second appel avec `async=false`.
+```javascript
+exports.speak = function(tts, async, SARAH){
+  // your code here
+  return tts;
+}
+```
+
+| Params           | Description     |
+| ---------------- | --------------- |
+| tts              | le texte à dire  |
+| async            | True si async, False sinon  |
+| SARAH            | Singleton API   |
+
+
+`exports.standBy` est une fonction qui gère les mouvements/standby.
+```javascript
+exports.standBy = function(motion, data, SARAH){
+  // `motion` is a boolean true/false
+}
+```
+
+`exports.cron` permet d'appeler un plugin à des moments plannifiés.
+Il faudra avoir l'information décrite ci-dessous dans le fichier `yourplugin.prop`:
+```javascript
+{
+  "cron" : {
+    "myplugin" :   { 
+      "name"       : "myplugin",
+      "description": "Description of My Demo Plugin",
+      "time"       : "0 */5 * * * *",
+      "param1"     : "(optional) [param to be defined by the user]",
+      "param2"     : "(optional) [another parameter]"
+    }
+  }
+}
+```
+
+Le paramètre `time` suit la notation de [CRON](http://fr.wikipedia.org/wiki/Crontab).
+
+Ensuite le JavaScript code sera le suivant:
+```javascript
+exports.cron = function(callback, task, SARAH){
+  // >>> your code here <<<
+  callback({'tts' : 'text to speech'});
+}
+```
+
+Le paramètre `task` est un objet JSON reprenant la confi du cron.
 
 ### portlet.html
 
