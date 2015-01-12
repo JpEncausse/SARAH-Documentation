@@ -1,6 +1,6 @@
 # Getting Started
 
-This page is for **SARAH v3** only. Please refer to [SARAH v4](installation_v4) if you want to test the new version.
+This page is for **SARAH v3** only. Please refer to [SARAH v4](sarah_v4) if you want to test the new version.
 
 ## Index
 
