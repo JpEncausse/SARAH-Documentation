@@ -416,16 +416,16 @@ SARAH.runApp('C:\\Program Files (x86)\\Spotify\\spotify.exe', '"spotify:track:6i
 SARAH.runApp('C:\\Program Files (x86)\\Winamp\\winamp.exe', '"D:\\My Song.mp3"');
 ```
 
-If you want to launch/run an executable program on **server** side:
+Si vous voulez lancer un programme **côté serveur** :
 ```javascript
 exports.action = function(data, callback, config, SARAH) {
-  // see http://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
+  // voir http://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
   var exec = require('child_process').exec;
   
-  // note: below we use double quotes inside (") the simple quotes (')
-  // because we have some blank spaces in the path
-  // for a relative path to SARAH you can use %CD%
-  // example: var process = '%CD%\\\\plugins\\\\myplugin\\\\bin\\\\xbmc.bat';
+  // remarque : on utilise des guillements (") dans les apostrophes (')
+  // c'est parce qu'on utilise des espaces dans le chemin d'accès
+  // pour un chemin relatif à SARAH vous pouvez utiliser %CD%
+  // exemple : var process = '%CD%\\\\plugins\\\\myplugin\\\\bin\\\\xbmc.bat';
   var process = '"C:\\\\Program Files (x86)\\\\XBMC\\\\XBMC.exe"'; 
   var child = exec(process, function (error, stdout, stderr) {
     if (error !== null) console.log('exec error: ' + error);
@@ -437,15 +437,16 @@ exports.action = function(data, callback, config, SARAH) {
 
 ## Fonctionnalités avancées
 
-SARAH also provides advanced features throught its API to handle Context, Profile, Events, ...
+SARAH fournit aussi des fonctionnalités avancées avec son API pour gérer le Context, le Profile, les Events, ...
 
 ### Context
 
-Plugins can share contextual data for other plugins using `SARAH.context`. For example the XBMC plugin stores data in `SARAH.context.xbmc`.
+Les plugins peuvent partager des données entre eux en utilisant `SARAH.context`. Par exemple, le plugin XBMC enregistre ses données dans `SARAH.context.xbmc`.
 
 If you want to use it with your plugin, then make sure to use the syntax: `SARAH.context.yourPluginName` (_yourPluginName_ is the name of the folder used by your plugin) to avoid any conflicts.
+Si vous voulez utiliser le contexte pour votre plugin, alors utiliser la syntaxe suivante : `SARAH.context.yourPluginName` (_yourPluginName_ étant le nom du répertoire où est votre plugin), et cela afin d'éviter des conflits entre les plugins.
 
-Because the data are only stored in memory (it means they are deleted after a restart of SARAH) you can use the below function to setup your context:
+Les données de contexte étant seulement enregistrées en mémoire (cela signifie que l'information est perdue à chaque redémarrage de SARAH), vous pouvez utiliser la fonction ci-dessous pour initialiser votre contexte :
 ```javascript
 exports.init = function(SARAH) {
   SARAH.context.myPluginName = {"someVariable": "someValue"}
@@ -454,7 +455,7 @@ exports.init = function(SARAH) {
 
 ### Profile
 
-The `profile` variable contains some information regarding the profiles of each users. Example:
+La variable `SARAH.context.profile` contient les informations de profil pour chaque utilisateur. Exemple :
 
 ```javascript
 SARAH.context.profile = 
@@ -474,29 +475,29 @@ SARAH.context.profile =
 
 ### Event
 
-A plugin can communicate with the other plugins in using [Event Emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) API. Plugins should listen to event in their `init()` function. 
+Un plugin peut communiquer avec d'autres plugins en utilisant [l'API Event Emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter). Les plugins doivent alors écouter dans leur fonction `init()` :
 
-On a side must listen to events (like XBMC):
+Exemple avec le plugin XBMC qui écoute l'arrivée d'évènements :
 
 ```javascript
 exports.init = function(SARAH){
   SARAH.listen('xbmc', function(data){
-    // your code here
+    // le code ici
   });
 }
 ```
 
-On the other side XBMC will do:
+Et pour l'appeler depuis un autre plugin on utilisera :
 
 ```javascript
 SARAH.trigger('xbmc', { key : value, x : 1, y : 2 });
 ```
 
-**Note:** An other way to do this without code is to use the [Rules Engine](#rules-engine) `IF xbmc THEN DO YourPlugin`. XBMC must still put convenient data in `callback({})`.
+**Remarque :** Un autre moyen de faire ça, sans code, est d'utiliser [le moteur de règles](#moteur-de-règles) `IF xbmc THEN DO YourPlugin`.
 
 ### AskMe
 
-A plugin can ask a question to the user then can be called back using the below function:
+Un plugin peut poser une question à l'utilisateur et selon la réponse effectuer une action différente :
 
 ```javascript
 SARAH.askme(tts, grammar, timeout, callback);
@@ -504,46 +505,47 @@ SARAH.askme(tts, grammar, timeout, callback);
 
 | Argument         | Description                  |
 | ---------------- | ---------------              |
-| tts	           | The text to speech           |
-| grammar          | key/value grammar choice     |
-| timeout          | timeout (if > 0 ask twice)   |
-| callback         | function to call with answer |
+| tts	           | La question à poser            |
+| grammar          | les réponses attendues       |
+| timeout          | délai (si > 0 alors la question est posée une seconde fois)   |
+| callback         | la fonction qui est appelée avec la réponse qui a été comprise |
 
-* A dynamic grammar is set on the client side
-* The grammar is exclusif (a context is set)
-* After the given timeout, the question is asked again
-* If there is no answer after `timeout x 2` or 8s the callback is called with `false`
-* AskMe calls are stacked and buffered !
+* Une grammaire dynamique est chargée côté client
+* La grammaire est exclusive (un contexte est mis en place)
+* Après le délai, la question est reposée
+* S'il n'y a aucune réponse après `timeout x 2`, ou 8 secondes, alors la fonction de `callback` est appelée avec `false` en paramètre
+* Les appels à AskMe sont empilés et mis en cache
 
-**Example: Plugin 1**
+**Exemple : Plugin 1**
 
 ```javascript
-SARAH.askme("What is your favorite color", {
-  "My color is bleu" : 'blue',
-  "My favorite color is blue no red" : 'red'
-}, 10000, function(answer, end){ // the selected answer or false
-  SARAH.speak('You said: ' + answer, function(){
-      end(); // MUST be called when job done
+SARAH.askme("Quelle est ta couleur favorite ?", {
+  "C'est le bleu" : 'bleu',
+  "C'est le rouge" : 'rouge'
+}, 10000, function(answer, end){
+  // answer est la réponse comprise, c'est-à-dire "bleu" ou "rouge"
+  SARAH.speak('Tu as répondu : ' + answer, function(){
+      end(); // end() DOIT être appelé quand on a terminé ici
   });
 });
 ```
 
 **Concurrent Plugin 2**
 
-If Plugin 2 asks something at the same time, it will stack and wait.
+Si Plugin 2 demande quelque en même temps que le plugin 1, alors la question est mise en attente.
 
 ```javascript
-SARAH.askme("What is your favorite sound", {
-  "I feel good" : 'feelggod',
+SARAH.askme("Quel est ta musique préférée ?", {
+  "I feel good" : 'feelgood',
   "Highway to hell" : 'ACDC'
 }, 10000, function(answer, end){
-  SARAH.call('xbmc', { 'song' : answer }, function(options){ end(); }); // Again a callback to wait
+  SARAH.call('xbmc', { 'song' : answer }, function(options){ end(); }); // Penser à appeler end() !
 });
 ```
 
 ### Chromeless
 
-A plugin can display a webpage on your screen without the browser bars:
+Un plugin peut afficher une page Web sur l'écran sans l'interface d'un navigateur :
 
 ```javascript
 SARAH.chromeless(url, o, w, h, x, y)
@@ -551,14 +553,14 @@ SARAH.chromeless(url, o, w, h, x, y)
 
 | Argument         | Description        |
 | ---------------- | ---------------    |
-| url	           | URL to display     |
+| url	           | URL à afficher     |
 | o                | Browser's opacity  |
 | w                | Browser's width    |
 | h                | Browser's height   |
 | x                | Browser's x   |
 | y                | Browser's y   |
 
-**Example**
+**Exemple**
 
 ```javascript
 SARAH.chromeless('http://www.google.com', 80);
@@ -566,30 +568,30 @@ SARAH.chromeless('http://www.google.com', 80);
 
 ## Moteur de règles
 
-Just like [https://ifttt.com/](https://ifttt.com/), SARAH is able to trigger an action based on some rules.
+Tout comme [https://ifttt.com/](https://ifttt.com/), SARAH est capable de déclencher une action basée sur des règles.
 
 ### Créer une règle
 
-Let's use an example in order to understand how it works. Let's say we want to turn the lights on (using the `hue` plugin) when we pause a movie (using the `XBMC` plugin), and off when we play a movie.
+Utilisons un exemple pour comprendre le fonctionnement. Disons que l'on veut allumer des lumières (en utilisant le plugin `hue`) lorsqu'on met sur pause un film (en utilisant le plugin `XBMC`), et éteindre les lumières lorsqu'on regarde un film.
 
-First we're going to create a rule:
+D'abord il faut créer une règle :
 
-1. Open the Web interface ([http://127.0.0.1:8080](http://127.0.0.1:8080))  
-2. Go to `Règles` (left menu)  
-3. In the "Modules" section, you can modify an existing empty rule or create a new one by pressing the  "Ajouter une règle" button.  
-4. Select the plugin (or module) which will trigger the other plugin ("If...")   
-5. (Optional) Click on the "do" word to add some personalized code  
-6. Finally select the plugin you want to be executed (the one that will be triggered)  
+1. Ouvrir l'interface Web ([http://127.0.0.1:8080](http://127.0.0.1:8080))  
+2. Aller dans `Règles` (menu de gauche)  
+3. Dans la section "Modules", vous pouvez modifier une règle existante vide ou en créer une autre avec le bouton "Ajouter une règle".  
+4. Sélectionner le plugin/module qui va déclencher une action ("If...")   
+5. (Optionnel) Cliquer sur le mot "do" pour ajouter du code personnalisé  
+6. Finalement, sélectionner le plugin qui va répondre à l'appel  
 
-You now have two ways to do our example scenario.
+Il y a deux façons de gérer notre scénario exemple.
 
-_Disclaimer_: because it's an example the XML content of the `hue` and `xbmc` plugins is not the real one.
+_Disclaimer_ : parce que c'est un exemple, le contenu XML des plugins `hue` et `xbmc` est ici factices.
 
-#### First way
+#### Première façon
 
-This is the recommended way to do it.
+C'est la façon qui est recommandée.
 
-When creating a new rule, you have the possibility to click on "do" (step 5) to add some personalized code. It's what we're going to do here.
+Lorsqu'on crée une nouvelle règle, il est possible de cliquer sur le mot "do" (étape 5) pour ajouter du code personnalisé. C'est ce que nous allons faire ici.
 
 In this box you can use the `SARAH` object as well as an object called `options` that contains the data coming from the first plugin.
 
