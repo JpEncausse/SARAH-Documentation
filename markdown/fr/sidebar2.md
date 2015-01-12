@@ -1,4 +1,1 @@
-- [3rd party Tools](3rd_party)
-- [Mobile Phone](mobile)
-- [Raspberry Pi](raspberrypi)
-- [Communities](communities)
+- [Communauté Google+](https://plus.google.com/u/0/communities/105964514508504667709)
