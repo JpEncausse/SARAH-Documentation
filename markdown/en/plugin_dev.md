@@ -178,7 +178,8 @@ exports.standBy = function(motion, data, SARAH){
 ```
 
 `exports.cron` permits to call a plugin at a given time schedule.
-You'll need to have the below info into the `yourplugin.prop` file:
+
+You'll need to add the below info into the `yourplugin.prop` file -- these info can co-exist with the regular `modules` info that you usually find into the `yourplugin.prop` file. The `name` or `description` properties will then be duplicated for both the `modules` and `cron` tags in this file.
 ```javascript
 {
   "cron" : {
