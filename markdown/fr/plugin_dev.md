@@ -86,6 +86,41 @@ Dans le code vous trouverez trois fois "Yourplugin" ou "yourplugin". Il suffit d
 * `out.action.myParam` : vous pouvez remplacer `myParam` par ce que vous voulez et ensuite l'utiliser dans le fichier JavaScript.
 * `Switch on the magic` : SARAH exécutera la commande entre les `<tag>...</tag>` lorsque vous prononcerez `SARAH allume la magie`
 
+Le _Microsoft Speech Platform SDK 11_ supporte les fichiers de grammaire qui utilisent les éléments et attributs de _Extensible Markup Language (XML)_, comme indiqué dans le [World Wide Web Consortium (W3C) Speech Recognition Grammar Specification (SRGS) Version 1.0](http://www.w3.org/TR/speech-grammar/). Ces éléments et attributs XML représentent les règles de la struture qui définissent les mots et phrases (commandes) reconnus par le moteur de reconnaissance vocale
+
+Les [MSDN Grammar Elements](http://msdn.microsoft.com/en-us/library/hh378341.aspx) décrivent l'implémentation de Microsoft. Voir [l'exemple du jeu de carte le Solitaire](http://msdn.microsoft.com/en-us/library/hh378351.aspx).
+
+**SARAH améliore la grammaire de Microsoft avec des paramètres HTTP.** Quand un élément XML correspond, alors le tag ` <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";</tag>` est exécuté.
+
+Et un objet appelé `action` est créé : 
+
+* Chaque objet lié à `action` sera envoyé comme un paramètre de la requête HTTP (par exemple `out.action.myParam="1";`)
+* L'attribut `uri` définit l'URI de la requête (par exemple `out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";`)
+
+Donc, cela enverra une requête HTTP GET : `http://127.0.0.1:8080/sarah/yourplugin?myParam=1`
+
+**Remarques** : 
+* La grammaire doit suivre les règles d'encodage de XML : `&` devient `&amp;`
+* Les actions doivent suivre les règles d'encodage HTTP en utilisant : `encodeURIComponent()`
+* Exemple avec les deux : `<tag>out.action.param1=encodeURIComponent("Sam &amp; Max")</tag>`
+
+Ci-dessous la liste des attributs disponibles dans la grammaire :  
+
+| Name          |  Values         | Description   |
+| ------------- | --------------- | --------------|
+| uri	        | URI (http://)   | Définit l'URI de la requête HTTP |
+| tts	        | String          | Déclenche un TTS (donc lit la phrase) |
+| notts	        | boolean         | Arrête le Text To Speech |
+| dictation	| boolean or lang | Envoie l'audio à Google |
+| play	        | Path or URI     | Joue un fichier MP3/WAV/WMA local ou en streaming |
+| picture	| boolean         | Upload une photo prise par le Kinect |
+| threashold	| float           | Modifie la confidence par défaut |
+| context	| list            | Active la grammaire listée (on peut en mettre plusieurs qui seront séparées par une virgule) |
+| listen	| boolean         | Démarre/Arrête l'écoute |
+| restart	| boolean         | Redémarre le moteur de vocalisation |
+| height        | boolean         | Donne la taille de l'utilisateur actuel en mètre |
+
+
 ### index.html
 
 _à completer_
