@@ -177,11 +177,15 @@ Les règles commençant avec "lazy" ne sont pas chargées :
 
 Le serveur HTTP peut aussi recevoir des requêtes HTTP pour faire de même.
 
+**Remarque** : après `ctxTimeout` millisecondes la grammaire de contexte sera automatiquement déchargée par SARAH -- ce paramètre est configurable dans le fichier `config.ini` (voir [Premiers Pas](getting_started)).
+
 ### index.html
 
 _à completer_
 
 ### {plugin}.js
+
+**Remarque** : comme SARAH est basé sur NodeJS, vous pouvez utiliser [l'API NodeJS](http://nodejs.org/api/) dans vos fichiers JavaScript.
 
 Un plugin peut fournir un fichier JS nommé `{plugin}.js`. Ce fichier contient le code à exécuter pour chaque requête HTTP envoyée vers `http://127.0.0.1:8080/sarah/{plugin}?{param}={value}`
 
