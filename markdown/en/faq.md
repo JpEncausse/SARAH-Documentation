@@ -63,7 +63,7 @@ _to complete_
 
 To use SARAH in another language (here it's to English) you need to:  
 
-1. Edit the `config.ini` file and change the language parameter, for example: `language=en-US`  
+1. Edit the `config.ini` file and change the language parameter: `language=en-US`  
 2. Update the plugins -- for each plugins:
   + Translate the voice commands you'll find into the `{plugin}.xml` file
   + Set attribute to `xml:lang="en-US"` in the `{plugin}.xml` file (so this file will start with `<grammar version="1.0" xml:lang="en-US"`)
