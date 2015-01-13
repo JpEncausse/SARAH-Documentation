@@ -9,6 +9,7 @@
   + [How to use QRCode?](#how-to-use-qrcode)
   + [How to delete my speech recognition profile?](#how-to-delete-my-speech-recognition-profile)
   + [How to split SARAH server and client between two computers?](#how-to-split-sarah-server-and-client-between-two-computers)
+  + [How to change the language?](#how-to-change-the-language)
 * [Various questions](#various-questions)
   + [What are the requirements?](#what-are-the-requirements)
   + [What does SARAH mean?](#what-does-sarah-mean)
@@ -57,6 +58,17 @@ Go to `Control Panel` ➜ `Speech Recognition` ➜ `Advanced speech options` ➜
 ### How to split SARAH server and client between two computers?
 
 _to complete_
+
+### How to change the language?
+
+To use SARAH in another language (here it's to English) you need to:  
+
+1. Edit the `config.ini` file and change the language parameter, for example: `language=en-US`  
+2. Update the plugins -- for each plugins:
+  + Translate the voice commands you'll find into the `{plugin}.xml` file
+  + Set attribute to `xml:lang="en-US"` in the `{plugin}.xml` file (so this file will start with `<grammar version="1.0" xml:lang="en-US"`)
+  + Rename the `{plugin}.xml` file to `{plugin}_en_US.xml`
+  
 
 ## Various questions
 
