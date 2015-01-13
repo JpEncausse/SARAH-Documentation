@@ -140,7 +140,26 @@ Ci-dessous une partie d'un fichier XML :
 ```
 
 La valeur de l'attribut `dictation` doit être `true`, ou ça doit être la langue à détecter (par exemple `en-US`).
-Pour gérer la réponse de Google il va falloir utiliser le fichier JavaScript (voir plus bas).
+Pour gérer la réponse de Google il va falloir utiliser le fichier JavaScript décrit plus bas. Le texte reconnu par Google est fourni par la variable `data.dictation` (accessible dans la fonction `exports.action`).
+
+Ci-dessous un exemple de code JavaScript pour le fichier `{plugin}.js` utilisant `data.dictation`:
+```javasccript
+exports.action = function(data, callback, config, SARAH){
+  var search = data.dictation;
+  // data.dictation returne toute la phrase dite par l'utilisateur
+  var rgxp = /Sarah cherche (.+) sur Wikipedia/i;
+  
+  // on s'assure que Google a bien compris
+  var match = search.match(rgxp);
+  if (!match || match.length <= 1){
+    return callback({'tts': "Je ne comprends pas"});
+  }
+  
+  // on peut maintenant s'occuper des mots qui sont recherchés
+  search = match[1];
+  callback({'tts': "Tu veux chercher "+search+" sur Wikipedia"});
+}
+```
 
 ### lazy{plugin}.xml
 
