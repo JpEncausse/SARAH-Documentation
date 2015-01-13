@@ -183,6 +183,21 @@ trigger=0.8
 confidence=0.70
 ```
 
+```
+; Reset grammar to default after given timeout (millis)
+; Quand une grammaire de contexte (lazy) est chargé,
+;   alors SARAH SARAH attendra `ctxTimeout` millisecondes avant de la décharger automatiquement
+;   voir la page sur le Développement de Plugin pour plus d'informations
+ctxTimeout=60000
+```
+
+```
+[directory]
+; Path to XML Grammar directories
+directory1=macros 
+directory2=plugins
+```
+
 #### Speaker Manager
 
 Le client C# utilise un Speaker Manager pour faire le Text to Speech (TTS) et jouer des musiques.
