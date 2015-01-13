@@ -98,7 +98,7 @@
   // ------------------------------------------
   
   var convertMarkdown = function(md){
-    return marked(md);
+    return marked(md).replace(/<table>/g, '<table class="table table-bordered">');
   }
   
   // ------------------------------------------
