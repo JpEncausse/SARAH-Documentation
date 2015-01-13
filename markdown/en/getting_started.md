@@ -201,6 +201,28 @@ directory1=macros
 directory2=plugins
 ```
 
+#### Pitch Engine
+
+Audio of each speech recognition is processed to compute pitches. An average pitch is computed by ProfileManager to recognize people.
+
+A male has a pitch between 100 and 200. A female has a pitch above 200. The property is a threshold to compare the users.
+
+```
+; Pitch delta to define a voice
+pitch=30
+```
+
+#### File Watcher
+
+The File Watcher will monitor the `audio/` folder. If you add a file there, then SARAH will try to read it and understand its content.
+* HTTP Engine can also store incomming upload in this folder  
+* Mail plugin can also download attachement to this folder
+
+```
+; Path to audio folder to watch
+audio=audio
+```
+
 #### Speaker Manager
 
 The C# client uses a Speaker Manager to perform Text to Speech and play music on all available devices.
