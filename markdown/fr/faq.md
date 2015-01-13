@@ -11,7 +11,7 @@
   + [Comment séparer SARAH serveur et client entre deux ordinateurs ?](#comment-séparer-sarah-serveur-et-client-entre-deux-ordinateurs)
   + [Comment changer la langue ?](#comment-changer-la-langue)
 * [Questions diverses](#questions-diverses)
-  + [Quels sont les requis ?](#quels-sont-les-requis)
+  + [Quels sont les prérequis ?](#quels-sont-les-prérequis)
   + [Que signifie SARAH ?](#que-signifie-sarah)
   + [Quelles langues parle SARAH ?](#quelles-langues-parle-sarah)
 * [Problèmes liés aux plugins](#problèmes-liés-aux-plugins)
@@ -72,19 +72,19 @@ Pour utiliser SARAH dans une autre langue (ici c'est en anglais) il faudra :
 
 ## Questions diverses
 
-### Quels sont les requis ?
+### Quels sont les prérequis ?
 
-Le système d'exploitation est Windows (Windows 7, 8, 8.1 en 32 ou 64bit), mais cela devrait aussi fonctionner avec une machine virtuelle Windows sous Linux et MacOS.
+Le **système d'exploitation est Windows** (Windows 7, 8, 8.1 en 32 ou 64bit), mais cela devrait aussi fonctionner avec une machine virtuelle Windows sous Linux et MacOS.
 
-Vous devez posséder un microphone, ou un Kinect. Le Kinect est bien meilleur pour la reconnaissance vocale, et fournit aussi des fonctionnalités supplémentaires (_gesture, face recognition, QRCode, ..._).
+Vous devez posséder un microphone, ou un **Kinect**. Le Kinect est bien meilleur pour la reconnaissance vocale, et fournit aussi des fonctionnalités supplémentaires (_gesture, face recognition, QRCode, ..._).
 Si vous voulez utiliser SARAH avec un Kinect, merci de lire les informations ci-dessous :
-* Kinect 1 pour XBox360
+* Kinect v1 pour XBox 360
   * Peu cher (~40€)
   * Il doit être fourni avec le câble USB et l'alimentation
   * D'après la licence il ne peut être utilisé que par les développeurs (c'est donc le cas avec SARAH)
-* Kinect 1 pour Windows
+* Kinect v1 pour Windows
   * Plus cher
-* Kinect 2 pour Windows
+* Kinect v2 pour Windows
   * Très cher
   * Encore en version béta
 
