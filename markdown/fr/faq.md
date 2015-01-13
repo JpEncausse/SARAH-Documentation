@@ -9,6 +9,7 @@
   + [Comment utiliser un QRCode?](#comment-utiliser-un-qrcode)
   + [Comment supprimer un profil de reconnaisse vocale ?](#comment-supprimer-un-profil-de-reconnaissance-vocale)
   + [Comment séparer SARAH serveur et client entre deux ordinateurs ?](#comment-séparer-sarah-serveur-et-client-entre-deux-ordinateurs)
+  + [Comment changer la langue ?](#comment-changer-la-langue)
 * [Questions diverses](#questions-diverses)
   + [Quels sont les requis ?](#quels-sont-les-requis)
   + [Que signifie SARAH ?](#que-signifie-sarah)
@@ -57,6 +58,17 @@ Aller dans `Panneau de Configuration` ➜ `Reconnaissance Vocale` ➜ `Options v
 ### Comment séparer SARAH serveur et client entre deux ordinateurs ?
 
 _à compléter_
+
+### Comment changer la langue ?
+
+Pour utiliser SARAH dans une autre langue (ici c'est en anglais) il faudra : 
+
+1. Editer le fichier `config.ini` et changer le paramètre de la langue en `language=en-US`  
+2. Mettre à jour les plugins -- donc pour chaque plugins :
+  + Traduire les commandes vocales qu'on trouve dans le fichier `{plugin}.xml` 
+  + Définir l'attribut de tête en `xml:lang="en-US"` dans le fichier `{plugin}.xml` (donc ce fichier va commencer par `<grammar version="1.0" xml:lang="en-US"`)
+  + Renommer le fichier `{plugin}.xml` en `{plugin}_en_US.xml`
+  
 
 ## Questions diverses
 
