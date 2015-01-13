@@ -32,24 +32,25 @@ You'll find here how to create a plugin.
 
 ## Files structure
 
-There are four main files (`yourplugin` must be replaced with the lower case name of your plugin):
+There are four main files (`{plugin}` must be replaced with the lower case name of your plugin):
 
-* `yourplugin.prop`: the file that will define your plugin (like the version, the author, the user settings, ...)
-* `yourplugin.xml`: the main XML file of your plugin that will contain the grammar (voice commands)
+* `{plugin}.prop`: the file that will define your plugin (like the version, the author, the user settings, ...)
+* `{plugin}.xml`: the main XML file of your plugin that will contain the grammar (voice commands)
 * `index.html`: the documentation related to your plugin
-* `yourplugin.js` (optional): the main JavaScript file of your plugin (that will do the advanced features)
+* `lazy{plugin}.xml` (optional): it's not loaded by default but it can be loaded later with some special commands
+* `{plugin}.js` (optional): the main JavaScript file of your plugin (that will do the advanced features)
 * `portlet.html` (optional): contains the front content (logo, ...) visible from SARAH homepage
 * `portlet_back.html` (optional): contains the back content (buttons, forms, ...) visible from SARAH homepage
 
 ## Files content
 
-### yourplugin.prop
+### {plugin}.prop
 
 The content of this file is a JSON structure that is:
 ```json
 {
   "modules": {
-    "yourplugin": {
+    "{plugin}": {
       "description": "This plugin permits to do some great things.",
       "version": "1.0",
       "user_setting1": "[e.g. a tip here for the user]",
@@ -59,16 +60,16 @@ The content of this file is a JSON structure that is:
 }
 ```
 
-Replace `yourplugin` with the lower case name of your plugin.
+Replace `{plugin}` with the lower case name of your plugin.
 
 In some cases you may want to have some settings defined by the user. You'll define them in this file. Replace `user_setting1` by anything that will make sense to the user like `server_ip_address` or `key_code` or whatever. And you can add more user settings.
 
-### yourplugin.xml
+### {plugin}.xml
 
 This is the grammar/voice commands of your plugin.
 ```xml
-<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleYourplugin" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
-  <rule id="ruleYourplugin" scope="public">
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rule{plugin}" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rule{plugin}" scope="public">
     <tag>out.action=new Object(); </tag>
     
     <item>Sarah</item>
@@ -77,11 +78,11 @@ This is the grammar/voice commands of your plugin.
       <item>Switch off the magic <tag>out.action.myParam="off";out.action._attributes.tts="OK I switch off the magic"<tag></item>
     </one-of>
 
-    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";</tag>
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/{plugin}";</tag>
   </rule> 
 </grammar>
 ```
-Check the code and you'll find **three** places where "Yourplugin" or "yourplugin" are. Just replace them with your plugin name (follow the case).
+Check the code and you'll find **three** places where "{plugin}" are. Just replace them with your plugin name (follow the case).
 
 * `<item>Sarah</item>` must be unchanged: the program will automatically change "Sarah" by the name defined in the configuration (so, for example, if your SARAH is called Jarvis, then you must leave "Sarah" in the XML file).
 * `out.action._attributes.tts` is used to directly vocalize some speech.
@@ -92,14 +93,14 @@ The Microsoft Speech Platform SDK 11 supports grammar files that use Extensible 
 
 The [MSDN Grammar Elements](http://msdn.microsoft.com/en-us/library/hh378341.aspx) describe Microsoft implementation. Here is a [Solitaire card game example](http://msdn.microsoft.com/en-us/library/hh378351.aspx).
 
-**SARAH improves the Microsoft Grammar with the HTTP Parameters.** When an XML element is matched, then the ` <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";</tag>` is executed.
+**SARAH improves the Microsoft Grammar with the HTTP Parameters.** When an XML element is matched, then the ` <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/{plugin}";</tag>` is executed.
 
 And an object called `action` is created: 
 
 * Each object tied to `action` will be sent as an HTTP request parameter (e.g. `out.action.myParam="1";`)
-* The attribute `uri` defines the URI to request (e.g. `out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";`)
+* The attribute `uri` defines the URI to request (e.g. `out.action._attributes.uri="http://127.0.0.1:8080/sarah/{plugin}";`)
 
-So, this will send the HTTP GET request: `http://127.0.0.1:8080/sarah/yourplugin?myParam=1`
+So, this will send the HTTP GET request: `http://127.0.0.1:8080/sarah/{plugin}?myParam=1`
 
 **Notes**: 
 * The grammar must follow the XML encoding: `&` becomes `&amp;`
@@ -122,26 +123,80 @@ Below is the list of attributes available for the grammar:
 | restart	| boolean         | Restart speech engine |
 | height        | boolean         | Say current user height in meter |
 
+### lazy{plugin}.xml
+
+In real world, some grammars **do not need to be loaded** and require a given context. 
+
+So the XML files starting with `lazy` are not loaded when SARAH starts. You need to use `out.action._attributes.context` to load the lazy file.
+
+For example, below the `{plugin}.xml` file:
+```xml
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleExample" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleExample" scope="public">
+    <example>Sarah activate the special commands</example>
+    <tag>out.action=new Object();</tag>
+
+    <item>Sarah</item>
+    <one-of>
+      <item>activate the special commands
+      	<tag>out.action._attributes.tts = "OK";</tag>
+      	<tag>out.action._attributes.context = "lazyExample.xml"</tag>
+      </item>
+    </one-of>
+  </rule> 
+</grammar>
+```
+
+When you say `activate the special commands` SARAH will answer `OK` and will load the other grammar file called `lazyExample.xml`. It means **SARAH will only answer to the commands in the `lazyExample.xml` file** and not to **ANY** other commands, even from the other plugins.
+
+Below is the content of the `lazyExample.xml` file:
+```xml
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleLazyExample" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="ruleLazyExample" scope="public">
+    <tag>out.action=new Object();</tag>
+    <item>Sarah</item>
+    <one-of>
+      <item>execute my special command<tag>out.action._attributes.tts = "OK master"</tag></item>
+      <item>get back to normal
+        <tag>out.action._attributes.tts = "OK no problem"</tag>
+        <tag>out.action._attributes.context = "default"</tag>
+      </item>
+    </one-of>
+    
+    <tag>out.action._attributes.threashold="0.85";</tag>
+  </rule> 
+</grammar>
+```
+
+So when you say `SARAH get back to normal` it will unload the lazy grammar and it will get back to the normal grammars, so all the voice commands will work again. This is due to the tag `<tag>out.action._attributes.context = "default"</tag>`
+
+Note: in this example we use `<tag>out.action._attributes.threashold="0.85";</tag>` ... please refer to the `{plugin}.xml` section above
+
+Rules starting with "lazy" are not loaded:  
+* In rule names (in the XML)  
+* In file names
+
+HTTP Server can also receive an HTTP request to do the same.
 
 ### index.html
 
 _To complete_
 
-### yourplugin.js
+### {plugin}.js
 
-A plugin can provide a JS file called `yourplugin.js`. This file contains the code to run for each HTTP request sent to: `http://127.0.0.1:8080/sarah/{plugin}?{param}={value}`
+A plugin can provide a JS file called `{plugin}.js`. This file contains the code to run for each HTTP request sent to: `http://127.0.0.1:8080/sarah/{plugin}?{param}={value}`
 
-This `yourplugin.js` file should contain the below code:
+This `{plugin}.js` file should contain the below code:
 ```javascript
 // `exports.action` is run when the plugin is called due to a voice recognition or an HTTP request
 exports.action = function(data, callback, config, SARAH){
-  // `config.modules.yourplugin` permits to get the parameters defined in `yourplugin.prop`
+  // `config.modules.{plugin}` permits to get the parameters defined in `{plugin}.prop`
   var myConfig = config.modules.myplugin;
   
-  // if you use the `yourplugin.prop` file shown before we can get the `user_setting1` value with:
+  // if you use the `{plugin}.prop` file shown before we can get the `user_setting1` value with:
   console.log("Value for user_setting1=", myConfig.user_setting1);
   
-  // we can also get the data sent from the `yourplugin.xml` file used in the example before
+  // we can also get the data sent from the `{plugin}.xml` file used in the example before
   // it's `myParam` with value "on" or "off"
   console.log("Value of myParam=", data.myParam);
   
@@ -214,7 +269,7 @@ exports.standBy = function(motion, data, SARAH){
 
 `exports.cron` permits to call a plugin at a given time schedule.
 
-You'll need to add the below info into the `yourplugin.prop` file -- these info can co-exist with the regular `modules` info that you usually find into the `yourplugin.prop` file. The `name` or `description` properties will then be duplicated for both the `modules` and `cron` tags in this file.
+You'll need to add the below info into the `{plugin}.prop` file -- these info can co-exist with the regular `modules` info that you usually find into the `{plugin}.prop` file. The `name` or `description` properties will then be duplicated for both the `modules` and `cron` tags in this file.
 ```javascript
 {
   "cron" : {
@@ -637,7 +692,7 @@ SARAH also provides advanced features throught its API to handle Context, Profil
 
 Plugins can share contextual data for other plugins using `SARAH.context`. For example the XBMC plugin stores data in `SARAH.context.xbmc`.
 
-If you want to use it with your plugin, then make sure to use the syntax: `SARAH.context.yourPluginName` (_yourPluginName_ is the name of the folder used by your plugin) to avoid any conflicts.
+If you want to use it with your plugin, then make sure to use the syntax: `SARAH.context.{plugin}Name` (_{plugin}Name_ is the name of the folder used by your plugin) to avoid any conflicts.
 
 Because the data are only stored in memory (it means they are deleted after a restart of SARAH) you can use the below function to setup your context:
 ```javascript
@@ -686,7 +741,7 @@ And to call it from another plugin we'll use:
 SARAH.trigger('xbmc', { key : value, x : 1, y : 2 });
 ```
 
-**Note:** An other way to do this without code is to use the [Rules Engine](#rules-engine) `IF xbmc THEN DO YourPlugin`.
+**Note:** An other way to do this without code is to use the [Rules Engine](#rules-engine) `IF xbmc THEN DO {plugin}`.
 
 ### AskMe
 
