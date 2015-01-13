@@ -13,6 +13,7 @@ You'll find here how to create a plugin.
   + [How to send an HTTP Request](#how-to-send-an-http-request)
   + [How to scrap a webpage](#how-to-scrap-a-webpage)
   + [How to parse an XML file](#how-to-parse-an-xml-file)
+  + [How to trigger a plugin using a text command sent by HTTP](#how-to-trigger-a-plugin-using-a-text-command-sent-by-HTTP)
 * [JavaScript API](#javascript-api)
   + [Plugins Functions](#plugins-functions)
   + [HTTP Functions](#http-functions)
@@ -530,6 +531,14 @@ console.log(child.attr.name+" is a "+(chidl.attr.sex==="M"?"boy":"girl");
 ```
 
 Note: if several lines are concerned, then it will return only the first one.
+
+## How to trigger a plugin using a text command sent by HTTP
+
+The framework provides, **for Kinect**, a way to compare given text with the client's grammars. The text is compared using phonetical meaning.
+
+For example: `http://127.0.0.1:8888?emulate=SARAH+what+time+is+it`
+
+It's used by the Android app that performs a local speech to text, and then send it to the client using this request.
 
 ## JavaScript API
 
