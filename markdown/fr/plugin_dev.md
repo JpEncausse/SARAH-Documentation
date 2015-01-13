@@ -11,6 +11,7 @@
   + [Comment envoyer une requête HTTP](#comment-envoyer-une-requête-http)
   + [Comment récupérer une partie d'une page Web](#comment-récupérer-une-partie-dune-page-web)
   + [Comment analyser un fichier XML](#comment-analyser-un-fichier-xml)
+  + [Comment enclencher un plugin en utilisant une commande texte envoyée par HTTP](#comment-enclencher-un-plugin-en-utilisant-une-commande-texte-envoyée-par-HTTP)
 * [API JavaScript](#api-javascript)
   + [Fonctions pour les plugins](#fonctions-pour-les-plugins)
   + [HTTP Functions](#http-functions)
@@ -530,6 +531,16 @@ console.log(child.attr.name+" est "+(chidl.attr.sex==="M"?"un garçon":"une fill
 ```
 
 Remarque : si plusieurs lignes existent, alors seule la première est retrouvée.
+
+## Comment enclencher un plugin en utilisant une commande texte envoyée par HTTP
+
+Le _framework_ fournit, **pour le Kinect**, une façon de comparer le texte donné avec les grammaires du client. Le texte est comparé phonétiquement.
+
+Par exemple : `http://127.0.0.1:8888?emulate=SARAH+quelle+heure+est+il`
+
+Le client retourne le texte vocalisé s'il a compris la commande. Sinon il retourne le *dernier* texte vocalisé.
+
+C'est utilisé par l'application Android qui transforme le discours reconnu en texte, puis l'envoie au client en utilisant cette requête.
 
 ## JavaScript API
 
