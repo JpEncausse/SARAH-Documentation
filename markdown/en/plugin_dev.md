@@ -4,8 +4,6 @@
 
 You'll find here how to create a plugin.
 
-**Note**: because SARAH is based on NodeJS you can use the [NodeJS API](http://nodejs.org/api/) into your JavaScript files.
-
 ## Index
 
 * [Files structure](#files-structure)
@@ -178,11 +176,15 @@ Rules starting with "lazy" are not loaded:
 
 HTTP Server can also receive an HTTP request to do the same.
 
+**Note**: after `ctxTimeout` milliseconds the context grammar will be automatically unloaded by SARAH -- this parameter is defined into the `config.ini` file (see [Getting Started](getting_started)).
+
 ### index.html
 
 _To complete_
 
 ### {plugin}.js
+
+**Note**: because SARAH is based on NodeJS you can use the [NodeJS API](http://nodejs.org/api/) into your JavaScript files.
 
 A plugin can provide a JS file called `{plugin}.js`. This file contains the code to run for each HTTP request sent to: `http://127.0.0.1:8080/sarah/{plugin}?{param}={value}`
 
