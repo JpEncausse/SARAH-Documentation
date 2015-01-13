@@ -177,7 +177,8 @@ exports.standBy = function(motion, data, SARAH){
 ```
 
 `exports.cron` permet d'appeler un plugin à des moments plannifiés.
-Il faudra avoir l'information décrite ci-dessous dans le fichier `yourplugin.prop`:
+
+Il faudra ajouter l'information décrite ci-dessous dans le fichier `yourplugin.prop` -- cette information peut co-exister avec l'info concernant le `modules` qu'on retrouve d'habitude dans ce fichier `yourplugin.prop`. Les propriétés `name` et `description` se retrouvent alors dupliqués pour les deux tags `modules` et  `cron` dans ce même fichier.
 ```javascript
 {
   "cron" : {
