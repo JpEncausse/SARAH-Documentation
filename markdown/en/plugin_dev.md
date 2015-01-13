@@ -538,6 +538,8 @@ The framework provides, **for Kinect**, a way to compare given text with the cli
 
 For example: `http://127.0.0.1:8888?emulate=SARAH+what+time+is+it`
 
+The client returns the vocalized text if it understood the command. Otherwise it will return the **last** vocalized text.
+
 It's used by the Android app that performs a local speech to text, and then send it to the client using this request.
 
 ## JavaScript API
