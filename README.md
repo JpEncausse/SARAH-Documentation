@@ -1,6 +1,6 @@
 # [S.A.R.A.H.](http://encausse.net/s-a-r-a-h)
 
-The documentation is available at [http://jpencausse.github.io/SARAH-Documentation/](http://jpencausse.github.io/SARAH-Documentation/).
+The documentation is available at [http://wiki.sarah.encausse.net/](http://wiki.sarah.encausse.net/).
 
 ## How to contribute / Comment contribuer
 
