@@ -88,6 +88,41 @@ Check the code and you'll find **three** places where "Yourplugin" or "yourplugi
 * `out.action.myParam`: you can replace `myParam` by anything and then use it in the JavaScript file.
 * `Switch on the magic`: SARAH will trigger when you'll say `SARAH switch on the magic`
 
+The Microsoft Speech Platform SDK 11 supports grammar files that use Extensible Markup Language (XML) elements and attributes, as specified in the [World Wide Web Consortium (W3C) Speech Recognition Grammar Specification (SRGS) Version 1.0](http://www.w3.org/TR/speech-grammar/). These XML elements and attributes represent the rule structures that define the words or phrases (commands) recognized by speech recognition engines.
+
+The [MSDN Grammar Elements](http://msdn.microsoft.com/en-us/library/hh378341.aspx) describe Microsoft implementation. Here is a [Solitaire card game example](http://msdn.microsoft.com/en-us/library/hh378351.aspx).
+
+**SARAH improves the Microsoft Grammar with the HTTP Parameters.** When an XML element is matched, then the ` <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";</tag>` is executed.
+
+And an object called `action` is created: 
+
+* Each object tied to `action` will be sent as an HTTP request parameter (e.g. `out.action.myParam="1";`)
+* The attribute `uri` defines the URI to request (e.g. `out.action._attributes.uri="http://127.0.0.1:8080/sarah/yourplugin";`)
+
+So, this will send the HTTP GET request: `http://127.0.0.1:8080/sarah/yourplugin?myParam=1`
+
+**Notes**: 
+* The grammar must follow the XML encoding: `&` becomes `&amp;`
+* Actions must follow the HTTP encoding using: `encodeURIComponent()`
+* Example with both: `<tag>out.action.param1=encodeURIComponent("Sam &amp; Max")</tag>`
+
+Below is the list of attributes available for the grammar:  
+
+| Name          |  Values         | Description   |
+| ------------- | --------------- | --------------|
+| uri	        | URI (http://)   | Define HTTP Request URI |
+| tts	        | String          | Trigger Instant TTS |
+| notts	        | boolean         | Stop Text To Speech |
+| dictation	| boolean or lang | Send audio to Google. |
+| play	        | Path or URI     | Play MP3/WAV/WMA local or stream |
+| picture	| boolean         | Upload a photo taken by kinect (only main Sensor) |
+| threashold	| float           | Override default confidence |
+| context	| list            | Activate grammar list comma separated |
+| listen	| boolean         | Stop/Start listening |
+| restart	| boolean         | Restart speech engine |
+| height        | boolean         | Say current user height in meter |
+
+
 ### index.html
 
 _To complete_
