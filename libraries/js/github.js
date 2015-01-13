@@ -129,7 +129,7 @@ $.fn.scrollTo=function(c,a,d){if(typeof a=="function"&&arguments.length==2){d=a;
     // and we change it to a lower case, replacing single quote (') and ? by null
     // and replacing white space with a dash "-"
     // So "Hello World ?" will look like "hello-world"
-    hash=hash.toLowerCase();
+    hash=decodeURIComponent(hash.toLowerCase());
     var $el = $('h1,h2,h3,h4').filter(function() {
       return $(this).text().toLowerCase().replace(/('| ?\?$)/g,"").replace(/ /g,"-") == hash
     });
