@@ -75,6 +75,7 @@ $.fn.scrollTo=function(c,a,d){if(typeof a=="function"&&arguments.length==2){d=a;
       url: url, 
       data: params,
       type: method || 'GET', 
+      cache: false,
       traditional: true
     });
     
