@@ -46,8 +46,8 @@ Ci-dessous les instructions pour installer le Kinect v1 sous Windows :
 1. Télécharger et installer [Kinect SDK v1.8](http://www.microsoft.com/en-us/download/confirmation.aspx?id=40278)
 2. Télécharger et installer le [Language Pack](http://www.microsoft.com/en-us/download/details.aspx?id=34809) (au moment du téléchargement il faudra bien choisir "FR-fr" pour la langue)
 
-Quelques remarques à propos de l'installation d'un Kinect :
-* Ne pas utiliser d'USB 3 sinon le microphone du Kinect ne fonctionnera pas,
+Quelques remarques à propos de l'installation d'un Kinect v1 :
+* <del>Ne pas utiliser d'USB 3 sinon le microphone du Kinect ne fonctionnera pas</del> Des utilisateurs ont indiqué que cela fonctionnait avec l'USB 3,
 * Si vous utilisez plusieurs Kinects et que vous voulez vous servir de la vidéo, alors il faut utiliser deux ports USB différents, sinon une seule vidéo fonctionnera dû à un problème de bande passante (mais du coup si vous n'utilisez que le microphone vous pouvez utiliser le même port).
 
 ### Kinect v2
@@ -56,6 +56,10 @@ Ci-dessous les instructions pour la deuxième génération de Kinect :
 
 1. Télécharger et installer [Kinect SDK v2](http://www.microsoft.com/en-us/download/details.aspx?id=44561)
 2. Télécharger et installer [language packs v2](http://www.microsoft.com/en-us/download/details.aspx?id=43662) (au moment du téléchargement il faudra bien choisir "FR-fr" pour la langue)
+
+Quelques remarques à propos de l'installation d'un Kinect v2 :  
+* Il faut utiliser **Windows 8.1**,
+* Il faut le brancher sur du **USB 3**.
 
 ## Configuration
 
