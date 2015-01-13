@@ -14,6 +14,7 @@
   + [What are the requirements?](#what-are-the-requirements)
   + [What does SARAH mean?](#what-does-sarah-mean)
   + [Which languages does SARAH speak?](#which-languages-does-sarah-speak)
+  + [What about an app for mobile?](#what-about-an-app-for-mobile)
 * [Plugins issues](#plugins-issues)
   + [Plugin fails the installation](#plugin-fails-the-installation)
   + [The server returns an error](#the-server-returns-an-error)
@@ -105,6 +106,10 @@ However SARAH will only work with one language at a time that is defined in the 
 The default language for SARAH is English, so make sure you follow the [installation guide](#getting_started) to install the language pack.
 
 So far almost all the plugins are in French only.
+
+### What about an app for mobile?
+
+* For [Android](https://play.google.com/store/apps/details?id=net.android.clientsarah).
 
 ## Plugins Issues
 
