@@ -62,6 +62,8 @@ Replace `{plugin}` with the lower case name of your plugin.
 
 In some cases you may want to have some settings defined by the user. You'll define them in this file. Replace `user_setting1` by anything that will make sense to the user like `server_ip_address` or `key_code` or whatever. And you can add more user settings.
 
+This file can also contain some info about the `cron` ... see below more info by searching for `exports.cron`.
+
 ### {plugin}.xml
 
 This is the grammar/voice commands of your plugin.
@@ -120,6 +122,26 @@ Below is the list of attributes available for the grammar:
 | listen	| boolean         | Stop/Start listening |
 | restart	| boolean         | Restart speech engine |
 | height        | boolean         | Say current user height in meter |
+
+Let's have a look at the `dictation` attribute.
+Microsoft Grammars are very efficient but use closed statement. In real life, some grammars need wildcard. For example: `SARAH search for * on Wikipedia`
+
+The Microsoft `<ruleref special="GARBAGE" />` tag is used to bypass unknown audio between 2 known words. Then the attribute `dictation` will send this audio to Google.
+
+See below a part of the XML file:
+```xml
+<tag>out.action=new Object();</tag>
+<item>Sarah search for</item>
+<ruleref special="GARBAGE" />
+<item>on Wikipedia</item>
+    
+<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/{plugin}";</tag>
+<tag>out.action._attributes.dictation="true";</tag>
+```
+
+The value for the `dictation` attribute must be `true`, or it must be the language to detect (e.g. `en-US`).
+To manage the Google reply you'll need to do it in the JavaScript file (see below).
+
 
 ### lazy{plugin}.xml
 
