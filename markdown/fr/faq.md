@@ -14,6 +14,7 @@
   + [Quels sont les prérequis ?](#quels-sont-les-prérequis)
   + [Que signifie SARAH ?](#que-signifie-sarah)
   + [Quelles langues parle SARAH ?](#quelles-langues-parle-sarah)
+  + [Y'a-t-il une application pour téléphone portable ?](#ya-t-il-une-application-pour-téléphone-portable)
 * [Problèmes liés aux plugins](#problèmes-liés-aux-plugins)
   + [Le plugin ne s'installe pas](#le-plugin-ne-sinstalle-pas)
   + [Le serveur retourne une erreur](#le-serveur-retourne-une-erreur)
@@ -105,6 +106,11 @@ Cependant SARAH ne peut fonctionner qu'avec une seule langue à la fois, qui doi
 La langue par défaut pour SARAH est l'anglais, donc soyez sûr de [suivre les instructions](#getting_started) pour installer le pack de langues.
 
 Pour le moment la plupart des plugins sont pour la langue française.
+
+### Y'a-t-il une application pour téléphone portable ?
+
+* Pour [Android](https://play.google.com/store/apps/details?id=net.android.clientsarah).
+
 
 ## Problèmes liés aux plugins
 
