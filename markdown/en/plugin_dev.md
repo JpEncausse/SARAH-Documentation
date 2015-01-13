@@ -140,7 +140,26 @@ See below a part of the XML file:
 ```
 
 The value for the `dictation` attribute must be `true`, or it must be the language to detect (e.g. `en-US`).
-To manage the Google reply you'll need to do it in the JavaScript file (see below).
+To manage the Google reply you'll need to do it in the JavaScript file described below. The text recognized by Google will be returned into `data.dictation` (accessible in the `exports.action` function).
+
+Below is an example of the JavaScript code for `{plugin}.js` using `data.dictation`:
+```javasccript
+exports.action = function(data, callback, config, SARAH){
+  var search = data.dictation;
+  // data.dictation returns all the sentence
+  var rgxp = /Sarah search for (.+) on Wikipedia/i;
+  
+  // make sure it returns something good
+  var match = search.match(rgxp);
+  if (!match || match.length <= 1){
+    return callback({'tts': "I don't understand"});
+  }
+  
+  // we can now look at the searching words
+  search = match[1];
+  callback({'tts': "You want to search "+search+" on Wikipedia"});
+}
+```
 
 
 ### lazy{plugin}.xml
