@@ -161,6 +161,20 @@ We'll list below some of them.
 #### SARAH
 
 ```
+; Hot replace SARAH name
+; in the XML (voice recognition) files we use the keyword SARAH
+;   however we might want to change the default name to something else, like JARVIS
+;   so the XML files we'll keep SARAH, and in the config.ini you just need to change
+;   the below SARAH to JARVIS and it will work
+name=SARAH
+
+; Speech engine language
+; The default language to use ... for English that should be "en-US"
+language=fr-FR
+
+; Restart engine every X millisecond (1000 x 60 x 60 = 3600000 = 1 hour)
+restart=3600000
+
 ; Speech 1st word confidence (aka SARAH)
 ; The first word "SARAH" should be strong to remove false positive
 ; from 0 to 1
@@ -170,6 +184,11 @@ trigger=0.8
 ; The overall sentence can be lower than the 1st word
 ; from 0 to 1
 confidence=0.70
+
+[directory]
+; Path to XML Grammar directories
+directory1=macros 
+directory2=plugins
 ```
 
 #### Speaker Manager
@@ -181,6 +200,7 @@ The C# client uses a Speaker Manager to perform Text to Speech and play music on
 ; you can call http://127.0.0.1:8888/?tts=test to listen to the current voice
 ; SARAH should be smart enough to use the default voice selected in Windows
 ; but if, for some reasons, you need to define the voice, then use this parameter
+; e.g. voice=ScanSoft Virginie_Dri40_16kHz
 ; voice=Voice Text to Speech
 
 ; Speaker output (ID separated by "," -- use "all" for all your speakers)
