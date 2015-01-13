@@ -184,7 +184,17 @@ trigger=0.8
 ; The overall sentence can be lower than the 1st word
 ; from 0 to 1
 confidence=0.70
+```
 
+```
+; Reset grammar to default after given timeout (millis)
+; When a context grammar (lazy) is loaded,
+;   then SARAH will wait `ctxTimeout` milliseconds before automatically unloaded it
+;   see the Plugin Development page for more info
+ctxTimeout=60000
+```
+
+```
 [directory]
 ; Path to XML Grammar directories
 directory1=macros 
