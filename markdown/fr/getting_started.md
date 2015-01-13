@@ -159,6 +159,20 @@ Ci-dessous une liste de quelques uns de ces paramètres
 #### SARAH
 
 ```
+; Hot replace SARAH name
+; dans les fichiers XML (utilisé pour la reconnaissance vocale) il faut utiliser le mot clé SARAH
+;   cependant on peut vouloir changr le nom par défaut en quelque chose d'autre, par exemple en JARVIS
+;   pour ce faire on va laisser "SARAH" dans les fichiers XML, et dans le fichier config.ini on va changer
+;   le SARAH ci-dessous en JARVIS, et ça va fonctionner
+name=SARAH
+
+; Speech engine language
+; Le langage par défaut à utiliser
+language=fr-FR
+
+; Restart engine every X millisecond (1000 x 60 x 60 = 3600000 = 1 hour)
+restart=3600000
+
 ; La confidence sur le premier mot (c'est-à-dire sur "SARAH")
 ; Le premier mot ("SARAH") devrait avoir une confidence haute afin d'éviter les faux positifs
 ; de 0 à 1
@@ -178,6 +192,7 @@ Le client C# utilise un Speaker Manager pour faire le Text to Speech (TTS) et jo
 ; vous pouvez appeler l'URL http://127.0.0.1:8888/?tts=test pour entendre la voix utilisée
 ; SARAH devrait être assez intelligente pour utiliser la voix sélectionnée dans Windows
 ; mais si, pour certaines raisons, vous avez besoin de définir une autre voix, vous pouvez le faire grâce à ce paramètre
+; par exemple voice=ScanSoft Virginie_Dri40_16kHz
 ; voice=Voice Text to Speech
 
 ; Sortie du haut-parler (ID séparés par une virgule "," -- ou "all" pour utiliser tous les hauts-parleurs)
