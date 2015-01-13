@@ -13,7 +13,7 @@
 * [Various questions](#various-questions)
   + [What are the requirements?](#what-are-the-requirements)
   + [What does SARAH mean?](#what-does-sarah-mean)
-  + [Which languages does SARAH speak?](#which-languages-does-SARAH-speak)
+  + [Which languages does SARAH speak?](#which-languages-does-sarah-speak)
 * [Plugins issues](#plugins-issues)
   + [Plugin fails the installation](#plugin-fails-the-installation)
   + [The server returns an error](#the-server-returns-an-error)
@@ -74,17 +74,17 @@ To use SARAH in another language (here it's to English) you need to:
 
 ### What are the requirements?
 
-The Operating System must be Windows (Windows 7, 8, 8.1 in 32 or 64bit), but it should also work with a Windows Virtual Machine over Linux and MacOS.
+The **Operating System** must be **Windows** (Windows 7, 8, 8.1 in 32 or 64bit), but it should also work with a Windows Virtual Machine over Linux and MacOS.
 
-You must have a microphone, or a Kinect. The Kinect works much better for voice recognition, and also provides more features (gesture, face recognition, QRCode, ...).
+You must have a microphone, or a **Kinect**. The Kinect works much better for voice recognition, and also provides more features (gesture, face recognition, QRCode, ...).
 If you want to use SARAH with a Kinect, please read that before:
-* Kinect 1 for XBox360
+* Kinect v1 for XBox 360
   * Very cheap (~40€)
   * MUST have the USB wire and the power supply
   * According to licence: for developer only (so SARAH)
-* Kinect 1 for Windows
+* Kinect v1 for Windows
   * More expensive
-* Kinect 2 for Windows
+* Kinect v2 for Windows
   * Very Expensive
   * Still in beta
 
