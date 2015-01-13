@@ -197,6 +197,27 @@ ctxTimeout=60000
 directory1=macros 
 directory2=plugins
 ```
+#### Pitch Engine
+
+L'audio de chaque reconnaissance vocale est traité par tons. Une moyenne du ton est traité par _ProfileManager_ pour reconnaire les personnes.
+
+Un homme a un ton entre 100 et 200. Une femme a un ton au-delà de 200. 
+
+```
+; Pitch delta to define a voice
+pitch=30
+```
+
+#### File Watcher
+
+The File Watcher will monitor the `audio/` folder. If you add a file there, then SARAH will try to read it and understand its content.
+* HTTP Engine can also store incomming upload in this folder  
+* Mail plugin can also download attachement to this folder
+
+```
+; Path to audio folder to watch
+audio=audio
+```
 
 #### Speaker Manager
 
