@@ -60,6 +60,8 @@ Remplacer `{plugin}` avec le nom en minuscules de votre plugin.
 
 Vous pouvez définir des paramètres d'utilisateur dans ce fichier. Remplacer `user_setting1` par les données comme `server_ip_address` ou `key_code` ou autre. Vous pouvez aussi ajouter d'autres paramètres si nécessaire.
 
+Ce fichier peut aussi contenir des infos en rapport au `cron` ... pour plus d'informations, voir plus bas en cherchant `exports.cron`.
+
 ### {plugin}.xml
 
 Ce sont les commandes de grammaire/vocales de votre plugin.
@@ -120,6 +122,25 @@ Ci-dessous la liste des attributs disponibles dans la grammaire :
 | listen	| boolean         | Démarre/Arrête l'écoute |
 | restart	| boolean         | Redémarre le moteur de vocalisation |
 | height        | boolean         | Donne la taille de l'utilisateur actuel en mètre |
+
+Regardons de plus près l'attribut `dictation`.
+Les grammaires de Microsoft sont très efficaces mais concernent des phrases précises. Dans la vraie vie des grammaires peuvent avoir besoin d'un _joker_. Par exemple : `SARAH cherche * sur Wikipedia`
+
+Le tag `<ruleref special="GARBAGE" />` de Microsoft est utilisé pour récupérer l'audio inconnu entre deux mots connus. Ensuite l'attribut `dictation` enverra cet audio vers Google.
+
+Ci-dessous une partie d'un fichier XML :
+```xml
+<tag>out.action=new Object();</tag>
+<item>Sarah cherche</item>
+<ruleref special="GARBAGE" />
+<item>sur Wikipedia</item>
+    
+<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/{plugin}";</tag>
+<tag>out.action._attributes.dictation="true";</tag>
+```
+
+La valeur de l'attribut `dictation` doit être `true`, ou ça doit être la langue à détecter (par exemple `en-US`).
+Pour gérer la réponse de Google il va falloir utiliser le fichier JavaScript (voir plus bas).
 
 ### lazy{plugin}.xml
 
