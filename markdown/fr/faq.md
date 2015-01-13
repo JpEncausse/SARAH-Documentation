@@ -87,6 +87,7 @@ Si vous voulez utiliser SARAH avec un Kinect, merci de lire les informations ci-
 * Kinect v2 pour Windows
   * Très cher
   * Encore en version béta
+  * Doit être installé sous **Windows 8.1** et doit utilisé de l'**USB 3**
 
 Et finalement vous aurez aussi besoin d'une connexion Internet.
 
