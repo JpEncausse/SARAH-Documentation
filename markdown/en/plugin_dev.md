@@ -553,7 +553,7 @@ List of available functions to control plugins life cycle.
 | SARAH.run()	   | Run script with given data |
 | SARAH.call()	   | Like run without rule dispatch |
 | SARAH.last()	   | Run latest script again (> v2.8) |
-| [SARAH.exists()](#SARAH_exists)   | Check if module/phantom exists (> v2.8) |
+| SARAH.exists()   | Check if module/phantom exists (> v2.8) |
 | SARAH.remote()   | Run a client remote command (play, pause, …) |
 
 
@@ -572,13 +572,13 @@ List of available functions that send an HTTP Request to the Client. The request
 
 | JavaScript       | Request          | Description    |
 | ---------------- | ---------------- | -------------- |
-| [SARAH.answer()](#SARAH_answer)   |  | Call SARAH.speak() with predefined answers |
-| [SARAH.speak()](#SARAH_speak)	   | tts=...&sync=... | Trigger Text to Speech (can be sync or async) |
+| SARAH.answer()   |  | Call SARAH.speak() with predefined answers |
+| SARAH.speak()	   | tts=...&sync=... | Trigger Text to Speech (can be sync or async) |
 | SARAH.shutUp()   | notts=...        | Stop speaking    |
-| [SARAH.play()](#SARAH_play)	   | play=...&sync=...         | File.mp3 to play |
-| [SARAH.pause()](#SARAH_pause)	   | pause=...        | File.mp3 to stop |
+| SARAH.play()	   | play=...&sync=...         | File.mp3 to play |
+| SARAH.pause()	   | pause=...        | File.mp3 to stop |
 | SARAH.keyText()  | keyText=...      | Text to type |
-| [SARAH.runApp()](#SARAH_runApp)   | run=...&runp=... | Application path to run and parameters |
+| SARAH.runApp()   | run=...&runp=... | Application path to run and parameters |
 | SARAH.activate() | activate=...     | Application to put foreground |
 | SARAH.face()	   | face=...         | start/stop face recognition |
 | SARAH.gesture()  | gesture=...      | start/stop gesture recognition |
