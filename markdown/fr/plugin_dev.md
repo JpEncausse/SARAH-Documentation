@@ -553,7 +553,7 @@ Liste des fonctions disponibles pour le contrôle du cycle de vie des plugins :
 | SARAH.run()	   | Exécute un script donné avec des paramètres |
 | SARAH.call()	   | Exécute un script donné, mais sans enclencher le moteur de règles |
 | SARAH.last()	   | Rééxécute le dernier script appelé Run (> v2.8) |
-| [SARAH.exists()](#SARAH_exists)   | Vérifie si un module/phantom existe (> v2.8) |
+| SARAH.exists()  | Vérifie si un module/phantom existe (> v2.8) |
 | SARAH.remote()   | Exécute une commande sur le client (play, pause, …) |
 
 
@@ -573,13 +573,13 @@ Liste des fonctions disponibles qui envoie une requête HTTP au client. Les requ
 
 | NodeJS           | Request          | Description    |
 | ---------------- | ---------------- | -------------- |
-| [SARAH.answer()](#SARAH_answer)   |  | Appelle SARAH.speak() avec des phrases prédéfinies |
-| [SARAH.speak()](#SARAH_speak)	   | tts=...&sync=... | Fait parler SARAH (de façon synchrone ou asynchrone) |
+| SARAH.answer()   |  | Appelle SARAH.speak() avec des phrases prédéfinies |
+| SARAH.speak()    | tts=...&sync=... | Fait parler SARAH (de façon synchrone ou asynchrone) |
 | SARAH.shutUp()   | notts=...        | Arrête le discours de SARAH    |
-| [SARAH.play()](#SARAH_play)	   | play=...&sync=...         | Lit un fichier.mp3 |
-| [SARAH.pause()](#SARAH_pause)	   | pause=...        | Arrête la lecture du fichier.mp3 |
+| SARAH.play()	   | play=...&sync=...         | Lit un fichier.mp3 |
+| SARAH.pause()	   | pause=...        | Arrête la lecture du fichier.mp3 |
 | SARAH.keyText()  | keyText=...      | Texte à taper |
-| [SARAH.runApp()](#SARAH_runApp)   | run=...&runp=... | Chemin d'accès et paramètres d'une application à exécuter |
+| SARAH.runApp()   | run=...&runp=... | Chemin d'accès et paramètres d'une application à exécuter |
 | SARAH.activate() | activate=...     | Application à passer au premier plan des fenêtres |
 | SARAH.face()	   | face=...         | Démarre/arrête la reconnaissance faciale |
 | SARAH.gesture()  | gesture=...      | Démarre/arrête la reconnaissance gestuelle |
