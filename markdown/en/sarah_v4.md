@@ -18,8 +18,8 @@ No need to pass `SARAH` and `Config` anymore: they are now global variables.
 
 #### exports.action(data, next)
 
-With v3, the function had four parameters: `exports.action(data, callback, config, SARAH)`.
-With v4, the function has only two parameters: `exports.action(data, next)`
+With v3, the function had **four** parameters: `exports.action(data, callback, config, SARAH)`.  
+With v4, the function has **only two** parameters: `exports.action(data, next)`
 
 From now on `config` is a global variable known as `Config`, and `SARAH` becomes also a global variable.
 
