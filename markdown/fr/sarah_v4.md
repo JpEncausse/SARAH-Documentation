@@ -14,30 +14,31 @@ Nous verrons ici les choses qui varient par rapport à SARAH v3.
 
 Les variables `SARAH`, `Config` et `Profile` sont devenues des variables globales. Elles sont accessibles depuis n'importe quel code JavaScript ou page EJS. 
 
-La variable SARAH donne accès à l'ensemble de l'API
+La variable `SARAH` donne accès à l'ensemble de l'API. Par exemple :
 ```javascript
-  SARAH.speak('bonjour');
-  SARAH.ConfigManager.save();
+SARAH.speak('bonjour');
+SARAH.ConfigManager.save();
 ```
 
 #### Debug
 
-Les fonctions `debug()`, `log()`, `info()`, `warn()`, `error()` sont des fonction globales. Elle permettent de loguer de l'information n'importe ou dans le code JavaScript
-
+Les fonctions `debug()`, `log()`, `info()`, `warn()` et `error()` sont des fonctions globales. Elles permettent de loguer de l'information n'importe où dans le code JavaScript. Par exemple :
 ```javascript
-  info('une trace %s très importante', 'vraiment', { 'key' , 'value' });
+var variable = {'key':'value'};
+info('une trace %s très importante', 'vraiment', variable);
 ```
 
-#### Multilangue
+#### Multilangues
 
-La fonction `i18n()` est une fonction globale. Elle permet de traduire une clef de langue dans n'importe quel code JavaScript ou page EJS.
+La fonction `i18n()` est une fonction globale. Elle permet de traduire une clé de langue dans n'importe quel code JavaScript ou page EJS.
 
 ```javascript
-  var message = i18n('portal.hello', 'John');
-  info(message)
+// 'portal.hello' est le nom de la variable, ça sera "Hello " ou "Bonjour " ou "Hola " par exemple
+var message = i18n('portal.hello', 'John');
+info(message);
 ```
 
-Les fichiers de localisation se trouve dans `server/app/locales/{lang}.js` et dans `plugins/MonPlugin/locales/{lang}.js`
+Les fichiers de localisation se trouve dans `server/app/locales/{lang}.js` et dans `plugins/{plugin}/locales/{lang}.js`
 
 ### Différences avec la v3
 
