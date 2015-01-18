@@ -12,7 +12,32 @@ Nous verrons ici les choses qui varient par rapport à SARAH v3.
 
 ### Variables globales
 
-Il n'est plus besoin de passer `SARAH` et `Config` : ils sont devenus des variables globales.
+Les variables `SARAH`, `Config` et `Profile` sont devenues des variables globales. Elles sont accessibles depuis n'importe quel code JavaScript ou page EJS. 
+
+La variable SARAH donne accès à l'ensemble de l'API
+```javascript
+  SARAH.speak('bonjour');
+  SARAH.ConfigManager.save();
+```
+
+#### Debug
+
+Les fonctions `debug()`, `log()`, `info()`, `warn()`, `error()` sont des fonction globales. Elle permettent de loguer de l'information n'importe ou dans le code JavaScript
+
+```javascript
+  info('une trace %s très importante', 'vraiment', { 'key' , 'value' });
+```
+
+#### Multilangue
+
+La fonction `i18n()` est une fonction globale. Elle permet de traduire une clef de langue dans n'importe quel code JavaScript ou page EJS.
+
+```javascript
+  var message = i18n('portal.hello', 'John');
+  info(message)
+```
+
+Les fichiers de localisation se trouve dans `server/app/locales/{lang}.js` et dans `plugins/MonPlugin/locales/{lang}.js`
 
 ### Différences avec la v3
 
@@ -27,17 +52,16 @@ Dorénavant `config` est une variable globale connue sous le nom `Config`, et `S
 
 ### Comment faire
 
-#### Comme enregistrer une variable dans le fichier {plugin}.prop
+#### Comme modifier les variable du {plugin}.prop
 
-Il est possible de sauvegarder une variable dans le fichier `{plugin}.prop` :
+Les variables du `{plugin}.prop` peuvent être modifiéé depuis l'interface web. Elle sont alors stockées dans le `custom.prop`. Il est possible de faire cette action programatiquement:
 
 ```javascript
 exports.action = function(data, next) {
-  // `Config` est une variable globale
-  // utiliser `Config.modules.{plugin}` pour accéder aux propriétés de `{plugin}.prop`
-  // et vous pouvez aussi définir une variable à sauvegarder
+  // Modifier la configuration en mémoire
   Config.modules.{plugin}.myVariable = 123;
-  // utiliser `SARAH.ConfigManager.save()` pour modifier le fichier `{plugin}.prop`
+  
+  // Enregistrer la configuration (dans le custom.prop)
   SARAH.ConfigManager.save();
   
   next({'tts': "Fichier sauvegardé"});
