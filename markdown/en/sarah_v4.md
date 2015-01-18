@@ -12,7 +12,33 @@ We'll see here the things that are different from SARAH v3.
 
 ### Global variables
 
-No need to pass `SARAH` and `Config` anymore: they are now global variables.
+Variables `SARAH`, `Config` and `Profile` are now globals. They are available anywhere in JavaScript code or EJS pages. 
+
+The variable `SARAH` is a singleton that proxy all the API.
+```javascript
+  SARAH.speak('hello');
+  SARAH.ConfigManager.save();
+```
+#### Debug
+
+Functions `debug()`, `log()`, `info()`, `warn()`, `error()` are now globals.  They are available anywhere JavaScript. They can be called to log some information.
+
+```javascript
+  info('a trace %s accurate', 'very', { 'key' , 'value' });
+```
+
+#### Multilang
+
+Function `i18n()` is now global and available anywhere in JavaScript code or EJS pages. It translate a lang key in correct language.
+
+```javascript
+  var message = i18n('portal.hello', 'John');
+  info(message)
+```
+
+Localized files are stored in `server/app/locales/{lang}.js` and in `plugins/MonPlugin/locales/{lang}.js`.
+
+
 
 ### Differences with version 3
 
@@ -27,17 +53,16 @@ From now on `config` is a global variable known as `Config`, and `SARAH` becomes
 
 ### How To
 
-#### How to save a variable into the {plugin}.prop file
+#### How to update a {plugin}.prop variable
 
-It's possible to save a variable directly into the `{plugin}.prop` file:
+Variable defined in the `{plugin}.prop` can be edited in the portal. Update is saved in `custom.prop`. This action can also be performed in code:
 
 ```javascript
 exports.action = function(data, next) {
-  // `Config` is a global variable
-  // use `Config.modules.{plugin}` to access to the properties defined into the `{plugin}.prop` file
-  // and you can also define a variable that will be saved in it:
+  // Update in memory configuration
   Config.modules.{plugin}.myVariable = 123;
-  // use `SARAH.ConfigManager.save()` to modify the `{plugin}.prop` file
+  
+  // Save configuration (in custom.prop)
   SARAH.ConfigManager.save();
   
   next({'tts': "File saved"});
