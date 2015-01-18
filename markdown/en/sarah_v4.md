@@ -14,31 +14,31 @@ We'll see here the things that are different from SARAH v3.
 
 Variables `SARAH`, `Config` and `Profile` are now globals. They are available anywhere in JavaScript code or EJS pages. 
 
-The variable `SARAH` is a singleton that proxy all the API.
+The variable `SARAH` is a singleton that proxy all the API. For example: 
 ```javascript
-  SARAH.speak('hello');
-  SARAH.ConfigManager.save();
+SARAH.speak('hello');
+SARAH.ConfigManager.save();
 ```
 #### Debug
 
-Functions `debug()`, `log()`, `info()`, `warn()`, `error()` are now globals.  They are available anywhere JavaScript. They can be called to log some information.
+Functions `debug()`, `log()`, `info()`, `warn()` and `error()` are now globals. They are available anywhere in  JavaScript code. They can be called to log some information.
 
 ```javascript
-  info('a trace %s accurate', 'very', { 'key' , 'value' });
+var variable={'key':'value'};
+info('a trace %s accurate', 'very', variable);
 ```
 
 #### Multilang
 
-Function `i18n()` is now global and available anywhere in JavaScript code or EJS pages. It translate a lang key in correct language.
+The `i18n()` function is now global and available anywhere in JavaScript code or EJS pages. It translates a lang key to the correct language.
 
 ```javascript
-  var message = i18n('portal.hello', 'John');
-  info(message)
+// 'portal.hello' could be "Hello " or "Bonjour " or "Hola "
+var message = i18n('portal.hello', 'John');
+info(message);
 ```
 
-Localized files are stored in `server/app/locales/{lang}.js` and in `plugins/MonPlugin/locales/{lang}.js`.
-
-
+Localized files are stored in `server/app/locales/{lang}.js` and in `plugins/{plugin}/locales/{lang}.js`.
 
 ### Differences with version 3
 
