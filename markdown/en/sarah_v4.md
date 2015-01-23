@@ -8,6 +8,8 @@ _work in progress_
 
 The configuration must be defined into the `client/config.ini` file. Several new parameters are available and can be found into the `client/AddOns/{addon}/addon.ini` files.
 
+Don't change the `addon.ini` but copy the parameters you want from it to the `config.ini` file instead.
+
 #### client/config.ini
 
 The parameters are grouped by **section**.
