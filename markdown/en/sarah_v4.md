@@ -4,6 +4,45 @@ _work in progress_
 
 ## Getting Started
 
+### Configuration
+
+The configuration must be defined into the `client/config.ini` file. Several new parameters are available and can be found into the `client/AddOns/{addon}/addon.ini` files.
+
+#### client/config.ini
+
+The parameters are grouped by **section**.
+
+##### How to activate the Kinect?
+
+You should have the below code in your `config.ini` file:
+```
+; we use [kinect_v1] to define a new section
+; all parameters tied to this section can be found into `client/AddOns/kinect_v1/addon.ini`
+[kinect_v1]
+; we use "enable=true" to activate the Kinect v1
+enable=true
+
+; Confidence of recognition (from 0 to 1)
+; we can specify the recognition level for Kinect v1
+confidence=0.30
+
+[kinect_v1.speech]
+; here we define that we ONLY want to use the speech recognition
+; so when it's `true` then the face and gesture recognition are disabled
+speech_only=true
+
+; we now enter in the [kinect_v2] section
+[kinect_v2]
+; if you don't own a Kinect v2 then make sure to set `enable=false`
+enable=false
+
+; we now enter in the [microphone] section
+[microphone]
+; if you use a Kinect you have to set `enable=false` otherwise the voice recognition won't work correctly
+; but if you don't have a Kinect then it should be `enable=true`
+enable=false
+```
+
 ## FAQ
 
 ## Plugin Development
