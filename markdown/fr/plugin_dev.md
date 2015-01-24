@@ -744,8 +744,7 @@ SARAH fournit aussi des fonctionnalités avancées avec son API pour gérer le C
 
 Les plugins peuvent partager des données entre eux en utilisant `SARAH.context`. Par exemple, le plugin XBMC enregistre ses données dans `SARAH.context.xbmc`.
 
-If you want to use it with your plugin, then make sure to use the syntax: `SARAH.context.{plugin}Name` (_{plugin}Name_ is the name of the folder used by your plugin) to avoid any conflicts.
-Si vous voulez utiliser le contexte pour votre plugin, alors utiliser la syntaxe suivante : `SARAH.context.{plugin}Name` (_{plugin}Name_ étant le nom du répertoire où est votre plugin), et cela afin d'éviter des conflits entre les plugins.
+Si vous voulez utiliser le contexte pour votre plugin, alors utiliser la syntaxe suivante : `SARAH.context.{plugin}` (_{plugin} étant le nom du répertoire où est votre plugin), et cela afin d'éviter des conflits entre les plugins.
 
 Les données de contexte étant seulement enregistrées en mémoire (cela signifie que l'information est perdue à chaque redémarrage de SARAH), vous pouvez utiliser la fonction ci-dessous pour initialiser votre contexte :
 ```javascript
