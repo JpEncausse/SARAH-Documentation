@@ -746,7 +746,7 @@ SARAH also provides advanced features throught its API to handle Context, Profil
 
 Plugins can share contextual data for other plugins using `SARAH.context`. For example the XBMC plugin stores data in `SARAH.context.xbmc`.
 
-If you want to use it with your plugin, then make sure to use the syntax: `SARAH.context.{plugin}Name` (_{plugin}Name_ is the name of the folder used by your plugin) to avoid any conflicts.
+If you want to use it with your plugin, then make sure to use the syntax: `SARAH.context.{plugin}` (_{plugin}_ is the name of the folder used by your plugin) to avoid any conflicts.
 
 Because the data are only stored in memory (it means they are deleted after a restart of SARAH) you can use the below function to setup your context:
 ```javascript
