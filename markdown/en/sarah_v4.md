@@ -4,6 +4,8 @@ _work in progress_
 
 ## Getting Started
 
+If you have a **login/password** requested when you're going to your local SARAH Web interface, then try **admin** for both.
+
 ### Configuration
 
 The configuration must be defined into the `client/config.ini` file. Several new parameters are available and can be found into the `client/AddOns/{addon}/addon.ini` files.
