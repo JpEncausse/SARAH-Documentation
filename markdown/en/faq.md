@@ -10,6 +10,7 @@
   + [How to delete my speech recognition profile?](#how-to-delete-my-speech-recognition-profile)
   + [How to split SARAH server and client between two computers?](#how-to-split-sarah-server-and-client-between-two-computers)
   + [How to change the language?](#how-to-change-the-language)
+  + [How to do the multi-room?](#how-to-do-the-multi-room)
 * [Various questions](#various-questions)
   + [What are the requirements?](#what-are-the-requirements)
   + [What does SARAH mean?](#what-does-sarah-mean)
@@ -70,6 +71,9 @@ To use SARAH in another language (here it's to English) you need to:
   + Set attribute to `xml:lang="en-US"` in the `{plugin}.xml` file (so this file will start with `<grammar version="1.0" xml:lang="en-US"`)
   + Rename the `{plugin}.xml` file to `{plugin}_en_US.xml`
   
+### How to do the multi-room ?
+
+You can use Mumble to enable SARAH in several rooms. There is video tutorial in French about it: [http://youtu.be/-lJT_I68Qk4](http://youtu.be/-lJT_I68Qk4).
 
 ## Various questions
 
