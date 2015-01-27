@@ -10,6 +10,7 @@
   + [Comment supprimer un profil de reconnaisse vocale ?](#comment-supprimer-un-profil-de-reconnaissance-vocale)
   + [Comment séparer SARAH serveur et client entre deux ordinateurs ?](#comment-séparer-sarah-serveur-et-client-entre-deux-ordinateurs)
   + [Comment changer la langue ?](#comment-changer-la-langue)
+  + [Comment faire du multi-room ?](#comment-faire-du-multi-room)
 * [Questions diverses](#questions-diverses)
   + [Quels sont les prérequis ?](#quels-sont-les-prérequis)
   + [Que signifie SARAH ?](#que-signifie-sarah)
@@ -70,6 +71,9 @@ Pour utiliser SARAH dans une autre langue (ici c'est en anglais) il faudra :
   + Définir l'attribut de tête en `xml:lang="en-US"` dans le fichier `{plugin}.xml` (donc ce fichier va commencer par `<grammar version="1.0" xml:lang="en-US"`)
   + Renommer le fichier `{plugin}.xml` en `{plugin}_en_US.xml`
   
+### Comment faire du multi-room ?
+
+Il est possible d'utiliser SARAH dans plusieurs pièces en utilisant Mumble. Pour cela il y a un tutoriel vidéo en français : [http://youtu.be/-lJT_I68Qk4](http://youtu.be/-lJT_I68Qk4).
 
 ## Questions diverses
 
