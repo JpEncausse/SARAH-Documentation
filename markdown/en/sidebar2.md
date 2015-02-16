@@ -1,1 +1,3 @@
-- [Google+ Community](https://plus.google.com/u/0/communities/105964514508504667709)
+- [Project on Encausse.net](http://sarah.encausse.net)
+- [Wiki Documentation](http://wiki.sarah.encausse.net)
+- [Google+ Community](http://community.sarah.encausse.net)
