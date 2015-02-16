@@ -1,3 +1,4 @@
 - [Encausse.net](http://sarah.encausse.net)
 - [Documentation Wiki](http://wiki.sarah.encausse.net)
 - [Communauté Google+](http://community.sarah.encausse.net)
+- [Marketplace de Plugins](http://marketplace.sarah.encausse.net)
