@@ -1,3 +1,3 @@
-- [Projet sur Encausse.net](http://sarah.encausse.net)
+- [Encausse.net](http://sarah.encausse.net)
 - [Documentation Wiki](http://wiki.sarah.encausse.net)
 - [Communauté Google+](http://community.sarah.encausse.net)
