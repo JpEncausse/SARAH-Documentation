@@ -81,7 +81,11 @@ You'll need this Google API Key for several plugins.
 
 Please follow the below steps to get this API key (instructions from [http://www.chromium.org/developers/how-tos/api-keys](http://www.chromium.org/developers/how-tos/api-keys))
 
-**1) Register on chromium Google Group :**
+```block-tabs
+
+#### 1) Register on Chromium 
+
+Register on Chromium Google Groups:
 
 * Make sure you are a member of chromium-dev@chromium.org (you can just subscribe to chromium-dev and choose to not receive e-mails). For convenience, the APIs below are only visible to people subscribed to that group: [https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev](https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev)
 * Click on « _Join the group to send a message_ »
@@ -93,7 +97,9 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_2.png)
 
-**2) Create a console app on Google**
+#### 2) Create a Google App
+
+Create a console app on Google
 
 * Go to [https://cloud.google.com/console](https://cloud.google.com/console)
 * Click on « _Create Project_ »
@@ -106,7 +112,7 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_4.png)
 
-**3) Activation Speech API**
+#### 3) Activate Speech API
 
 * Go to « _APIs & Auth > APIs_ » in the left navigation menu
 * In **Browse API** search for « _Speech API_ »
@@ -122,7 +128,9 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_7.png)
 
-**5) Creating your key « Speech API »**
+#### 4) Create Speech Key
+
+Creating your key « Speech API »
 
 * Go to « _APIs & Auth > Credentials_ » in the left navigation menu
 * Click on the « _Create New Key_ » button
@@ -141,7 +149,7 @@ Please follow the below steps to get this API key (instructions from [http://www
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_11.png)
 
-**6) SARAH integration**
+#### 5) Connect SARAH
 
 * Open the SARAH configuration file (`custom.ini`) located in the root dir of SARAH
 * Search for the line `Google Speech Key API see https://console.developers.google.com/`
@@ -155,6 +163,8 @@ Please follow the below steps to get this API key (instructions from [http://www
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_13.png)
 
 Note: the key you have now acquired are **not for distribution purposes and must not be shared with other users**. 
+
+```
 
 ### config.ini
 

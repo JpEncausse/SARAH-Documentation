@@ -87,6 +87,54 @@ HTML, BODY, #layout, #sidebar, #content, #live{ height: 100%; }
   background: #FFFFFF;
 }
 
+
+// ------------------------------------------
+//  DOC CONTENT
+// ------------------------------------------
+
+#doc-content {
+	H2 {
+	  color: #D9534F;
+	  padding-top: 40px;
+	  border-bottom: 2px solid #D9534F;
+	  
+	}
+	
+	H3 {
+	  color: #019FDA;
+	  padding: 10px;
+	  background-color: #F2FAFC;
+	  border-bottom: 1px solid #9BD1E6;
+	}
+	
+	H4 {
+	  padding-top: 20px;
+	}
+	
+	IMG {
+	  border: 1px solid #9BD1E6;
+	  padding: 4px;
+	  -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+	}
+	
+
+	.nav-tabs {
+	  LI A {
+	    background-color: #F0F0F0;
+	  }
+	  .active A {
+      font-weight: bold;
+      background-color: #FFF;
+    }
+	}
+	.tab-content{
+	  padding: 10px;
+	  border-left:   1px solid #E0DFDE;
+	  border-right:  1px solid #E0DFDE;
+	  border-bottom: 1px solid #E0DFDE;
+	}
+}
+
 // ------------------------------------------
 //  ARTICLES
 // ------------------------------------------
@@ -102,6 +150,7 @@ HTML, BODY, #layout, #sidebar, #content, #live{ height: 100%; }
   
   overflow-y: scroll;
   height: 100%;
+  
 }
 
 .doc-sidebar {
