@@ -24,7 +24,7 @@ On a regular windows some steps are already done. Below the different steps:
 
 2. (by default) Download and install [.Net 4.5 Framework](http://www.microsoft.com/fr-fr/download/details.aspx?id=30653)
 
-3. (by default) Download and install x86 version of [Microsoft Speech Platform 11](http://www.microsoft.com/en-us/download/details.aspx?id=27225)
+3. (by default) Download and install x86 version of [Microsoft Speech Platform 11](http://www.microsoft.com/en-us/download/details.aspx?id=27225)   
    ➔ Also install language engine [Microsoft Speech Platform - Languages 11](http://www.microsoft.com/en-us/download/details.aspx?id=27224)
 
 4. (optional) [Install a TTS Voice](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/) or use the default Windows 8 voice   

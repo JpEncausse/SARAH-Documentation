@@ -24,7 +24,7 @@ Sur un windows "normal" certaines étapes sont dejà faites par defaut. Ci-desso
 
 2. (par defaut) Télécharger et installer [.Net 4.5 Framework](http://www.microsoft.com/fr-fr/download/details.aspx?id=30653)
 
-3. (par defaut) Télécharger et installer la version x86 [Microsoft Speech Platform 11](http://www.microsoft.com/en-us/download/details.aspx?id=27225)
+3. (par defaut) Télécharger et installer la version x86 [Microsoft Speech Platform 11](http://www.microsoft.com/en-us/download/details.aspx?id=27225)   
    ➔ Ainsi que la langue du moteur [Microsoft Speech Platform - Languages 11](http://www.microsoft.com/en-us/download/details.aspx?id=27224)
 
 4. (optionnel) [Installer une voix TTS](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/) ou utiliser la voix par défaut de Windows 8      
