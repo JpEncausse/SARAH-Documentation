@@ -1,4 +1,8 @@
-- [Premiers Pas](getting_started)
-- [FAQ / Résoudre un problème](faq)
-- [Développement de plugin](plugin_dev)
-- [SARAH v4](sarah_v4)
+- SARAH v3
+  - [Premiers Pas](getting_started_v3)
+  - [FAQ / Résoudre un problème](faq_v3)
+  - [Développement de plugin](plugin_dev_v3)
+- SARAH v4
+  - [Premiers Pas](getting_started_v4)
+  - [FAQ / Résoudre un problème](faq_v4)
+  - [Développement de plugin](plugin_dev_v4)

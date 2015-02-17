@@ -1,8 +1,8 @@
 # Plugin Development
 
-**This is for SARAH v3**
+SARAH v3 is current main stable version installed by community since 1 year waiting for v4 still in beta.  
 
-You'll find here how to create a plugin.
+Please refer to [SARAH v4](plugin_dev_v4) if you want to test the new version.
 
 ## Index
 

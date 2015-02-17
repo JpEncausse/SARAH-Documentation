@@ -1,6 +1,8 @@
 # Premiers Pas
 
-Cette page est seulement pour **SARAH v3**. Merci d'aller sur la page dédiée à [SARAH v4](sarah_v4) si vous testez cette nouvelle version.
+SARAH v3 est une version majoritairement installée depuis 1an en attendant la sortie de la v4 en version beta.
+
+Merci d'aller sur la page dédiée à [SARAH v4](getting_started_v4) si vous testez cette nouvelle version.
 
 ## Sommaire
 
@@ -30,7 +32,8 @@ Ci-dessous les différentes étapes :
   ➔ Lorsque vous dézippez le package de SARAH il faut vous assurer de **ne pas avoir d'espaces dans le nom du chemin d'accès**. Par exemple SARAH pourra se trouver dans `C:\SARAH\` mais pas dans `C:\Chemin avec des espaces\SARAH\`
 
 3. (optionnel) [Installer une voix TTS](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/) ou utiliser la voix par défaut de Windows 8      
-  ➔ On recommande [la voix de Virginie](http://www.ac-limoges.fr/ia87/spip.php?article315) qui est très bien.   
+  ➔ [la voix de Virginie](http://www.ac-limoges.fr/ia87/spip.php?article315) fonctionne bien.
+  ➔ la société [Voxygen](http://voxygen.fr) propose de nombreuses voix (parlez leur de SARAH !)    
   ➔ En cas de problèmes, merci de consulter la [FAQ](faq)
 
 4. Si vous avez un **Kinect** merci de [suivre les instructions ci-dessous](#kinect-v1) afin de pouvoir l'utiliser.
@@ -39,7 +42,9 @@ Après toutes ces étapes SARAH est prête [à être configurée](#configuration
 
 ### Kinect v1
 
-Le Kinect de la Xbox 360 peut être acheté séparément. Ce dispositif est très puissant et bien meilleur qu'un microphone ordinaire. Si vous en achetez un **assurez-vous qu'il est livré avec le câble USB et son adaptateur**.
+Le Kinect de la Xbox 360 peut être acheté séparément (sur le Bon Coin). Ce dispositif est très puissant et bien meilleur qu'un microphone ordinaire. Si vous en achetez un **assurez-vous qu'il est livré avec le câble USB et son adaptateur**.
+
+Attention ! Microsoft arrête la vente de Kinect 1 au profit de Kinect 2.
 
 Ci-dessous les instructions pour installer le Kinect v1 sous Windows :
 
@@ -47,8 +52,12 @@ Ci-dessous les instructions pour installer le Kinect v1 sous Windows :
 2. Télécharger et installer le [Language Pack](http://www.microsoft.com/en-us/download/details.aspx?id=34809) (au moment du téléchargement il faudra bien choisir "FR-fr" pour la langue)
 
 Quelques remarques à propos de l'installation d'un Kinect v1 :
-* <del>Ne pas utiliser d'USB 3 sinon le microphone du Kinect ne fonctionnera pas</del> Des utilisateurs ont indiqué que cela fonctionnait avec l'USB 3,
-* Si vous utilisez plusieurs Kinects et que vous voulez vous servir de la vidéo, alors il faut utiliser deux ports USB différents, sinon une seule vidéo fonctionnera dû à un problème de bande passante (mais du coup si vous n'utilisez que le microphone vous pouvez utiliser le même port).
+* Certains utilisateurs ont indiqué avoir des soucis avec l'USB 3,
+* Le Kinect consomme des ressources, si vous utilisez plusieurs Kinects **avec de la vidéo**, utilisez deux ports USB différents (les prolongateur RJ45 ne marcheront pas).
+* Mettre le Kinect en face de l'utilisateur
+* Mettre les sources audio sur le côté ou derrière
+* L'utilisateur doit parler 20db au dessus du son
+* Les voix aigues sont mal reconnues
 
 ### Kinect v2
 
@@ -61,6 +70,8 @@ Quelques remarques à propos de l'installation d'un Kinect v2 :
 * Il faut utiliser **Windows 8.1**,
 * Il faut le brancher sur du **USB 3**.
 
+Dans SARAH v3 le Kinect2 est considéré comme un super Microphone (la partie Kinect n'est pas utilisée)
+
 ## Configuration
 
 Si vous souhaitez que SARAH fonctionne bien, il faut utiliser un bon micro. Dans [cet article](http://encausse.wordpress.com/2013/05/19/thevoice/) trois microphones (Microhpone, Kinect et VoiceTracker II) ont été testés avec SARAH.
@@ -70,12 +81,12 @@ Ci-dessous les prochaines étapes à suivre :
 1. Aller dans le répertoire `profile/` et effacer le fichier `profile.json` (sinon SARAH risque de vous appeler _Jean-Philippe_ de temps en temps !)
 2. Récupérer une Google API Key ([voir ci-dessous](#récupérer-une-google-api-key))
 3. Regarder les différents paramètres disponibles dans le fichier `config.ini`
-4. Change le volume d'entrée du son : aller dans ➔ `Panneau de Configuration` ➔  Chercher `Gérer les périphériques audio` ➔  `Clique droit sur votre microphone` ➔  Cliquer sur `Propriétés` ➔  `Change le niveau` (par exemple, pour un microphone classique, ce doit être ~80, et pour un Kinect, il faut tenter plusieurs configurations)
+4. Changer le volume d'entrée du son : aller dans ➔ `Panneau de Configuration` ➔  Chercher `Gérer les périphériques audio` ➔  `Clique droit sur votre microphone` ➔  Cliquer sur `Propriétés` ➔  `Change le niveau` (par exemple, pour un microphone classique, ce doit être ~90, et pour un Kinect, il faut tenter plusieurs configurations)
 5. Entrainer la reconnaissance vocale de Windows : aller dans ➔  `Panneau de Contrôle` ➔  `Reconnaissance vocale` ➔ `Suivre les dictatiels de reconnaissance vocale` (attention : avec un microphone classique il ne faut pas faire ce dictaciel plus d'une fois)
 
 ### Récupérer une Google API Key
 
-La _Google API Key_ est nécessaire pour plusieurs plugins.
+SARAH sait reconnaitre des commandes. Mais **ne sait pas gérer les questions ouvertes**: "SARAH recherche * sur wikipedia". Dans ce cas SARAH interroge l'API de Google. La _Google API Key_ est nécessaire pour plusieurs plugins.
 
 Merci de suivre attentivement les différentes étapes décrites ci-dessous (instructions provenant du site [http://www.chromium.org/developers/how-tos/api-keys](http://www.chromium.org/developers/how-tos/api-keys))
 
@@ -168,7 +179,7 @@ Remarque : cette clé est **pour votre usage exclusive et ne doit pas être util
 
 ### config.ini
 
-Tous les paramètres de configuration de SARAH sont disponibles dans le fichier `config.ini`.
+Tous les paramètres de configuration **du client SARAH** sont disponibles dans le fichier `config.ini`.
 
 Ci-dessous une liste de quelques uns de ces paramètres
 
@@ -476,7 +487,7 @@ Si vous ne savez pas comment utiliser le plugin, alors vous pouvez :
 
 ## Mise à jour de SARAH
 
-Si vous voulez mettre à jour SARAH (mais seulement pour une version < 4), vous devrez suivre les étapes ci-dessous :
+Si vous voulez mettre à jour SARAH, vous devrez suivre les étapes ci-dessous :
 
 1. Sauvegarder (en renommant le répertoire) votre installation courante
 2. Télécharger et dézipper la nouvelle version

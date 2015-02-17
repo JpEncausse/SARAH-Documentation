@@ -1,6 +1,8 @@
 # Développement de plugin
 
-**Cette documentation est faite pour SARAH v3 seulement**
+SARAH v3 est une version majoritairement installée depuis 1an en attendant la sortie de la v4 en version beta.
+
+Merci d'aller sur la page dédiée à [SARAH v4](plugin_dev_v4) si vous développez sur cette nouvelle version.
 
 ## Sommaire
 

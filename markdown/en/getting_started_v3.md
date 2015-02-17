@@ -1,6 +1,8 @@
 # Getting Started
 
-This page is for **SARAH v3** only. Please refer to [SARAH v4](sarah_v4) if you want to test the new version.
+SARAH v3 is current main stable version installed by community since 1 year waiting for v4 still in beta.  
+
+Please refer to [SARAH v4](getting_started_v4) if you want to test the new version.
 
 ## Index
 
@@ -46,11 +48,12 @@ Here are the instructions to install it on Windows:
 2. Download and install the related [Language Pack](http://www.microsoft.com/en-us/download/details.aspx?id=34809) (make sure you choose the correct language when downloading)
 
 Some notes regarding the Kinect v1 installation:
-* <del>Don't use USB 3 because the microphone won't work</del> Users reported it works with USB 3;
-* If you use several Kinects and you want to use the video, then you have to use two different USB bus, otherwise only one video will work due to a bandwidth issue (so if you only use the audio, then you can share the same USB).
+* Some users reported issues with USB 3;
+* Kinect use ressources, If you use several Kinects **with video**, you have to use two different USB bus (RJ45 Extender won't work).
 * Put Kinect in direct line with the users. 
-* Put sound or music sources behind the Kinect.
+* Put sound or music sources aside behind the Kinect.
 * User must speak 20db above sound. 
+* Pitched voice didn't work well
 
 ### Kinect v2
 
@@ -62,6 +65,8 @@ Here are the instructions to install the second generation of Kinect:
 Some notes regarding the Kinect v2 installation:  
 * You need to use **Windows 8.1**;
 * You need to use an **USB 3**.
+
+In SARAH v3 the Kinect 2 is a good Microphone (Kinect features are not available)
 
 ## Configuration
 
@@ -77,7 +82,7 @@ Find below the next steps:
 
 ### Get the Google API Key
 
-You'll need this Google API Key for several plugins.
+SARAH understant commands. It can't understand open question: "SARAH search * on Wikipedia". A workaround is to use Google Speech API. You'll need this Google API Key for several plugins.
 
 Please follow the below steps to get this API key (instructions from [http://www.chromium.org/developers/how-tos/api-keys](http://www.chromium.org/developers/how-tos/api-keys))
 
@@ -168,7 +173,7 @@ Note: the key you have now acquired are **not for distribution purposes and must
 
 ### config.ini
 
-All the parameters to configure SARAH are in the `config.ini` file.
+All the parameters to configure **SARAH Client** are in the `config.ini` file.
 
 We'll list below some of them.
 
@@ -477,7 +482,7 @@ If you wonder how to use the plugin you can:
 
 ## Update SARAH
 
-If you want to udpate SARAH to a newer version (version less than 4) you need to follow the below steps:
+If you want to udpate SARAH to a newer version you need to follow the below steps:
 
 1. Backup (rename) current install
 2. Download and unzip the new version

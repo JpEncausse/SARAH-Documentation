@@ -92,12 +92,16 @@ HTML, BODY, #layout, #sidebar, #content, #live{ height: 100%; }
 //  DOC CONTENT
 // ------------------------------------------
 
+#doc-iframe {
+  padding-top: 40px;
+  border: none;
+} 
+
 #doc-content {
 	H2 {
 	  color: #D9534F;
 	  padding-top: 40px;
 	  border-bottom: 2px solid #D9534F;
-	  
 	}
 	
 	H3 {
@@ -154,16 +158,12 @@ HTML, BODY, #layout, #sidebar, #content, #live{ height: 100%; }
 }
 
 .doc-sidebar {
-  UL { padding : 0; }
+  UL { padding : 10px 0px 20px 0px; }
   LI { 
-    padding : 10px 20px;
+    padding-left : 10px;
     list-style-type: none;
-     A { color: #AAA; text-decoration: none; }
-  }
-  
-  LI:hover, LI.active {
-    background: #666666;
-     A { color: #EEE; }
+     A { color: #AAA; text-decoration: none; padding : 10px; display: block;}
+     A:hover { color: #FFF; background: #666;  }
   }
   
 }

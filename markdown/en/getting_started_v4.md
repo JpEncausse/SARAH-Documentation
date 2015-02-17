@@ -1,6 +1,9 @@
-# Dedicated page for SARAH v4
+# Work in progress
 
-_work in progress_
+SARAH v4 is still under developpement. Client and Server has been rewritten to improve modularity.
+
+Please refer to [SARAH v3](getting_started_v3) if you want to test the stable version.
+
 
 ## Getting Started
 

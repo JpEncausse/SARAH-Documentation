@@ -41,7 +41,16 @@ $.fn.scrollTo=function(c,a,d){if(typeof a=="function"&&arguments.length==2){d=a;
   
   var setupNavigation = function(){
     var page = getUrlParameter('page')
-    if (page){ $('#doc-content').attr('data-page', page).removeAttr('data-wiki', ''); }
+    if (!page){
+      $('#doc-iframe').hide();
+      $('#doc-content').show();
+    } else if (page != 'Marketplace'){ 
+      $('#doc-iframe').hide();
+      $('#doc-content').show().attr('data-page', page).removeAttr('data-wiki', ''); 
+    } else {
+      $('#doc-iframe').show();
+      $('#doc-content').hide();
+    }
   }
   
   // ------------------------------------------

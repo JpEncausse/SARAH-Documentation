@@ -1,4 +1,9 @@
-- [Getting Started](getting_started)
-- [FAQ / How To](faq)
-- [Plugin Development](plugin_dev)
-- [SARAH v4](sarah_v4)
+- SARAH v3
+  - [Getting Started](getting_started_v3)
+  - [FAQ / How To](faq_v3)
+  - [Plugin Development](plugin_dev_v3)
+- SARAH v4
+  - [Getting Started](getting_started_v4)
+  - [FAQ / How To](faq_v4)
+  - [Plugin Development](plugin_dev_v4)
+

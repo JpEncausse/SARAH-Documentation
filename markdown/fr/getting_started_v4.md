@@ -1,6 +1,9 @@
-# Page dédiée pour SARAH v4
+# En travaux...
 
-_en travaux_
+SARAH v4 est une version en cours de développement. Réécriture complète du client et du serveur pour plus de modularité.
+
+Merci d'aller sur la page dédiée à [SARAH v3](getting_started_v3) si vous utilisez SARAH v3.
+
 
 ## Premiers Pas
 

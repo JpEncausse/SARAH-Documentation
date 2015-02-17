@@ -9,8 +9,13 @@ Plusieurs plugins peuvent être facilement créés en utilisant du JavaScript.
 
 ## Sommaire
 
-* [Premiers Pas](getting_started) : Installation et configuration de SARAH
-* [FAQ / Résoudre un problème](faq) : toutes les réponses à vos questions/problèmes
-* [Developpement de plugin](plugin_dev) : tout ce que vous devez savoir sur le développment de plugin
-
+- SARAH v3
+  - [Premiers Pas](getting_started_v3)
+  - [FAQ / Résoudre un problème](faq_v3)
+  - [Développement de plugin](plugin_dev_v3)
+- SARAH v4
+  - [Premiers Pas](getting_started_v4)
+  - [FAQ / Résoudre un problème](faq_v4)
+  - [Développement de plugin](plugin_dev_v4)
+  
 _This documentation is also available in [English](&lang=en)_
