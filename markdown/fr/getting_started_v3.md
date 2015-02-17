@@ -28,7 +28,7 @@ Il y a quelques explication dans le dossier README de SARAH.
 
 Sur un windows "normal" certaines étapes sont dejà faites par defaut. Ci-dessous les différentes étapes :
 
-1. Télécharger et dézipper [SARAH](http://encausse.net/s-a-r-a-h/)   
+1. Télécharger et dézipper [SARAH](http://sarah.encausse.net)   
   ➔ Lorsque vous dézippez le package de SARAH il faut vous assurer de **ne pas avoir d'espaces dans le nom du chemin d'accès**. Par exemple SARAH pourra se trouver dans `C:\SARAH\` mais pas dans `C:\Chemin avec des espaces\SARAH\`
 
 2. (par defaut) Télécharger et installer [.Net 4.5 Framework](http://www.microsoft.com/fr-fr/download/details.aspx?id=30653)

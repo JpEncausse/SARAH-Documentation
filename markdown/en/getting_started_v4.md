@@ -19,7 +19,7 @@ There is some explanation in the README folder of SARAH.
 
 On a regular windows some steps are already done. Below the different steps:
 
-1. Download and Unzip [SARAH](http://encausse.net/s-a-r-a-h/)   
+1. Download and Unzip [SARAH](http://sarah.encausse.net)   
   ➔ When you unzip the SARAH package, you have to make sure to **not have any space within the path.** For example you can unzip to `C:\SARAH\` but not to `C:\Path with space\SARAH\`
 
 2. (by default) Download and install [.Net 4.5 Framework](http://www.microsoft.com/fr-fr/download/details.aspx?id=30653)
