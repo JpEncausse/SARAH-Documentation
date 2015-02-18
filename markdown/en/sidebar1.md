@@ -6,4 +6,4 @@
   - [Getting Started](getting_started_v4)
   - [FAQ / How To](faq_v4)
   - [Plugin Development](plugin_dev_v4)
-
+- [Frequently Asked Questions](faq)
