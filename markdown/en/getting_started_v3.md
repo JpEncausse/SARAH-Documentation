@@ -4,21 +4,8 @@ SARAH v3 is current main stable version installed by community since 1 year wait
 
 Please refer to [SARAH v4](getting_started_v4) if you want to test the new version.
 
-## Index
+## Table of Content
 
-* [Installation](#installation)
-  + [Windows](#windows)
-  + [Kinect v1](#kinect-v1)
-  + [Kinect v2](#kinect-v2)
-* [Configuration](#configuration)
-  + [Get the Google API Key](#get-the-google-api-key)
-  + [config.ini](#config.ini)
-* [Start](#start)
-* [Plugins](#plugins)
-  + [Installation](#installation)
-  + [Plugins Configuration](#plugins-configuration)
-  + [Documentation](#documentation)
-* [Update SARAH](#update-sarah)
 
 ## Installation
 

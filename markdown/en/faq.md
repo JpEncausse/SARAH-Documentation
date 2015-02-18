@@ -1,25 +1,6 @@
 # FAQ / How To
 
-## Index
-
-* [How to](#how-to)
-  + [How to help?](#how-to-help)
-  + [How to find someone to help me?](#how-to-find-someone-to-help-me)
-  + [How to take a picture with a Kinect?](#how-to-take-a-picture-with-a-kinect)
-  + [How to use QRCode?](#how-to-use-qrcode)
-  + [How to delete my speech recognition profile?](#how-to-delete-my-speech-recognition-profile)
-  + [How to split SARAH server and client between two computers?](#how-to-split-sarah-server-and-client-between-two-computers)
-  + [How to change the language?](#how-to-change-the-language)
-  + [How to do the multi-room?](#how-to-do-the-multi-room)
-* [Various questions](#various-questions)
-  + [What are the requirements?](#what-are-the-requirements)
-  + [What does SARAH mean?](#what-does-sarah-mean)
-  + [Which languages does SARAH speak?](#which-languages-does-sarah-speak)
-  + [What about an app for mobile?](#what-about-an-app-for-mobile)
-* [Plugins issues](#plugins-issues)
-  + [Plugin fails the installation](#plugin-fails-the-installation)
-  + [The server returns an error](#the-server-returns-an-error)
-  + [I cannot configure the plugin](#i-cannot-configure-the-plugin)
+## Table of Content
 
 ## How to
 

@@ -4,13 +4,8 @@ SARAH v4 is still under developpement. Client and Server has been rewritten to i
 
 Please refer to [SARAH v3](getting_started_v3) if you want to test the stable version.
 
-## Index
+## Table of Content
 
-* [Installation](#installation)
-  + [Windows](#windows)
-  + [Kinect v1](#kinect-v1)
-  + [Kinect v2](#kinect-v2)
-  
 ## Installation
 
 There is some explanation in the README folder of SARAH.

@@ -4,30 +4,8 @@ SARAH v3 is current main stable version installed by community since 1 year wait
 
 Please refer to [SARAH v4](plugin_dev_v4) if you want to test the new version.
 
-## Index
+## Table of Content
 
-* [Files structure](#files-structure)
-* [Files content](#files-content)
-* [Publish the plugin](#publish-the-plugin)
-* [How to](#how-to)
-  + [How to send an HTTP Request](#how-to-send-an-http-request)
-  + [How to scrap a webpage](#how-to-scrap-a-webpage)
-  + [How to parse an XML file](#how-to-parse-an-xml-file)
-  + [How to trigger a plugin using a text command sent by HTTP](#how-to-trigger-a-plugin-using-a-text-command-sent-by-HTTP)
-* [JavaScript API](#javascript-api)
-  + [Plugins Functions](#plugins-functions)
-  + [HTTP Functions](#http-functions)
-  + [JSDocs](#jsdocs)
-  + [Advanced features](#advanced-features)
-    * [Context](#context)
-    * [Profile](#profile)
-    * [Event](#event)
-    * [AskMe](#askme)
-    * [Chromeless](#chromeless)
-* [Rules Engine](#rules-engine)
-  + [Create a rule](#create-a-rule)
-  + [Note](#note)
-  + [Other filters](#other-filters)
 
 ## Files structure
 

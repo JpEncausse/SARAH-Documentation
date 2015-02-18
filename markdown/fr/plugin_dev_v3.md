@@ -6,28 +6,6 @@ Merci d'aller sur la page dédiée à [SARAH v4](plugin_dev_v4) si vous dévelop
 
 ## Sommaire
 
-* [Structure des fichiers](#structure-des-fichiers)
-* [Contenu des fichiers](#contenu-des-fichiers)
-* [Publier le plugin](#publier-le-plugin)
-* [Comment faire](#comment-faire)
-  + [Comment envoyer une requête HTTP](#comment-envoyer-une-requête-http)
-  + [Comment récupérer une partie d'une page Web](#comment-récupérer-une-partie-dune-page-web)
-  + [Comment analyser un fichier XML](#comment-analyser-un-fichier-xml)
-  + [Comment enclencher un plugin en utilisant une commande texte envoyée par HTTP](#comment-enclencher-un-plugin-en-utilisant-une-commande-texte-envoyée-par-HTTP)
-* [API JavaScript](#api-javascript)
-  + [Fonctions pour les plugins](#fonctions-pour-les-plugins)
-  + [HTTP Functions](#http-functions)
-  + [JSDocs](#jsdocs)
-  + [Fonctionnalités avancées](#fonctionnalités-avancées)
-    * [Context](#context)
-    * [Profile](#profile)
-    * [Event](#event)
-    * [AskMe](#askme)
-    * [Chromeless](#chromeless)
-* [Moteur de règles](#moteur-de-règles)
-  + [Créer une règle](#créer-une-règle)
-  + [Remarque](#remarque)
-  + [Autres filtres](#autres-filtres)
 
 ## Structure des fichiers
 

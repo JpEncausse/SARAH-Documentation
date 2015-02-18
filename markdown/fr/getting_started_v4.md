@@ -6,11 +6,6 @@ Merci d'aller sur la page dédiée à [SARAH v3](getting_started_v3) si vous uti
 
 ## Sommaire
 
-* [Installation](#installation)
-  + [Windows](#windows)
-  + [Kinect v1](#kinect-v1)
-  + [Kinect v2](#kinect-v2)
-  
 ## Installation
 
 Il y a quelques explication dans le dossier README de SARAH.

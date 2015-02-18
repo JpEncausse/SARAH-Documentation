@@ -7,7 +7,7 @@ This documentation is for [SARAH](http://encausse.wordpress.com/s-a-r-a-h/), a f
 
 Several plugins can be easily created using JavaScript.
 
-## Index
+## Table of Content
 
 - SARAH v3
   - [Getting Started](getting_started_v3)

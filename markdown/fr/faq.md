@@ -1,135 +1,153 @@
 # FAQ / Résoudre un problème
 
+Si vous ne trouvez pas de réponses dans cette communauté
+- Regarder dans la FAQ lié à votre version de SARAH [v3](faq_v3) ou [v4](faq_v4)
+- Chercher de l'aide sur le [groupe Google+](http://community.sarah.encausse.net).
+
+
 ## Sommaire
 
-* [Comment faire](#comment-faire)
-  + [Comment aider ?](#comment-aider)
-  + [Comment trouver quelqu'un pour m'aider ?](#comment-trouver-quelquun-pour-maider)
-  + [Comment prendre une photo avec un Kinect ?](#comment-prendre-une-photo-avec-un-kinect)
-  + [Comment utiliser un QRCode?](#comment-utiliser-un-qrcode)
-  + [Comment supprimer un profil de reconnaisse vocale ?](#comment-supprimer-un-profil-de-reconnaissance-vocale)
-  + [Comment séparer SARAH serveur et client entre deux ordinateurs ?](#comment-séparer-sarah-serveur-et-client-entre-deux-ordinateurs)
-  + [Comment changer la langue ?](#comment-changer-la-langue)
-  + [Comment faire du multi-room ?](#comment-faire-du-multi-room)
-* [Questions diverses](#questions-diverses)
-  + [Quels sont les prérequis ?](#quels-sont-les-prérequis)
-  + [Que signifie SARAH ?](#que-signifie-sarah)
-  + [Quelles langues parle SARAH ?](#quelles-langues-parle-sarah)
-  + [Y'a-t-il une application pour téléphone portable ?](#ya-t-il-une-application-pour-téléphone-portable)
-* [Problèmes liés aux plugins](#problèmes-liés-aux-plugins)
-  + [Le plugin ne s'installe pas](#le-plugin-ne-sinstalle-pas)
-  + [Le serveur retourne une erreur](#le-serveur-retourne-une-erreur)
-  + [Je n'arrive pas à le configurer](#je-narrive-pas-à-le-configurer)
 
-## Comment faire
+## Projet SARAH
 
-### Comment aider ?
+### Pourquoi SARAH ?
 
-* Parler de SARAH sur les réseaux sociaux et sur les blogs
-* Montrer SARAH à ses amis
-* Créer des plugins
+- Le projet a été créé en 2012 issue d'une idée datant de 2007.
+- Le nom du projet est tiré de [la série TV Eureka](http://www.syfy.com/eureka/). 
+- Son nom signifie: _Self Actuated Residential Automated Habitat_
+- L'objectif du projet était:
+  - D'apprendre les technologies NodeJS et C#
+    - Le Computer Vision 
+    - Kinect
+  - De découvrir l'Internet des Objets
+  - D'apprendre le Community Management
 
-Vous voulez contribuer à cette documentation ? [Aller sur le dépôt Github](https://github.com/JpEncausse/SARAH-Documentation/tree/gh-pages).
+SARAH est un projet couteux et chronophage soyez indulgent !
 
-### Comment trouver quelqu'un pour m'aider ?
+### Un projet OpenSource ?
 
-Chercher de l'aide sur le [groupe Google+](https://plus.google.com/u/0/communities/105964514508504667709).
+J'ai l'habitude de partager mes développements sous la forme [d'articles](http://encausse.net) et [code source](https://github.com/JpEncausse), si cela peut aider...
 
-### Comment prendre une photo avec un Kinect ?
+Les sources de SARAH sont sur GitHub sous licence [WFTPL](fr.wikipedia.org/wiki/WTFPL).
+- La [Documentation](https://github.com/JpEncausse/SARAH-Documentation)
+- SARAH v3 [Client](https://github.com/JpEncausse/WSRMacro) et [Server](https://github.com/JpEncausse/WSRNodeJS) 
+- SARAH v4 [Client](https://github.com/JpEncausse/SARAH-Client-Windows) et [Server](https://github.com/JpEncausse/SARAH-Server-NodeJS)
 
-Voici les différentes étapes :  
+Le projet est organisé sous la forme de plugins développés par la communauté. Je ne prends pas de pull request car je n'ai pas le temps de coordoner des développements.
 
-1. éditer le fichier `custom.ini` et avoir la valeur `only=false`  
-2. redémarrer SARAH (vous ne devez pas utiliser le fichier `Client_Kinect_Audio`)  
-3. cliquer-droit sur l'icône de SARAH (la maison près de l'horloge) et choisir "Kinect_0" ; cela vous donne accès aux fonctions avancées (camera/motion/gesture/recognition)
-4. prendre une photo en appellant l'adresse [http://127.0.0.1:8888/?picture=true](http://127.0.0.1:8888/?picture=true) (la photo apparaitra dans le navigateur et sera enregistré dans le répertoire `medias/` de SARAH)
+### Un Framework pas un Produit ?
 
-### Comment utiliser un QRCode ?
+SARAH n'est pas un produit clef en main. C'est un Framework permettant d'interragir avec les objet connectés. 
+- Pour les gens techniques, curieux, bidouilleurs, ...
+- Pour tester et inventer de nouveaux usages entre les objets connectés, avec la famille, la maison, ...
 
-Il est possible de montrer un QRCode au Kinect de SARAH. Cela aura pour effet d'enclencher une action :
+Il faut voir ce projet comme un outil pour prototyper la maison connectée tout comme le propose Arduino sur l'électronique. 
 
-1. Créer un QRCode à partir du site [ZXing](http://zxing.appspot.com/generator) : le QRCode doit représenter l'URL de l'action d'un plugin (par exemple [http://127.0.0.1:8080/sarah/parle?phrase=Bonjour](http://127.0.0.1:8080/sarah/parle?phrase=Bonjour) pour le plugin `parle`)  
-2. Imprimer le QRCode  
-3. Montrer le QRCode au Kinect (+/- 80cm)
+
+### Pour les enteprises ?
+
+Les entreprises font ce qu'elles veulent la license est [WFTPL](fr.wikipedia.org/wiki/WTFPL). Mais il me semble dangereux de monter un business sur un projet codé au fond du garage.
+
+SARAH n'est pas un produit car:
+- Les gens ne sont pas prêt à payer
+- L'architecture est dépendante de Windows
+- Un produit implique une ergonomie bien plus simple
+- un produit implique beaucoup de maintenance et de support
+
+Par contre j'ai la structure pour organiser des Hachathons autour de SARAH financés par les entreprises qui le souhaitent. Il m'est aussi possible d'aider sur la conception d'un plugin. 
+
+### Comment aider SARAH ?
+
+SARAH était un des premiers projet de maison intelligente. 
+
+- Parlez de SARAH http://sarah.encausse.net autour de vous, sur les réseaux sociaux, dans les medias, etc ...
+- Parlez de votre expérience avec SARAH, faites des vidéos de vos installations c'est très précieux !
+- Participez à la documentation, développez des plugins, ...
+- Vous pouvez me [faire un don](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H9ALBBSZFL6CU) si vous le souhaitez
+- Entreprises, vous pouvez m'envoyer vos objets connectés pour réaliser un POC de plugin.
+
+### Quelles langues parle SARAH ?
+
+SARAH supporte toutes les langues du moteur de reconnaissance vocale de Microsoft.
+- L'application web SARAH v3 est en Anglais
+- L'application web SARAH v4 est multilangue en Anglais et Français
+- Les plugins sont essentiellement en Français de par la communauté
+
+## HardWare
+
+### Quelles sont les objets compatibles SARAH ?
+
+- Il y a plus de 200 plugins sur le [marketplace](/home?page=marketplace)
+- De manière général tous les objets qui ont une API (cherher sur GitHub)
+
+### Quelle configuration machine ?
+
+Le client SARAH necessite **une machine windows**.
+- La reconnaissance vocale consomme 10% d'un CPU Core i5 de NUC
+- La reconnaissance gestuelle / faciale consomme 40% d'un CPU Core i5 de NUC
+
+Configuration atypiques:
+- Le serveur NodeJS peut tourner sur un Raspberry Pi.
+- Certaines personnes ont virtualisé SARAH sur Mac.
+- Certaines personnes font tourné SARAH sur un NAS.
+
+### Quel micro prendre: Kinect 1 ou Kinect 2 ?
+
+Le Kinect [est bien meilleur](http://blog.encausse.net/2013/05/19/thevoice/) pour la reconnaissance vocale, et fournit aussi des fonctionnalités supplémentaires (_gesture, face recognition, QRCode, ..._).
+Si vous voulez utiliser SARAH avec un Kinect, merci de lire les informations ci-dessous :
+* Kinect v1 pour XBox 360
+  * Environ 50€ (rechercher sur LeBonCoin à 30€)
+  * Il doit être fourni avec le câble USB et l'alimentation
+  * D'après la licence il ne peut être utilisé que par les développeurs (c'est donc le cas avec SARAH)
+* Kinect v1 pour Windows
+  * Plus cher
+* Kinect v2 pour XBox One
+  * Environ 150€ (rechercher sur LeBonCoin à 80€)
+  * Il doit être fourni avec le câble USB et l'alimentation
+  * Acheter **en plus** un adaptateur Windows (50€ sur le Microsoft Store)
+* Kinect v2 pour Windows
+  * Environ 200€
+  * Doit être installé sous **Windows 8.1** et doit utilisé de l'**USB 3**
+
+### Peut-on utiliser plusieurs micros ?
+
+La réponse est très dépendante de la version de SARAH:
+
+- SARAH prends l'entrée d'un microphone 
+- Il est possible d'utiliser plusieurs Kinect 1 sur un PC
+- Il **n'est pas** possible d'utiliser plusieurs Kinect 2 sur un PC
+- SARAH peut recevoir un flux RTP (d'un Raspberry Pi) comme microphone
+- SARAH ne sait pas écouter les Cameras IP ou Interphones
+
+
+### Peut-on utiliser plusieurs speaker ?
+
+La réponse est très dépendante de la version de SARAH:
+
+- SARAH parle sur les speaker par defaut
+- Certains speaker bluetooth ont une veille / latence qui mange le début des phrases de SARAH
+- Des logiciels comme  [Airfoil](https://www.rogueamoeba.com/airfoil/) stream avec de la latence sur des speaker AirPlay ou DNLA
+- SARAH ne sait pas parler sur les Cameras IP ou Interphones
+
+### Peut-on faire du Multiroom ?
+
+- Une solution est de mettre plusieurs micros et plusieur speaker.
+- Les extentions USB/RJ45 Kinect ne marchent QUE pour l'Audio du Kinect 1.
+- Il est possible d'avoir plusieurs clients SARAH.
+- La communauté à développe des clients iOS, Android et Windows Phone.
+- Il est possible d'utiliser [Mumble](http://www.mumble.com/) pour [connecter SARAH à plusieurs tablettes dans la maison](http://youtu.be/-lJT_I68Qk4).
+
+### Est ce que SARAH existe sur Mobile ?
+
+Oui le client Mobile discute avec le client SARAH
+- Pour [Android](https://play.google.com/store/apps/details?id=net.android.clientsarah).
+- Pour iOS
+- Pour Windows Phone
+
+## Software
 
 ### Comment supprimer un profil de reconnaisse vocale ?
 
 Ce n'est pas toujours bon d'avoir suivi le tutoriel de reconnaissance vocale trop souvent. Si SARAH ne vous comprend plus correctement vous pouvez essayer d'effacer votre profil de reconnaissance vocale :    
 Aller dans `Panneau de Configuration` ➜ `Reconnaissance Vocale` ➜ `Options vocales avancées` ➜ `Profils de reconnaissance vocal` ➜ `Supprimer...`
 
-### Comment séparer SARAH serveur et client entre deux ordinateurs ?
-
-_à compléter_
-
-### Comment changer la langue ?
-
-Pour utiliser SARAH dans une autre langue (ici c'est en anglais) il faudra : 
-
-1. Editer le fichier `config.ini` et changer le paramètre de la langue en `language=en-US`  
-2. Mettre à jour les plugins -- donc pour chaque plugins :
-  + Traduire les commandes vocales qu'on trouve dans le fichier `{plugin}.xml` 
-  + Définir l'attribut de tête en `xml:lang="en-US"` dans le fichier `{plugin}.xml` (donc ce fichier va commencer par `<grammar version="1.0" xml:lang="en-US"`)
-  + Renommer le fichier `{plugin}.xml` en `{plugin}_en_US.xml`
-  
-### Comment faire du multi-room ?
-
-Il est possible d'utiliser SARAH dans plusieurs pièces en utilisant Mumble. Pour cela il y a un tutoriel vidéo en français : [http://youtu.be/-lJT_I68Qk4](http://youtu.be/-lJT_I68Qk4).
-
-## Questions diverses
-
-### Quels sont les prérequis ?
-
-Le **système d'exploitation est Windows** (Windows 7, 8, 8.1 en 32 ou 64bit), mais cela devrait aussi fonctionner avec une machine virtuelle Windows sous Linux et MacOS.
-
-Vous devez posséder un microphone, ou un **Kinect**. Le Kinect est bien meilleur pour la reconnaissance vocale, et fournit aussi des fonctionnalités supplémentaires (_gesture, face recognition, QRCode, ..._).
-Si vous voulez utiliser SARAH avec un Kinect, merci de lire les informations ci-dessous :
-* Kinect v1 pour XBox 360
-  * Peu cher (~40€)
-  * Il doit être fourni avec le câble USB et l'alimentation
-  * D'après la licence il ne peut être utilisé que par les développeurs (c'est donc le cas avec SARAH)
-* Kinect v1 pour Windows
-  * Plus cher
-* Kinect v2 pour Windows
-  * Très cher
-  * Encore en version béta
-  * Doit être installé sous **Windows 8.1** et doit utilisé de l'**USB 3**
-
-Et finalement vous aurez aussi besoin d'une connexion Internet.
-
-En ce qui concerne le _hardware_, le programme pourrait être lent sur un processeur peu puissant.
-
-### Que signifie SARAH ?
-
-S.A.R.A.H. signifie _Self Actuated Residential Automated Habitat_ et ce nom vient de la série TV _Eureka_.
-
-### Quelles langues parle SARAH ?
-
-SARAH supporte plusieurs langues mais, pour le moment, nous sommes concentrés sur l'**anglais** et le **français**.
-Cependant SARAH ne peut fonctionner qu'avec une seule langue à la fois, qui doit être définie dans le fichier `custom.ini`.
-
-La langue par défaut pour SARAH est l'anglais, donc soyez sûr de [suivre les instructions](#getting_started) pour installer le pack de langues.
-
-Pour le moment la plupart des plugins sont pour la langue française.
-
-### Y'a-t-il une application pour téléphone portable ?
-
-* Pour [Android](https://play.google.com/store/apps/details?id=net.android.clientsarah).
-
-
-## Problèmes liés aux plugins
-
-### Le plugin ne s'installe pas
-
-C'est un bug dû à Github.
-
-* Retenter plusieurs fois l'installation
-* Ou essayer d'installer manuellement le plugin qui s'est téléchargé dans le répertoire `/temp/` de SARAH
-
-### Le serveur retourne une erreur
-
-Si un le message d'erreur `module not found` apparait dans la fenêtre du serveur c'est que le plugin ne fonctionne pas (soit un problème avec le fichier JavaScript `.js` ou le fichier de configuration `.prop`). Essayer de contacter le développeur du plugin.
-
-### Je n'arrive pas à le configurer
-
-* Il y a un bug connu avec Internet Explorer, Firefox et d'autres... Dans ce cas, essayer avec Google Chrome.
-* Certains _touch devices_, comme le LeapMotion, peuvent créer un conflit dans le portail vis à vis du _glisser-déposer_.

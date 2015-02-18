@@ -6,19 +6,6 @@ Merci d'aller sur la page dédiée à [SARAH v4](getting_started_v4) si vous tes
 
 ## Sommaire
 
-* [Installation](#installation)
-  + [Windows](#windows)
-  + [Kinect v1](#kinect-v1)
-  + [Kinect v2](#kinect-v2)
-* [Configuration](#configuration)
-  + [Récupérer une Google API Key](#récupérer-une-Google-API-Key)
-  + [config.ini](#config.ini)
-* [Démarrer](#démarrer)
-* [Plugins](#plugins)
-  + [Installation](#installation)
-  + [Configuration Plugins](#configuration-plugins)
-  + [Utilisation](#utilisation)
-* [Mise à jour de SARAH](#mise-à-jour-de-sarah)
 
 ## Installation
 

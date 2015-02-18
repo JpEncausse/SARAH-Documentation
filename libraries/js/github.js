@@ -71,6 +71,7 @@ $.fn.scrollTo=function(c,a,d){if(typeof a=="function"&&arguments.length==2){d=a;
       highlight($div);
       bindLinks($div);
       blocks($div);
+      toc($div);
     });
   }
 
@@ -99,6 +100,34 @@ $.fn.scrollTo=function(c,a,d){if(typeof a=="function"&&arguments.length==2){d=a;
     return marked(md).replace(/<table>/g, '<table class="table table-bordered">');
   }
   
+  // ------------------------------------------
+  //  TOC
+  // ------------------------------------------
+  
+  var toc = function($div){
+    var $toc  = 0;
+    var $toc1 = $div.find('#sommaire');
+    var $toc2 = $div.find('#table-of-content');
+    
+    if      ($toc1.length > 0) { $toc = $toc1; } 
+    else if ($toc2.length > 0) { $toc = $toc2; } 
+    else { return; }
+    
+    var toc = '<div class="toc">';
+    $toc.nextAll('H2').each(function(){
+      var $h2 = $(this); 
+      toc += '<h4><a href="#'+$h2.attr('id')+'">'+$h2.text()+'</a></h4><ul class="list-group">';
+      $h2.nextUntil('H2','H3').each(function(){
+        var $h3 = $(this); 
+        toc += '<li class="list-group-item"><a href="#'+$h3.attr('id')+'">'+$h3.text()+'</a></li>';
+      });
+      toc += '</ul>';
+    });
+    toc += '</div>';
+
+    $toc.after($(toc));
+  }
+
   // ------------------------------------------
   //  BLOCKS
   // ------------------------------------------
