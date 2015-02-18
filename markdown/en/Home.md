@@ -17,5 +17,6 @@ Several plugins can be easily created using JavaScript.
   - [Getting Started](getting_started_v4)
   - [FAQ / How To](faq_v4)
   - [Plugin Development](plugin_dev_v4)
-  
+- [Frequently Asked Questions](faq)
+
 _Cette documentation est aussi disponible en [français](&lang=fr)_
