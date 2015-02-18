@@ -152,7 +152,7 @@ Créer sa clé « Speech API »
 
 Intégration dans SARAH
 
-* Ouvrir le fichier de configuration de SARA (`custom.ini`) situé à la racine du répertoire d'installation de SARAH
+* Ouvrir le fichier de configuration de SARAH (`custom.ini`) situé à la racine du répertoire d'installation de SARAH
 * Chercher la ligne `Google Speech Key API see https://console.developers.google.com/`
 
 ![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_12.png)

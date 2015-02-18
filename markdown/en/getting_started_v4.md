@@ -30,5 +30,159 @@ After these steps SARAH is ready [to be configured](#configuration). **If you ha
 
 ### Kinect v1
 
+1. (by default) Download and install [Microsoft Kinect SDK 1.8](http://www.microsoft.com/en-us/download/details.aspx?id=40278)   
+   ➔ Also install language engine [Kinect for Windows Language pack v11](http://www.microsoft.com/en-us/download/details.aspx?id=34809)
+
+2. (optional) Install [Kinect Developper Toolkit 1.8](http://www.microsoft.com/en-sg/download/details.aspx?id=40276) pour jouer avec les exemples
+
+3. In `client/custom.ini`
+
+```
+[kinect_v1]
+enable=true
+
+[microphone]
+enable=false
+```
+
+Otherwise the Kinect is considered as a microphone. At the moment you can't use both Kinect 1 and Kinect 2.
+
 ### Kinect v2
 
+1. (by default) Download and install [Microsoft Kinect SDK 2.0](http://www.microsoft.com/en-us/download/details.aspx?id=44561)   
+   ➔ Also install language engine [Kinect for Windows SDK 2.0 Language Packs](http://www.microsoft.com/en-us/download/details.aspx?id=43662)
+
+2. (optional) Install [Kinect Developper Toolkit 1.8](http://www.microsoft.com/en-sg/download/details.aspx?id=40276) pour jouer avec les exemples
+
+3. In `client/custom.ini`
+
+```
+[kinect_v2]
+enable=true
+
+[microphone]
+enable=false
+```
+
+Otherwise the Kinect is considered as a microphone. At the moment you can't use both Kinect 1 and Kinect 2.
+
+### Voice Recognition
+
+In order to have some good results with SARAH you need to use a good microphone. Here is [an article (in French)](http://encausse.wordpress.com/2013/05/19/thevoice/) where testing Microhpone, Kinect and VoiceTracker II with SARAH.
+
+Find below the next steps:
+
+- Put microphone in front of your head with other audio source aside or behind
+- Set the income sound volume : go to ➔ `Control Panel` ➔  `Sound` ➔  `Right click on your microphone` ➔  Click on `Properties` ➔  Change the `levels` (for a simple microphone don't go too high ~80, and for Kinect, just try different settings)
+- Train your voice in Windows : go to ➔  `Control Panel` ➔  `Speech Recognition` ➔   `Train your computer to better understand you` (attention: with a simple microphone, do this training only once)
+
+## Démarrer
+
+Follow the below two steps to start SARAH:
+
+1. **Run the server**: double-click the file called `Start_Server.cmd`       
+  ➔ a MS-DOS window will open with several lines  
+  ➔ you can open [http://127.0.0.1:8080](http://127.0.0.1:8080) into your Web browser to check the web interface
+
+2. **Run the client** double-click the file called `Start_Server.cmd`  
+  ➔ Once the client is loaded you'll see a small house icon close to the Windows clock.
+
+All done! You can now say __"SARAH what time is it?"__. And to have more fun you can install a plugin (see below).
+
+If you have any troubles, please refer to the [FAQ page](faq).
+
+
+
+
+## Configuration
+
+### Get the Google API Key
+
+SARAH understant commands. It can't understand open question: "SARAH search * on Wikipedia". A workaround is to use Google Speech API. You'll need this Google API Key for several plugins.
+
+Please follow the below steps to get this API key (instructions from [http://www.chromium.org/developers/how-tos/api-keys](http://www.chromium.org/developers/how-tos/api-keys))
+
+```block-tabs
+
+#### 1) Register on Chromium 
+
+Register on Chromium Google Groups:
+
+* Make sure you are a member of chromium-dev@chromium.org (you can just subscribe to chromium-dev and choose to not receive e-mails). For convenience, the APIs below are only visible to people subscribed to that group: [https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev](https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/chromium-dev)
+* Click on « _Join the group to send a message_ »
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_1.png)
+
+* Choose « _Do not send updates by email_ »
+* Click on « _Join the group_ »
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_2.png)
+
+#### 2) Create a Google App
+
+Create a console app on Google
+
+* Go to [https://cloud.google.com/console](https://cloud.google.com/console)
+* Click on « _Create Project_ »
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_3.png)
+
+* Give it a name
+* Accept the Terms of Use
+* Click on « _Create_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_4.png)
+
+#### 3) Activate Speech API
+
+* Go to « _APIs & Auth > APIs_ » in the left navigation menu
+* In **Browse API** search for « _Speech API_ »
+* Click on « _Speech API_ »
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_5.png)
+
+* Activate the key
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_6.png)
+
+* Accept the terms of use
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_7.png)
+
+#### 4) Create Speech Key
+
+Creating your key « Speech API »
+
+* Go to « _APIs & Auth > Credentials_ » in the left navigation menu
+* Click on the « _Create New Key_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_8.png)
+
+* Click on « _Browser key_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_9.png)
+
+* Click on « _Create_ » button
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_10.png)
+
+* Your API key:
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_11.png)
+
+#### 5) Connect SARAH
+
+* Open the SARAH configuration file (`client/custom.ini`)
+* Search for the line `; Google Speech API Key (retrieve from Google Console)`
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_12.png)
+
+* Change the line `;key=` :
+  + remove the `;`
+  + add your API key just after the `=`
+
+![](https://raw.githubusercontent.com/JpEncausse/SARAH-Documentation/gh-pages/markdown/images/Installation_Google_Speech_API_13.png)
+
+Note: the key you have now acquired are **not for distribution purposes and must not be shared with other users**. 
+
+```
