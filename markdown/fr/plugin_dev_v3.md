@@ -753,6 +753,14 @@ SARAH.context.profile =
 ]
 ```
 
+Il est ensuite possible d'utiliser, dans les plugins JavaScript, le mot clé `[name]` dans le `callback()` ou la fonction `SARAH.speak()` pour avoir SARAH qui dit le nom du profil qui a été reconnu. Par exemple :
+
+```javascript
+exports.action = function (data, callback, config, SARAH) {
+  callback({tts:"Je suis à tes ordres [name]"});
+}
+```
+
 ### Event
 
 Un plugin peut communiquer avec d'autres plugins en utilisant [l'API Event Emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter). Les plugins doivent alors écouter dans leur fonction `init()` :
