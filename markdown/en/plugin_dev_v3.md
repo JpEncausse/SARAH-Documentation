@@ -753,6 +753,13 @@ SARAH.context.profile =
 ]
 ```
 
+Then, into your JavaScript plugins, you can use `[name]` with `callback()` or `SARAH.speak()` to have SARAH that tells your name. The program will automatically replace `[name]` with the name found into the matching profile. Example:
+```javascript
+exports.action = function (data, callback, config, SARAH) {
+  callback({tts:"You're my master, [name]"});
+}
+``` 
+
 ### Event
 
 A plugin can communicate with the other plugins in using [Event Emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) API. Plugins should listen to event in their `init()` function. 
