@@ -21,12 +21,7 @@ Sur un windows "normal" certaines étapes sont dejà faites par defaut. Ci-desso
 
 3. (par defaut) Télécharger et installer la version x86 [Microsoft Speech Platform 11](http://www.microsoft.com/en-us/download/details.aspx?id=27225)   
    ➔ Ainsi que la langue du moteur [Microsoft Speech Platform - Languages 11](http://www.microsoft.com/en-us/download/details.aspx?id=27224)
-
-4. (optionnel) [Installer une voix TTS](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/) ou utiliser la voix par défaut de Windows 8      
-  ➔ [la voix de Virginie](http://www.ac-limoges.fr/ia87/spip.php?article315) fonctionne bien.
-  ➔ la société [Voxygen](http://voxygen.fr) propose de nombreuses voix (parlez leur de SARAH !)    
-  ➔ En cas de problèmes, merci de consulter la [FAQ](faq)
-  
+ 
 Après toutes ces étapes SARAH est prête [à être configurée](#configuration). **Si vous avez un Kinect** merci de [suivre les instructions ci-dessous](#kinect-v1) afin de pouvoir l'utiliser.
 
 ### Kinect v1
@@ -67,14 +62,6 @@ enable=false
 
 Sinon le Kinect est considéré comme un Microphone. Actuellement vous ne pouvez pas utiliser simultanément Kinect 1 et Kinect 2.
 
-### Reconnaissance Vocale
-
-Si vous souhaitez que SARAH fonctionne bien, il faut utiliser un bon micro. Dans [cet article](http://encausse.wordpress.com/2013/05/19/thevoice/) trois microphones (Microhpone, Kinect et VoiceTracker II) ont été testés avec SARAH.
-
-- Mettre le microphone devant vous en hauteur avec les sources sonore parasite sur le côté ou dans le dos.
-- Changer le volume d'entrée du son : aller dans ➔ `Panneau de Configuration` ➔  Chercher `Gérer les périphériques audio` ➔  `Clique droit sur votre microphone` ➔  Cliquer sur `Propriétés` ➔  `Change le niveau` (par exemple, pour un microphone classique, ce doit être ~90, et pour un Kinect, il faut tenter plusieurs configurations)
-- Entrainer la reconnaissance vocale de Windows : aller dans ➔  `Panneau de Contrôle` ➔  `Reconnaissance vocale` ➔ `Suivre les dictatiels de reconnaissance vocale` (attention : avec un microphone classique il ne faut pas faire ce dictaciel plus d'une fois)
-
 
 ## Démarrer
 
@@ -94,6 +81,27 @@ Si vous avez des problèmes, merci de se référer à la [FAQ](faq).
 
 
 ## Configuration
+
+### Reconnaissance Vocale
+
+Si vous souhaitez que SARAH fonctionne bien, il faut utiliser un bon micro. Dans [cet article](http://encausse.wordpress.com/2013/05/19/thevoice/) trois microphones (Microhpone, Kinect et VoiceTracker II) ont été testés avec SARAH.
+
+- Mettre le microphone devant vous en hauteur avec les sources sonore parasite sur le côté ou dans le dos.
+- Changer le volume d'entrée du son : aller dans ➔ `Panneau de Configuration` ➔  Chercher `Gérer les périphériques audio` ➔  `Clique droit sur votre microphone` ➔  Cliquer sur `Propriétés` ➔  `Change le niveau` (par exemple, pour un microphone classique, ce doit être ~90, et pour un Kinect, il faut tenter plusieurs configurations)
+- Entrainer la reconnaissance vocale de Windows : aller dans ➔  `Panneau de Contrôle` ➔  `Reconnaissance vocale` ➔ `Suivre les dictatiels de reconnaissance vocale` (attention : avec un microphone classique il ne faut pas faire ce dictaciel plus d'une fois)
+
+### Synthèse Vocale
+
+SARAH utilise la voix féminine SAPI 32bit définie dans Windows 8. 
+
+Il est possible [d'installer d'autres voix](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/)
+
+  ➔ [la voix de Virginie](http://www.ac-limoges.fr/ia87/spip.php?article315) non officielle, fonctionne bien.    
+  ➔ la société [Voxygen](http://voxygen.fr) propose de nombreuses voix (parlez leur de SARAH !)    
+  ➔ En cas de problèmes, merci de consulter la [FAQ](faq)
+
+Pour sélectionner une voix aller sur l'interface 32bit (pas 64bit): `%windir%\SysWOW64\speech\SpeechUX\sapi.cpl`
+
 
 ### Google API Key
 

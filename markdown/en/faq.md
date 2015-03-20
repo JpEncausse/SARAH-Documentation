@@ -1,62 +1,75 @@
 # FAQ / How To
 
+If you don't find an answer
+- Look into FAQ of dedicated version de SARAH [v3](faq_v3) ou [v4](faq_v4)
+- Ask on the [Google+ Community](http://community.sarah.encausse.net).
+
 ## Table of Content
 
-## How to
+## SARAH Project
 
-### How to help?
+### Why SARAH ?
+
+- The project ahs been created in 2012 form an idea of 2007
+- The name comes from [Eureka TV Series](http://www.syfy.com/eureka/). 
+- S.A.R.A.H. means _Self Actuated Residential Automated Habitat_ and this name comes from TV Show _Eureka_.
+- Goals was learning NodeJS, C# also:
+  - Computer Vision
+  - Kinect
+  - Internet of Things
+  - Community Managment
+
+SARAH is exepensive and takes times be patient !
+
+### OpenSource Project ?
+
+I use to share my ideas throught [articles](http://encausse.net) and [code](https://github.com/JpEncausse), if it could help...
+
+Sources are on GitHub under [WFTPL](fr.wikipedia.org/wiki/WTFPL).
+- The [Documentation](https://github.com/JpEncausse/SARAH-Documentation)
+- SARAH v3 [Client](https://github.com/JpEncausse/WSRMacro) et [Server](https://github.com/JpEncausse/WSRNodeJS) 
+- SARAH v4 [Client](https://github.com/JpEncausse/SARAH-Client-Windows) et [Server](https://github.com/JpEncausse/SARAH-Server-NodeJS)
+
+The project is structured around community plugins. I do note take pull request I don't have time.
+
+### A Framework not a Product ?
+
+SARAH is not a product, I don't have enought time. It's a framework to think the future now.
+
+### What about commercial usage ?
+
+The license is [WFTPL](fr.wikipedia.org/wiki/WTFPL). 
+But it's dangerous to do business on top of someone alone side project.
+
+### How to help SARAH ?
+
+SARAH was one of the first smart home project.
 
 * Talk on Social Networks and Blogs about SARAH
 * Show SARAH to friends
 * Build new plugins
 
 You want to contribute to this documentation? [Go to the Github repository](https://github.com/JpEncausse/SARAH-Documentation/tree/gh-pages).
+* Translation help would be great !
 
-### How to find someone to help me?
+Company can send me product sample to do PoC of plugin.
 
-Check the [Google+ group](https://plus.google.com/u/0/communities/105964514508504667709) and you'll probably find someone to help.
+### Which languages does SARAH speak?
 
-### How to take a picture with a Kinect?
+SARAH support several languages but right now we are only focused on **English** and **French**.
+However SARAH will only work with one language at a time that is defined in the `custom.ini` file.
 
-Here are the steps:  
+The default language for SARAH is French, so make sure you follow the [installation guide](#getting_started) to install the language pack.
 
-1. edit the `custom.ini` file and make sure to have `only=false`  
-2. restart SARAH (you mustn't use `Client_Kinect_Audio`)  
-3. right-click on the SARAH client icon (the house in the systray) and choose "Kinect_0"; that gives you access to the camera/motion/gesture/recognition  
-4. take a picture by calling the URL [http://127.0.0.1:8888/?picture=true] (the picture will appear in the browser and will be stored into the `medias/` folder of SARAH)
+So far almost all the plugins are in French only.
 
-### How to use QRCode?
 
-You can show a QRCode to the SARAH's Kinect that will trigger an action:
+## HardWare
 
-1. Create a QRCode from [ZXing](http://zxing.appspot.com/generator) : the QRCode must represent an URL for a plugin's action (e.g. [http://127.0.0.1:8080/sarah/parle?phrase=Bonjour](http://127.0.0.1:8080/sarah/parle?phrase=Bonjour) for the `parle` plugin)  
-2. Print the QRCode  
-3. Show the QRCode to the Kinect (+/- 80cm)
+### What are compatible things ?
 
-### How to delete my speech recognition profile?
-
-It's not good to do the speech recognition too many times. So you can try deleting your Windows "speech recognition profile" if SARAH doesn't understand you correctly anymore.  
-Go to `Control Panel` ➜ `Speech Recognition` ➜ `Advanced speech options` ➜ `Recognition Profiles` ➜ `Delete...`
-
-### How to split SARAH server and client between two computers?
-
-_to complete_
-
-### How to change the language?
-
-To use SARAH in another language (here it's to English) you need to:  
-
-1. Edit the `config.ini` file and change the language parameter: `language=en-US`  
-2. Update the plugins -- for each plugins:
-  + Translate the voice commands you'll find into the `{plugin}.xml` file
-  + Set attribute to `xml:lang="en-US"` in the `{plugin}.xml` file (so this file will start with `<grammar version="1.0" xml:lang="en-US"`)
-  + Rename the `{plugin}.xml` file to `{plugin}_en_US.xml`
-  
-### How to do the multi-room ?
-
-You can use Mumble to enable SARAH in several rooms. There is video tutorial in French about it: [http://youtu.be/-lJT_I68Qk4](http://youtu.be/-lJT_I68Qk4).
-
-## Various questions
+- There is a [marketplace](/home?page=marketplace) of 200 plugins.
+- Any API should be compatible with SARAH easily.
 
 ### What are the requirements?
 
@@ -71,45 +84,67 @@ If you want to use SARAH with a Kinect, please read that before:
 * Kinect v1 for Windows
   * More expensive
 * Kinect v2 for Windows
-  * Very Expensive
-  * Still in beta
+  * About 200€
   * Need to be installed under **Windows 8.1** and need to use an **USB 3**
 
 And finally you'll need to have an Internet connection.
 
 Regarding the hardware to run SARAH, the program can be really laggy on a weak processor.
 
-### What does SARAH mean?
 
-S.A.R.A.H. means _Self Actuated Residential Automated Habitat_ and this name comes from TV Show _Eureka_.
+### Which microphone ? Kinect 1 ? Kinect 2 ?
 
-### Which languages does SARAH speak?
+_to do_
 
-SARAH support several languages but right now we are only focused on **English** and **French**.
-However SARAH will only work with one language at a time that is defined in the `custom.ini` file.
+### Can I use multiple microphone ?
 
-The default language for SARAH is English, so make sure you follow the [installation guide](#getting_started) to install the language pack.
+_to do_
 
-So far almost all the plugins are in French only.
+### Can I use multiple speaker ?
 
-### What about an app for mobile?
+_to do_
+
+### How to do the multi-room ?
+
+You can use Mumble to enable SARAH in several rooms. There is video tutorial in French about it: [http://youtu.be/-lJT_I68Qk4](http://youtu.be/-lJT_I68Qk4).
+
+### Is there a mobile app for SARAH ?
 
 * For [Android](https://play.google.com/store/apps/details?id=net.android.clientsarah).
+* There is an iOS app on the community
+* There is a Windows Phone app in beta on the community
 
-## Plugins Issues
 
-### Plugin fails the installation
-   
-It's a known bug related to GitHub.
+## Installation
 
-* Try again several times
-* Or try to manually install the plugin that has been downloaded into the `/temp/` folder of SARAH
+### How to change the voice ?
 
-### The server returns an error
+_to do_
+
+### How to delete my speech recognition profile?
+
+It's not good to do the speech recognition too many times. So you can try deleting your Windows "speech recognition profile" if SARAH doesn't understand you correctly anymore.  
+Go to `Control Panel` ➜ `Speech Recognition` ➜ `Advanced speech options` ➜ `Recognition Profiles` ➜ `Delete...`
+
+
+## Software
+
+### The server display an error
 
 If there is an error message in the server window saying `module not found` then it means there is an error with the plugin (either with the JavaScript `.js` file or the `.prop` file). Try to contact the plugin developer.
 
-### I cannot configure the plugin
+### SARAH is deaf
 
-* There is a known bug with Internet Explorer, Firefox and others... In that case you'll have to use Chrome.
-* Some touch devices, like LeapMotion, can conflict with the Portal Drag and Drop.
+A plugin MUST call a callback `next()` or `callback()` to indicate to the client the job is finished otherwise the client wait minutes until a timeout.
+
+SARAH do not listen while speaking. If client crash she becomes deaf. Look and Send me the client logs.
+
+### Plugin fails the installation
+
+Sometimes plugins installation fails. It should be downloaded in `/tmp` folder (otherwise ask the community).  
+
+Try again or unzip manually the plugin.
+
+
+
+

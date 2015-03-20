@@ -7,7 +7,6 @@ Si vous ne trouvez pas de réponses dans cette communauté
 
 ## Sommaire
 
-
 ## Projet SARAH
 
 ### Pourquoi SARAH ?
@@ -141,13 +140,41 @@ La réponse est très dépendante de la version de SARAH:
 
 Oui le client Mobile discute avec le client SARAH
 - Pour [Android](https://play.google.com/store/apps/details?id=net.android.clientsarah).
-- Pour iOS
-- Pour Windows Phone
+- Pour iOS sur la communauté
+- Pour Windows Phone en beta sur la communauté
 
-## Software
+## Installation
+
+### Commment changer la voix de SARAH ?
+
+Relire la documentation ➔ Configuration ➔ Synthèse Vocale dans laquelle il y a des références vers des voix et le lien vers l'interface de configuration 32bit. 
+
+- Utiliser l'interface 64bit annulera la config 32bit
+- Certaines voix trouvées sur internet plantent
 
 ### Comment supprimer un profil de reconnaisse vocale ?
 
 Ce n'est pas toujours bon d'avoir suivi le tutoriel de reconnaissance vocale trop souvent. Si SARAH ne vous comprend plus correctement vous pouvez essayer d'effacer votre profil de reconnaissance vocale :    
 Aller dans `Panneau de Configuration` ➜ `Reconnaissance Vocale` ➜ `Options vocales avancées` ➜ `Profils de reconnaissance vocal` ➜ `Supprimer...`
+
+
+## Software
+
+### Le serveur affiche une erreur
+
+Si il y a une erreur de la forme `module not found` alors il y a une erreur dans le module. Contacter son auteur.
+
+### SARAH devient sourde
+
+Un plugin DOIT appeler son callback `next()` ou `callback()` pour indiquer au client que le travail est terminé. Sinon le client attends plusieurs minutes juqu'a un timeout.
+
+SARAH n'écoute pas quand elle parle. Si le client plante a ce moment elle devient sourde ! Regardez et envoyez moi les logs du client !
+
+
+### L'installation d'un plugin ne marche pas
+
+Parfois, le plugin est téléchargé dans le répertoire `/tmp` mais l'installation ne se fait pas.
+
+Insistez, ou dézipper manuellement ou contacter la commmunauté.
+
 

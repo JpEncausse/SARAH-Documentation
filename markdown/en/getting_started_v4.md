@@ -22,10 +22,6 @@ On a regular windows some steps are already done. Below the different steps:
 3. (by default) Download and install x86 version of [Microsoft Speech Platform 11](http://www.microsoft.com/en-us/download/details.aspx?id=27225)   
    ➔ Also install language engine [Microsoft Speech Platform - Languages 11](http://www.microsoft.com/en-us/download/details.aspx?id=27224)
 
-4. (optional) [Install a TTS Voice](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/) or use the default Windows 8 voice   
-  ➔ [Voxygen](http://voxygen.fr) provide good voices (talk to them about SARAH !)       
-  ➔ If you have any issues with the voices, please see [FAQ](faq)
-
 After these steps SARAH is ready [to be configured](#configuration). **If you have a Kinect**, please [see below the instructions](#kinect-v1) to make it work.
 
 ### Kinect v1
@@ -66,15 +62,6 @@ enable=false
 
 Otherwise the Kinect is considered as a microphone. At the moment you can't use both Kinect 1 and Kinect 2.
 
-### Voice Recognition
-
-In order to have some good results with SARAH you need to use a good microphone. Here is [an article (in French)](http://encausse.wordpress.com/2013/05/19/thevoice/) where testing Microhpone, Kinect and VoiceTracker II with SARAH.
-
-Find below the next steps:
-
-- Put microphone in front of your head with other audio source aside or behind
-- Set the income sound volume : go to ➔ `Control Panel` ➔  `Sound` ➔  `Right click on your microphone` ➔  Click on `Properties` ➔  Change the `levels` (for a simple microphone don't go too high ~80, and for Kinect, just try different settings)
-- Train your voice in Windows : go to ➔  `Control Panel` ➔  `Speech Recognition` ➔   `Train your computer to better understand you` (attention: with a simple microphone, do this training only once)
 
 ## Démarrer
 
@@ -95,6 +82,28 @@ If you have any troubles, please refer to the [FAQ page](faq).
 
 
 ## Configuration
+
+### Voice Recognition
+
+In order to have some good results with SARAH you need to use a good microphone. Here is [an article (in French)](http://encausse.wordpress.com/2013/05/19/thevoice/) where testing Microhpone, Kinect and VoiceTracker II with SARAH.
+
+Find below the next steps:
+
+- Put microphone in front of your head with other audio source aside or behind
+- Set the income sound volume : go to ➔ `Control Panel` ➔  `Sound` ➔  `Right click on your microphone` ➔  Click on `Properties` ➔  Change the `levels` (for a simple microphone don't go too high ~80, and for Kinect, just try different settings)
+- Train your voice in Windows : go to ➔  `Control Panel` ➔  `Speech Recognition` ➔   `Train your computer to better understand you` (attention: with a simple microphone, do this training only once)
+
+### Voice Synthesis
+
+SARAH use 32bit SAPI Windows Voice.
+
+You can [install a TTS Voice](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/) or use the default Windows 8 voice
+   
+  ➔ [Voxygen](http://voxygen.fr) provide good voices (talk to them about SARAH !)       
+  ➔ If you have any issues with the voices, please see [FAQ](faq)
+
+To select select a voice go to 32bit UI (not 64bit): `%windir%\SysWOW64\speech\SpeechUX\sapi.cpl`
+
 
 ### Get the Google API Key
 
