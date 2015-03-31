@@ -117,6 +117,12 @@ You can use Mumble to enable SARAH in several rooms. There is video tutorial in 
 
 ## Installation
 
+### I have error EADDRINUSE
+
+The error EADDRINUSE means "Error Address already In Use". The server Port 8080 (or 8888 for client) is already used by an other process. It could be SARAH server itself if it has not be closed correctly.
+
+Use NetStat DOS command to list port in use.
+
 ### How to change the voice ?
 
 _to do_
