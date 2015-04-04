@@ -24,6 +24,8 @@ On a regular windows some steps are already done. Below the different steps:
 
 After these steps SARAH is ready [to be configured](#configuration). **If you have a Kinect**, please [see below the instructions](#kinect-v1) to make it work.
 
+4. Some people have an error: "Missing MSVCR110.dll" you should install [VisualStudio Update 4](http://www.microsoft.com/fr-fr/download/details.aspx?id=30679) (I don't know why ...)
+
 ### Kinect v1
 
 1. (by default) Download and install [Microsoft Kinect SDK 1.8](http://www.microsoft.com/en-us/download/details.aspx?id=40278)   
