@@ -24,6 +24,8 @@ Sur un windows "normal" certaines étapes sont dejà faites par defaut. Ci-desso
  
 Après toutes ces étapes SARAH est prête [à être configurée](#configuration). **Si vous avez un Kinect** merci de [suivre les instructions ci-dessous](#kinect-v1) afin de pouvoir l'utiliser.
 
+4. Certaines personnes ont parfois une erreur: "Missing MSVCR110.dll" il faut alors installer [VisualStudio Update 4](http://www.microsoft.com/fr-fr/download/details.aspx?id=30679) (Je ne sais pas pourquoi ...)
+
 ### Kinect v1
 
 1. Télécharger et installer [Microsoft Kinect SDK 1.8](http://www.microsoft.com/en-us/download/details.aspx?id=40278)   

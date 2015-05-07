@@ -145,6 +145,12 @@ Oui le client Mobile discute avec le client SARAH
 
 ## Installation
 
+### J'ai une erreur EADDRINUSE
+
+L'erreur EADDRINUSE signifie "Error Address already In Use". Le port du serveur 8080 (or 8888 pour le client) déjà utilisé par un autre processus. Cela peut être un server SARAH mal fermé.
+
+Utiliser la commande DOS NetStat DOS pour lister les ports utilisés.
+
 ### Commment changer la voix de SARAH ?
 
 Relire la documentation ➔ Configuration ➔ Synthèse Vocale dans laquelle il y a des références vers des voix et le lien vers l'interface de configuration 32bit. 
