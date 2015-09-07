@@ -73,7 +73,7 @@ Il faudra aussi modifier la configuration du client et du serveur pur pointer le
 git clone https://github.com/JpEncausse/SARAH-Server-NodeJS.git
 cd SARAH-Server-NodeJS/server/app
 sudo npm install
-sudo node app.js
+sudo ./start_server.sh
 ```
 
 ## Démarrer
