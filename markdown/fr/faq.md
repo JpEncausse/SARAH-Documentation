@@ -149,7 +149,13 @@ Oui le client Mobile discute avec le client SARAH
 
 L'erreur EADDRINUSE signifie "Error Address already In Use". Le port du serveur 8080 (or 8888 pour le client) déjà utilisé par un autre processus. Cela peut être un server SARAH mal fermé.
 
-Utiliser la commande DOS NetStat DOS pour lister les ports utilisés.
+Utiliser la commande DOS `netstat` pour lister les ports utilisés.
+
+### J'ai une erreur avec la DLL 'KinectAudio10.dll'
+
+Si dans Log2Console vous obtenez l'erreur `Init Kinect Engines: impossible de charger la dll 'KinectAudio10.dll'` c'est que vous avez probablement installé une [version N de Windows](http://windows.microsoft.com/en-us/windows-8/upgrade-to-n). Pour y remédier, il faut installer un *Media Feature Pack*.
+
+Exemple avec le [Media Feature Pack pour les versions N et KN de Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231). 
 
 ### Commment changer la voix de SARAH ?
 

@@ -123,6 +123,13 @@ The error EADDRINUSE means "Error Address already In Use". The server Port 8080 
 
 Use NetStat DOS command to list port in use.
 
+### I have an error with 'KinectAudio10.dll'
+
+If Log2Console gives you the error `Init Kinect Engines: unable to load 'KinectAudio10.dll'` then it's certainly because you have installer a [N version of Windows](http://windows.microsoft.com/en-us/windows-8/upgrade-to-n).
+To fix that, just install a *Media Feature Pack*.
+
+For example for Windows 10: [Media Feature Pack for versions N and KN of Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231)
+
 ### How to change the voice ?
 
 _to do_

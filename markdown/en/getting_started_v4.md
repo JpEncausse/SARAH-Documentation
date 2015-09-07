@@ -64,6 +64,17 @@ enable=false
 
 Otherwise the Kinect is considered as a microphone. At the moment you can't use both Kinect 1 and Kinect 2.
 
+### Linux (server)
+
+The SARAH server can be installed on a Linux. The `plugin` must be duplicated or shared because XML are on client and JS on server.
+Configuration of Client and Server must be updated according to their address.
+
+```
+git clone https://github.com/JpEncausse/SARAH-Server-NodeJS.git
+cd SARAH-Server-NodeJS/server/app
+sudo npm install
+sudo node app.js
+```
 
 ## Démarrer
 
