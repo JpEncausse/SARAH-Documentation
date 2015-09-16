@@ -145,6 +145,8 @@ Oui le client Mobile discute avec le client SARAH
 
 ## Installation
 
+Si ça ne marche pas regardez les logs du client ou du serveur qui donneront des indices de pourquoi ça ne marche pas. C'est souvent lié à un chemin de fichier, un port utilisé, un logiciel qui utilise les même ressources que SARAH.
+
 ### J'ai une erreur EADDRINUSE
 
 L'erreur EADDRINUSE signifie "Error Address already In Use". Le port du serveur 8080 (or 8888 pour le client) déjà utilisé par un autre processus. Cela peut être un server SARAH mal fermé.
