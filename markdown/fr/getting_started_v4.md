@@ -72,8 +72,15 @@ Il faudra aussi modifier la configuration du client et du serveur pur pointer le
 ```
 git clone https://github.com/JpEncausse/SARAH-Server-NodeJS.git
 cd SARAH-Server-NodeJS/server/app
-sudo npm install
-sudo ./start_server.sh
+npm install
+mkdir data
+cp server/server.prop data/custom.prop
+```
+
+Puis pour lancer le serveur
+```
+export NODE_PATH=$PWD/server/app/node_modules
+sudo -E node server/app/app.js
 ```
 
 ## Démarrer
