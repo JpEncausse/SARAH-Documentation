@@ -72,8 +72,15 @@ Configuration of Client and Server must be updated according to their address.
 ```
 git clone https://github.com/JpEncausse/SARAH-Server-NodeJS.git
 cd SARAH-Server-NodeJS/server/app
-sudo npm install
-sudo ./start_server.sh
+npm install
+mkdir data
+cp server/server.prop data/custom.prop
+```
+
+Then to run the server
+```
+export NODE_PATH=$PWD/server/app/node_modules
+sudo -E node server/app/app.js
 ```
 
 ## Démarrer
