@@ -66,7 +66,16 @@ Sinon le Kinect est considéré comme un Microphone. Actuellement vous ne pouvez
 
 ### Linux (server)
 
-Le serveur de SARAH peut s'installer sur une machine Linux. Il faudra alors partager ou dupliquer le répertoire `plugin` les XML étant sur le client et les JS sur le serveur.
+Le serveur de SARAH peut s'installer sur une machine Linux. 
+
+Il faut en prérequis avoir installé nodejs et npm.
+
+Sur debian:
+```
+apt-get install nodejs npm
+```
+
+Il faudra alors partager ou dupliquer le répertoire `plugin` les XML étant sur le client et les JS sur le serveur.
 Il faudra aussi modifier la configuration du client et du serveur pur pointer leur adresses respectives.
 
 ```
