@@ -49,7 +49,7 @@ SARAH was one of the first smart home project.
 * Show SARAH to friends
 * Build new plugins
 
-You want to contribute to this documentation? [Go to the Github repository](https://github.com/JpEncausse/SARAH-Documentation/tree/gh-pages).
+You want to contribute to this documentation? [Go to the Github.dll repository](https://github.com/JpEncausse/SARAH-Documentation/tree/gh-pages).
 * Translation help would be great !
 
 Company can send me product sample to do PoC of plugin.
@@ -130,7 +130,7 @@ Use NetStat DOS command to list port in use.
 If Log2Console gives you the error `Init Kinect Engines: unable to load 'KinectAudio10.dll'` then it's certainly because you have installer a [N version of Windows](http://windows.microsoft.com/en-us/windows-8/upgrade-to-n).
 To fix that, just install a *Media Feature Pack*.
 
-For example for Windows 10: [Media Feature Pack for versions N and KN of Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231)
+For example for Windows 10: [Media Feature Pack for versions N and KN of Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231) (for Windows before November 2015), or [Media Feature Pack for versions N and KN of Windows 10](https://www.microsoft.com/en-US/download/details.aspx?id=49919) (for Windows updated after November 2015).
 
 ### How to change the voice ?
 
