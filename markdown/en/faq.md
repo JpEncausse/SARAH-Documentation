@@ -130,7 +130,7 @@ Use NetStat DOS command to list port in use.
 If Log2Console gives you the error `Init Kinect Engines: unable to load 'KinectAudio10.dll'` then it's certainly because you have installer a [N version of Windows](http://windows.microsoft.com/en-us/windows-8/upgrade-to-n).
 To fix that, just install a *Media Feature Pack*.
 
-For example for Windows 10: [Media Feature Pack for versions N and KN of Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231) (for Windows before November 2015), or [Media Feature Pack for versions N and KN of Windows 10](https://www.microsoft.com/en-US/download/details.aspx?id=49919) (for Windows updated after November 2015).
+For example for Windows 10: [Media Feature Pack for versions N and KN of Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231) (for Windows before November 2015), or [Media Feature Pack for versions N and KN of Windows 10 #2](https://www.microsoft.com/en-US/download/details.aspx?id=49919) (for Windows updated after November 2015), or [Media Feature Pack for version N and KN of Windows 10 #3](https://www.microsoft.com/en-us/download/details.aspx?id=53356) (for Windows updated after August 1st, 2016).
 
 ### How to change the voice ?
 
