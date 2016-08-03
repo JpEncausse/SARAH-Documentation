@@ -33,7 +33,7 @@ Attention ! Microsoft arrête la vente de Kinect 1 au profit de Kinect 2.
 
 Ci-dessous les instructions pour installer le Kinect v1 sous Windows :
 
-1. Télécharger et installer [Kinect SDK v1.8](http://www.microsoft.com/en-us/download/confirmation.aspx?id=40278)
+1. Télécharger et installer [Kinect SDK v1.8](https://www.microsoft.com/en-us/download/details.aspx?id=40278)
 2. Télécharger et installer le [Language Pack](http://www.microsoft.com/en-us/download/details.aspx?id=34809) (au moment du téléchargement il faudra bien choisir "FR-fr" pour la langue)
 
 Quelques remarques à propos de l'installation d'un Kinect v1 :
