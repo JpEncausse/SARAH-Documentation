@@ -111,13 +111,16 @@ Le tag `<ruleref special="GARBAGE" />` de Microsoft est utilisé pour récupére
 
 Ci-dessous une partie d'un fichier XML :
 ```xml
-<tag>out.action=new Object();</tag>
 <item>Sarah cherche</item>
 <ruleref special="GARBAGE" />
 <item>sur Wikipedia</item>
-    
-<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/{plugin}";</tag>
+
 <tag>out.action._attributes.dictation="true";</tag>
+```
+
+Autre exemple :
+```xml
+<item>cherche <ruleref special="GARBAGE" /><tag>out.action._attributes.dictation="true";</tag></item>
 ```
 
 La valeur de l'attribut `dictation` doit être `true`, ou ça doit être la langue à détecter (par exemple `en-US`).
