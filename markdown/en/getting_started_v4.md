@@ -83,7 +83,7 @@ export NODE_PATH=$PWD/server/app/node_modules
 sudo -E node server/app/app.js
 ```
 
-## Démarrer
+## Start
 
 Follow the below two steps to start SARAH:
 
