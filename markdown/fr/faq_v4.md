@@ -8,7 +8,13 @@ SARAH v4 est une version en cours de développement. Réécriture complète du c
 
 ## Sommaire
 
-## Quesions Avancées
+## Divers
+
+### Quel est le login/password pour accéder à l'interface Web de SARAH ?
+
+Lorsque vous accédez à l'interface Web de Sarah, il faut entrer un login/password. Le login par défaut est "**admin**" et le mot de passe par défaut est "**password**".
+
+## Questions Avancées
 
 Les AddOns proposent des propriétés avancées qu'il est possible de surcharger en les copiant dans `custom.ini`.
 
