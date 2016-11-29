@@ -98,16 +98,16 @@ Voici comment démarrer SARAH :
 
 1. **Démarrer le serveur** : double-cliquer sur le fichier appelé `Start_Server.cmd`         
   ➔ une fenêtre MS-DOS s'ouvre affichant plusieurs lignes    
-  ➔ vous pouvez ouvrir le site web [http://127.0.0.1:8080](http://127.0.0.1:8080) dans votre navigateur pour voir l'interface de SARAH
-
+  ➔ vous pouvez ouvrir le site web [http://127.0.0.1:8080](http://127.0.0.1:8080) dans votre navigateur pour voir l'interface de SARAH   
+  ➔ **/!\ ATTENTION** lorsque vous accédez à l'interface Web de Sarah, il faut entrer un login/password. Le login par défaut est "**admin**" et le mot de passe par défaut est "**password**"
+  
 2. **Démarrer le client** :  double-cliquer sur le fichier appelé `Start_Client.cmd`           
   ➔ Une fois que le client est lancé une icône en forme de maison apparait alors près de l'horloge de Windows.
 
 Ça y est ! Vous pouvez maintenant utiliser SARAH et la tester en disant __"SARAH quelle heure est-il ?"__.
 Et pour vous éclatez encore plus vous pouvez installer un plugin (voir ci-dessous).
 
-Si vous avez des problèmes, merci de se référer à la [FAQ](faq).
-
+Si vous avez des problèmes, merci de se référer à la [FAQ](faq). 
 
 ## Configuration
 
