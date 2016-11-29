@@ -89,8 +89,9 @@ Follow the below two steps to start SARAH:
 
 1. **Run the server**: double-click the file called `Start_Server.cmd`       
   ➔ a MS-DOS window will open with several lines  
-  ➔ you can open [http://127.0.0.1:8080](http://127.0.0.1:8080) into your Web browser to check the web interface
-
+  ➔ you can open [http://127.0.0.1:8080](http://127.0.0.1:8080) into your Web browser to check the web interface   
+  ➔ **/!\ATTENTION** When you want to access to the SARAH's Web Interface it will be required to enter a login/pass. The default login is "**admin**" and the default password is "**password**".
+  
 2. **Run the client** double-click the file called `Start_Server.cmd`  
   ➔ Once the client is loaded you'll see a small house icon close to the Windows clock.
 
