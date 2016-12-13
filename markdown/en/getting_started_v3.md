@@ -65,7 +65,7 @@ Find below the next steps:
 
 1. Go to the `profile/` folder and delete the file `profile.json` otherwise SARAH will sometimes call you _Jean-Philippe_ !
 2. Get the Google API Key ([see below](#get-the-google-api-key))
-3. Look at the different settings into the `config.ini` file
+3. Look at the different settings into the `custom.ini` file
 4. Set the income sound volume : go to ➔ `Control Panel` ➔  `Sound` ➔  `Right click on your microphone` ➔  Click on `Properties` ➔  Change the `levels` (for a simple microphone don't go too high ~80, and for Kinect, just try different settings)
 5. Train your voice in Windows : go to ➔  `Control Panel` ➔  `Speech Recognition` ➔   `Train your computer to better understand you` (attention: with a simple microphone, do this training only once)
 
@@ -173,9 +173,9 @@ Note: the key you have now acquired are **not for distribution purposes and must
 
 ```
 
-### config.ini
+### custom.ini
 
-All the parameters to configure **SARAH Client** are in the `config.ini` file.
+All the parameters to configure **SARAH Client** are in the `custom.ini` file.
 
 We'll list below some of them.
 
@@ -185,7 +185,7 @@ We'll list below some of them.
 ; Hot replace SARAH name
 ; in the XML (voice recognition) files we use the keyword SARAH
 ;   however we might want to change the default name to something else, like JARVIS
-;   so the XML files we'll keep SARAH, and in the config.ini you just need to change
+;   so the XML files we'll keep SARAH, and in the custom.ini you just need to change
 ;   the below SARAH to JARVIS and it will work
 name=SARAH
 
