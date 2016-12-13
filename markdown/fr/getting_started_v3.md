@@ -66,9 +66,9 @@ Si vous souhaitez que SARAH fonctionne bien, il faut utiliser un bon micro. Dans
 
 Ci-dessous les prochaines étapes à suivre :
 
-1. Aller dans le répertoire `profile/` et effacer le fichier `profile.json` (sinon SARAH risque de vous appeler _Jean-Philippe_ de temps en temps !)
+1. Aller dans le répertoire `profile/` et effacer le fichier `profile.json` (sinon SARAH risque de vous appeler _Jean-Philippe_ de temps en temps !) (à noter qu'il est possible que ce dossier soit déjà vide)
 2. Récupérer une Google API Key ([voir ci-dessous](#récupérer-une-google-api-key))
-3. Regarder les différents paramètres disponibles dans le fichier `config.ini`
+3. Regarder les différents paramètres disponibles dans le fichier `custom.ini`
 4. Changer le volume d'entrée du son : aller dans ➔ `Panneau de Configuration` ➔  Chercher `Gérer les périphériques audio` ➔  `Clique droit sur votre microphone` ➔  Cliquer sur `Propriétés` ➔  `Change le niveau` (par exemple, pour un microphone classique, ce doit être ~90, et pour un Kinect, il faut tenter plusieurs configurations)
 5. Entrainer la reconnaissance vocale de Windows : aller dans ➔  `Panneau de Contrôle` ➔  `Reconnaissance vocale` ➔ `Suivre les dictatiels de reconnaissance vocale` (attention : avec un microphone classique il ne faut pas faire ce dictaciel plus d'une fois)
 
@@ -178,9 +178,9 @@ Remarque : cette clé est **pour votre usage exclusive et ne doit pas être util
 
 ```
 
-### config.ini
+### custom.ini
 
-Tous les paramètres de configuration **du client SARAH** sont disponibles dans le fichier `config.ini`.
+Tous les paramètres de configuration **du client SARAH** sont disponibles dans le fichier `custom.ini`.
 
 Ci-dessous une liste de quelques uns de ces paramètres
 
@@ -190,7 +190,7 @@ Ci-dessous une liste de quelques uns de ces paramètres
 ; Hot replace SARAH name
 ; dans les fichiers XML (utilisé pour la reconnaissance vocale) il faut utiliser le mot clé SARAH
 ;   cependant on peut vouloir changr le nom par défaut en quelque chose d'autre, par exemple en JARVIS
-;   pour ce faire on va laisser "SARAH" dans les fichiers XML, et dans le fichier config.ini on va changer
+;   pour ce faire on va laisser "SARAH" dans les fichiers XML, et dans le fichier custom.ini on va changer
 ;   le SARAH ci-dessous en JARVIS, et ça va fonctionner
 name=SARAH
 
