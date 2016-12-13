@@ -171,7 +171,18 @@ Relire la documentation ➔ Configuration ➔ Synthèse Vocale dans laquelle il 
 Ce n'est pas toujours bon d'avoir suivi le tutoriel de reconnaissance vocale trop souvent. Si SARAH ne vous comprend plus correctement vous pouvez essayer d'effacer votre profil de reconnaissance vocale :    
 Aller dans `Panneau de Configuration` ➜ `Reconnaissance Vocale` ➜ `Options vocales avancées` ➜ `Profils de reconnaissance vocal` ➜ `Supprimer...`
 
+### SARAH ne fonctionne toujours pas... comment trouver le problème ?
 
+Plusieurs pistes qui peuvent aider à trouver le problème :
+
+  1. Revérifier toutes les étapes d'installation (voir ["Premiers Pas pour la v3"](http://jpencausse.github.io/SARAH-Documentation/?page=getting_started_v3)).
+  2. Ouvrir la page [http://127.0.0.1:8888/?emulate=Sarah+il+est+quelle+heure](http://127.0.0.1:8888/?emulate=Sarah+il+est+quelle+heure) : SARAH devrait vous donner l'heure. 
+  3. Dire : "Sarah quelle heure est-il ?" et voir dans la console du serveur (la fenêtre DOS) s'il est marqué `"info: Run time: 10ms"`
+  4. Activer les logs (se reporter à la [configuration de la v3](http://jpencausse.github.io/SARAH-Documentation/?page=getting_started_v3#custom-ini)) dans `custom.ini` avec `debug=true` et `log=${basedir}/${shortdate}.log`, puis redémarrer SARAH. Essayer de nouveaux les étapes 2 et 3 ci-dessus et voir si un fichier de log apparait dans le répertoire `bin/` (vous y trouverez de possibles messages d'erreurs) et si un fichier `.wav` apparait dans le répertoire `dump` (si oui c'est que SARAH vous entend)
+  5. Vérifier vos firewall et antivirus (en les désactivant temporairement par exemple)
+  
+Enfin poster le résultats de vos tests sur le [groupe Google+](https://plus.google.com/u/0/communities/105964514508504667709).
+  
 ## Software
 
 ### Le serveur affiche une erreur
