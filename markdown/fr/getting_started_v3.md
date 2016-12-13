@@ -295,7 +295,8 @@ endSilenceAmbiguous=0
 debug=false
 
 ; Log file path (default "${basedir}/${shortdate}.log")
-; logfile=${basedir}/${shortdate}.log
+; Les logs sont stockés dans le répertoire "bin/" avec la date du jour.
+logfile=${basedir}/${shortdate}.log
 
 ; Log2Console port
 udpport=9999
