@@ -78,7 +78,7 @@ SARAH utilise la voix féminine SAPI 32bit définie dans Windows 8.
 
 Il est possible [d'installer d'autres voix](http://encausse.wordpress.com/2013/05/23/sarah-joshua-jarvis-yuri-et-les-autres/)
 
-  ➔ [la voix de Virginie](http://www.ac-limoges.fr/ia87/spip.php?article315) non officielle, fonctionne bien.    
+  ➔ [la voix de Virginie](https://github.com/JpEncausse/SARAH-Documentation/tree/gh-pages/files) fonctionne bien.    
   ➔ la société [Voxygen](http://voxygen.fr) propose de nombreuses voix (parlez leur de SARAH !)    
   ➔ En cas de problèmes, merci de consulter la [FAQ](faq)
 
