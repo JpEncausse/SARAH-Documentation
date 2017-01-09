@@ -130,10 +130,10 @@ La réponse est très dépendante de la version de SARAH:
 
 ### Peut-on faire du Multiroom ?
 
-- Une solution est de mettre plusieurs micros et plusieur speaker.
+- Une solution est de mettre plusieurs micros et plusieurs speakers.
 - Les extentions USB/RJ45 Kinect ne marchent QUE pour l'Audio du Kinect 1.
 - Il est possible d'avoir plusieurs clients SARAH.
-- La communauté à développe des clients iOS, Android et Windows Phone.
+- La communauté a développé des clients iOS, Android et Windows Phone.
 - Il est possible d'utiliser [Mumble](http://www.mumble.com/) pour [connecter SARAH à plusieurs tablettes dans la maison](http://youtu.be/-lJT_I68Qk4).
 
 ### Est ce que SARAH existe sur Mobile ?
