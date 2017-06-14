@@ -157,7 +157,7 @@ Utiliser la commande DOS `netstat` pour lister les ports utilisés.
 
 Si dans Log2Console vous obtenez l'erreur `Init Kinect Engines: impossible de charger la dll 'KinectAudio10.dll'` c'est que vous avez probablement installé une [version N de Windows](http://windows.microsoft.com/en-us/windows-8/upgrade-to-n). Pour y remédier, il faut installer un *Media Feature Pack*.
 
-Exemple avec le [Media Feature Pack pour les versions N et KN de Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231) (pour Windows 10 avant Novembre 2015), ou encore [Media Feature Pack pour les versions N et KN de Windows 10 #2](https://www.microsoft.com/fr-FR/download/details.aspx?id=49919) (pour Windows 10 mis à jour après Novembre 2015), ou [Media Feature Pack pour les versions N et KN de Windows 10 #3](https://www.microsoft.com/en-us/download/details.aspx?id=53356) (pour Windows 10 mis à jour après le 1er août 2016).
+Exemple avec le [Media Feature Pack pour les versions N et KN de Windows 10](https://www.microsoft.com/fr-FR/download/details.aspx?id=48231) (pour Windows 10 avant Novembre 2015), ou encore [Media Feature Pack pour les versions N et KN de Windows 10 #2](https://www.microsoft.com/fr-FR/download/details.aspx?id=49919) (pour Windows 10 mis à jour après Novembre 2015), ou [Media Feature Pack pour les versions N et KN de Windows 10 #3](https://www.microsoft.com/en-us/download/details.aspx?id=53356) (pour Windows 10 mis à jour après le 1er août 2016), ou [Media Feature Pack pour les N et KN de Windows 10 Anniversary](https://support.microsoft.com/en-us/help/4016817/media-feature-pack-for-n-edition-of-windows-10-version-1703-april-2017) (pour Windows 10 mis à jour après le 1er avril 2017).
 
 ### Commment changer la voix de SARAH ?
 
