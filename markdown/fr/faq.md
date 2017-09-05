@@ -65,6 +65,25 @@ SARAH était un des premiers projet de maison intelligente.
 - Vous pouvez me [faire un don](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H9ALBBSZFL6CU) si vous le souhaitez
 - Entreprises, vous pouvez m'envoyer vos objets connectés pour réaliser un POC de plugin.
 
+### Futur de SARAH ? 
+
+En réponse à un [post sur Google+](https://plus.google.com/u/0/+ChristopheGardelle/posts/HBbQoYNEqyT?cfem=1), le créateur de SARAH nous en apprend plus sur le futur de celle-ci : 
+- la v5 est en préparation et sera disponible via https://github.com/NGRP/node-red-contrib-viseo
+- « la v5 ne sera pas compatible avec la v4/v3 mais la philosophie reste la même et donc le code assez simple à porter »
+- la v5 est opensource mais sponsorisée par l'entreprise VISEO
+
+Le développement de la v3 et de la v4 sont donc arrêtés.
+
+### Le Store ne fonctionne pas ! Où trouver et comment installer les plugins ?
+
+La machine qui héberge le store de SARAH n'est plus fonctionnelle et il est possible que le store ne soit pas remis en état... Cependant la plupart des plugins peuvent être trouvés et téléchargés sur Github : https://github.com/search?utf8=%E2%9C%93&q=SARAH-Plugin&type=
+
+Pour installer un plugin, télécharger le contenu du compte Github associé puis placer le contenu dans le répertoire `plugins` de votre installation de SARAH.
+
+### Où télécharger SARAH ?
+
+Vous pouvez trouver les dernières releases sur ce compte Github : https://github.com/JpEncausse/SARAH-Documentation/releases
+
 ### Quelles langues parle SARAH ?
 
 SARAH supporte toutes les langues du moteur de reconnaissance vocale de Microsoft.
@@ -197,12 +216,5 @@ Si il y a une erreur de la forme `module not found` alors il y a une erreur dans
 Un plugin DOIT appeler son callback `next()` ou `callback()` pour indiquer au client que le travail est terminé. Sinon le client attends plusieurs minutes juqu'a un timeout.
 
 SARAH n'écoute pas quand elle parle. Si le client plante a ce moment elle devient sourde ! Regardez et envoyez moi les logs du client !
-
-
-### L'installation d'un plugin ne marche pas
-
-Parfois, le plugin est téléchargé dans le répertoire `/tmp` mais l'installation ne se fait pas.
-
-Insistez, ou dézipper manuellement ou contacter la commmunauté.
 
 
