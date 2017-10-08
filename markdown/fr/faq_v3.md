@@ -73,5 +73,5 @@ Essayer de contacter le développeur du plugin.
 
 ### Le serveur indique `info: Can't retrieve remote ticker`
 
-Si vous optenez le message : `info: Can't retrieve remote ticker`, vous pouvez l'ignorer, cela n'a pas d'influence sur le bon fonctionnement de SARAH ou des plugins.
+Si vous obtenez le message : `info: Can't retrieve remote ticker`, vous pouvez l'ignorer, cela n'a pas d'influence sur le bon fonctionnement de SARAH ou des plugins.
 
