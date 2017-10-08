@@ -71,4 +71,7 @@ Essayer de contacter le développeur du plugin.
 - Il y a un bug connu avec Internet Explorer, Firefox et d'autres... Dans ce cas, essayer avec Google Chrome.
 - Certains _touch devices_, comme le LeapMotion, peuvent créer un conflit dans le portail vis à vis du _glisser-déposer_.
 
+### Le serveur indique `info: Can't retrieve remote ticker`
+
+Si vous optenez le message : `info: Can't retrieve remote ticker`, vous pouvez l'ignorer, cela n'a pas d'influence sur le bon fonctionnement de SARAH ou des plugins.
 
