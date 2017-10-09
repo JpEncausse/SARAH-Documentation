@@ -102,3 +102,7 @@ Il est possible de forcer le(s) speaker(s) à utiliser via la propriété `devic
 ; Define the audio device index (0 is the default device, see logs) can be a list of devices separated by spaces
 device=0
 ```
+
+### Le serveur indique warn: can't retrieve remote ticker
+
+Si vous obtenez le message : `warn: Can't retrieve remote ticker`, vous pouvez l'ignorer, cela n'a pas d'influence sur le bon fonctionnement de SARAH ou des plugins.
